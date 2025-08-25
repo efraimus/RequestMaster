@@ -1,0 +1,80 @@
+﻿<UserControl x:Class="OrdersApp.Tabs.FindWork"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:vm="clr-namespace:OrdersApp.ViewModels"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:OrdersApp.Tabs"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             mc:Ignorable="d"
+             d:DataContext="{d:DesignInstance vm:FindWorkViewModel}"
+             d:DesignHeight="1100" d:DesignWidth="1000">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Border Background="White" CornerRadius="20" Grid.Column="0" Margin="20">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                <TreeView>
+                    <TextBlock Text="Filters" Margin="20" MinWidth="200" FontSize="30" TextAlignment="Center" FontWeight="Bold"/>
+                    <TreeViewItem Header="Payment" IsExpanded="True">
+                        <Grid MinWidth="200">
+                            <TextBox x:Name="textBoxPaymentMin" Width="70" Text="500"  HorizontalAlignment="Left"  Margin="20 10 10 0"/>
+                            <TextBox x:Name="textBoxPaymentMax" Width="70" Text="3500" HorizontalAlignment="Right" Margin="10 10 10 0"/>
+                        </Grid>
+                        <RadioButton x:Name="radioButtonPayment_1" Checked="radioButtonPayment_1_Checked" GroupName="radioButtonsPayment" Margin="20 5 10 0" Content="up to 1000"/>
+                        <RadioButton x:Name="radioButtonPayment_2" Checked="radioButtonPayment_2_Checked" GroupName="radioButtonsPayment" Margin="20 5 10 0" Content="1000 - 3000"/>
+                        <RadioButton x:Name="radioButtonPayment_3" Checked="radioButtonPayment_3_Checked" GroupName="radioButtonsPayment" Margin="20 5 10 0" Content="3000 - 5000"/>
+                        <RadioButton x:Name="radioButtonPayment_4" Checked="radioButtonPayment_4_Checked" GroupName="radioButtonsPayment" Margin="20 5 10 0" Content="Not important" IsChecked="True"/>
+                    </TreeViewItem>
+
+                    <TreeViewItem Header="Count of people needed">
+                        <Grid MinWidth="200">
+                            <TextBox x:Name="textBoxForCountOfPeopleNeededMin" HorizontalAlignment="Left"  Width="70" Text="1" Margin="20 0 10 0"/>
+                            <TextBox x:Name="textBoxForCountOfPeopleNeededMax" HorizontalAlignment="Right" Width="70" Text="5" Margin="10 0 10 0"/>
+                        </Grid>
+
+                        <RadioButton x:Name="radioButtonCountOfPeopleNeeded_1" Checked="radioButtonCountOfPeopleNeeded_1_Checked" GroupName="radioButtonsCountOfPeopleNeeded" Margin="20 5 10 0" Content="1"/>
+                        <RadioButton x:Name="radioButtonCountOfPeopleNeeded_2" Checked="radioButtonCountOfPeopleNeeded_2_Checked" GroupName="radioButtonsCountOfPeopleNeeded" Margin="20 5 10 0" Content="2"/>
+                        <RadioButton x:Name="radioButtonCountOfPeopleNeeded_3" Checked="radioButtonCountOfPeopleNeeded_3_Checked" GroupName="radioButtonsCountOfPeopleNeeded" Margin="20 5 10 0" Content="3"/>
+                        <RadioButton x:Name="radioButtonCountOfPeopleNeeded_4" Checked="radioButtonCountOfPeopleNeeded_4_Checked" GroupName="radioButtonsCountOfPeopleNeeded" Margin="20 5 10 0" Content="Not important" IsChecked="True"/>
+                    </TreeViewItem>
+
+                    <TreeViewItem Header="Status">
+                        <RadioButton x:Name="radioButtonStatus_Active"       GroupName="radioButtonsStatus" Margin="20 5 10 0" Content="Active"          Foreground="#FF28A235" IsChecked="True"/>
+                        <RadioButton x:Name="radioButtonStatus_Processing"   GroupName="radioButtonsStatus" Margin="20 5 10 0" Content="Processing"      Foreground="#FFBEC71F"/>
+                        <RadioButton x:Name="radioButtonStatus_Closed"       GroupName="radioButtonsStatus" Margin="20 5 10 0" Content="Closed"          Foreground="#FFD41212"/>
+                        <RadioButton x:Name="radioButtonStatus_NotImportant" GroupName="radioButtonsStatus" Margin="20 5 10 0" Content="Not important"   IsChecked="True"/>
+                    </TreeViewItem>
+
+                    <Button Margin="10" Content="Sort"          MinWidth="200" Click="SortButton_Click"/>
+                    <Button Margin="10" Content="Clear filters" MinWidth="200" Click="ClearFiltersButton_Click"/>
+                </TreeView>
+            </ScrollViewer>
+        </Border>
+        <Border Background="White" CornerRadius="20" Grid.Column="1" Margin="20">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="8*"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="1" Margin="20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button x:Name="helpButton"  Grid.Column="1" Content="?"           Click="helpButton_Click"  Margin="50 10 5 10" HorizontalAlignment="Right" />
+                    <Button x:Name="applyButton" Grid.Column="0" Content="Apply order" Click="applyButton_Click" Margin="50 10 50 10"/>
+                </Grid>
+
+                <DataGrid x:Name="ordersDataGrid" Grid.Row="0"  Margin="20"/>
+
+                <materialDesign:Snackbar x:Name="snackBar" FontSize="25" IsActive="False" MessageQueue="{materialDesign:MessageQueue}" Grid.Column="1" Grid.Row="0" FontFamily="{DynamicResource MaterialDesignFont}" Height="70" Margin="20"/>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

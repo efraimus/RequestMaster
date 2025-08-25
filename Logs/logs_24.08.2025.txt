@@ -1,0 +1,46 @@
+Auth window: incorrect login or password			13:10:32
+Radio button 'payment = not important' checked				13:11:00
+Radio button 'count of people needed = not important' checked				13:11:00
+Auth window: User with ID=1 authorized				13:11:00
+Auth window closed with authorization				13:11:00
+Radio button 'payment = not important' checked				16:47:50
+Radio button 'count of people needed = not important' checked				16:47:50
+Auth window: User with ID=1 authorized				16:47:51
+Auth window closed with authorization				16:47:51
+Settings tab: change button clicked. Value to be changed = 'Font family'				16:47:55
+Radio button 'payment = not important' checked				16:48:56
+Radio button 'count of people needed = not important' checked				16:48:56
+Auth window: User with ID=1 authorized				16:48:56
+Auth window closed with authorization				16:48:56
+Settings tab: change button clicked. Value to be changed = 'Font family'				16:48:59
+Radio button 'payment = not important' checked				16:49:23
+Radio button 'count of people needed = not important' checked				16:49:23
+Auth window: User with ID=1 authorized				16:49:23
+Auth window closed with authorization				16:49:23
+Settings tab: change button clicked. Value to be changed = 'Font'				16:49:26
+Settings tab: return button clicked				16:50:17
+Radio button 'payment = not important' checked				16:51:42
+Radio button 'count of people needed = not important' checked				16:51:42
+Auth window: User with ID=1 authorized				16:51:42
+Auth window closed with authorization				16:51:42
+Settings tab: change button clicked. Value to be changed = 'Email'				16:51:45
+Settings tab: return button clicked				16:51:46
+Radio button 'payment = not important' checked				16:52:34
+Radio button 'count of people needed = not important' checked				16:52:34
+Auth window: User with ID=1 authorized				16:52:34
+Auth window closed with authorization				16:52:34
+Settings tab: change button clicked. Value to be changed = 'Email'				16:52:37
+Settings tab: return button clicked				16:52:37
+Settings tab: change button clicked. Value to be changed = 'Font'				16:52:39
+Settings tab: user with ID=1 changed his font				16:52:43
+Auth window: incorrect login or password			16:53:05
+Radio button 'payment = not important' checked				16:53:08
+Radio button 'count of people needed = not important' checked				16:53:08
+Auth window: User with ID=1 authorized				16:53:08
+Auth window closed with authorization				16:53:08
+Radio button 'payment = not important' checked				17:25:36
+Radio button 'count of people needed = not important' checked				17:25:36
+Auth window: User with ID=1 authorized				17:25:36
+Auth window closed with authorization				17:25:36
+Settings tab: change button clicked. Value to be changed = 'Login'				17:25:40
+Settings tab: user with ID=1 changed his login				17:25:42

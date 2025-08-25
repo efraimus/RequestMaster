@@ -1,0 +1,36 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "L:\\1mp\\PetProjects\\C#\\FindPeople\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{65D7F326-7E2F-4B12-B217-4FF22E1BD540}|FindPeople.csproj|l:\\1mp\\petprojects\\c#\\findpeople\\windows\\authwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{65D7F326-7E2F-4B12-B217-4FF22E1BD540}|FindPeople.csproj|solutionrelative:windows\\authwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "AuthWindow.xaml",
+              "DocumentMoniker": "L:\\1mp\\PetProjects\\C#\\FindPeople\\Windows\\AuthWindow.xaml",
+              "RelativeDocumentMoniker": "Windows\\AuthWindow.xaml",
+              "ToolTip": "L:\\1mp\\PetProjects\\C#\\FindPeople\\Windows\\AuthWindow.xaml",
+              "RelativeToolTip": "Windows\\AuthWindow.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-08-25T12:37:40.355Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
