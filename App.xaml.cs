@@ -19,7 +19,9 @@ namespace OrdersApp
         private void onStartup(object sender, StartupEventArgs e)
         {
             db = new OrdersContext();
+            db.Database.EnsureCreated();
             logWriter = Logging.createFileForLogging();
+
         }
         private void onExit(object sender, ExitEventArgs e)
         {

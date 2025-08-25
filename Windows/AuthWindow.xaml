@@ -8,11 +8,11 @@
         WindowState="Maximized"
         Closed="onWindowClosed"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Authorization" Height="800" Width="1100" Icon="/Windows/icon.ico">
+        Title="Authorization" Height="1000" Width="1100" Icon="/Windows/icon.ico">
 
     <Grid Background="#FFECECEC">
-        <ScrollViewer>
-            <Border Background="White" Margin="20 20 5 20" CornerRadius="20">
+        <Border Background="White" Margin="20 20 5 20" CornerRadius="20">
+            <ScrollViewer>
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -40,7 +40,8 @@
 
                     <materialDesign:Snackbar x:Name="snackBar" FontSize="20" FontFamily="{DynamicResource MaterialDesignFont}" IsActive="False" MessageQueue="{materialDesign:MessageQueue}" Grid.Column="1" Grid.Row="4" Height="70" Margin="20"/>
                 </Grid>
-            </Border>
-        </ScrollViewer>
+            </ScrollViewer>
+        </Border>
+        
     </Grid>
 </Window>
