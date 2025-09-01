@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FindPeople")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+773d2e7aaae5e74464f6cc47f90cefcc1d493ee1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+08f86fe7d1ecbf9e1afc07dd01a6510960728c00")]
 [assembly: System.Reflection.AssemblyProductAttribute("FindPeople")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FindPeople")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

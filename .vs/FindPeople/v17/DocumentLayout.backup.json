@@ -36,7 +36,7 @@
               "RelativeDocumentMoniker": "App.xaml.cs",
               "ToolTip": "L:\\1mp\\PetProjects\\C#\\FindPeople\\App.xaml.cs",
               "RelativeToolTip": "App.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAoAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-25T13:04:16.251Z",
               "EditorCaption": ""
@@ -51,8 +51,7 @@
               "RelativeToolTip": "AssemblyInfo.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-25T13:04:14.381Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-25T13:04:14.381Z"
             },
             {
               "$type": "Document",
@@ -64,8 +63,7 @@
               "RelativeToolTip": "Databases\\OrdersDatabase\\OrdersContext.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAAowAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-25T13:03:42.945Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-25T13:03:42.945Z"
             },
             {
               "$type": "Document",
@@ -76,8 +74,7 @@
               "ToolTip": "L:\\1mp\\PetProjects\\C#\\FindPeople\\Windows\\AuthWindow.xaml",
               "RelativeToolTip": "Windows\\AuthWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-08-25T12:37:40.355Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-25T12:37:40.355Z"
             }
           ]
         }

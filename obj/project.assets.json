@@ -3752,11 +3752,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "L:\\1mp\\PetProjects\\C#\\FindPeople\\FindPeople.csproj",
-      "projectName": "FindPeople",
-      "projectPath": "L:\\1mp\\PetProjects\\C#\\FindPeople\\FindPeople.csproj",
+      "projectUniqueName": "L:\\1mp\\PetProjects\\C#\\RequestMaster\\RequestMaster.csproj",
+      "projectName": "RequestMaster",
+      "projectPath": "L:\\1mp\\PetProjects\\C#\\RequestMaster\\RequestMaster.csproj",
       "packagesPath": "C:\\Users\\user\\.nuget\\packages\\",
-      "outputPath": "L:\\1mp\\PetProjects\\C#\\FindPeople\\obj\\",
+      "outputPath": "L:\\1mp\\PetProjects\\C#\\RequestMaster\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "L:\\VisualStudio\\ToolsAndSDKs\\NuGetPackages"

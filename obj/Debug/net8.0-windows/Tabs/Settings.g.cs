@@ -104,7 +104,7 @@ namespace OrdersApp.Tabs {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/FindPeople;component/tabs/settings.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/RequestMaster;component/tabs/settings.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Tabs\Settings.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

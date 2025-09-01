@@ -43,7 +43,7 @@ class AuthExceptions : Window
     }
     public static void checkEmail(TextBox emailBox)
     {
-        if (emailBox.Text != null && emailBox.Text.Contains('@'))
+        if (emailBox.Text != null && !emailBox.Text.Contains('@'))
         {
             emailBox.ToolTip = "Email must contain @ symbol";
             emailBox.Background = Brushes.DarkRed;

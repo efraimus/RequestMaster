@@ -1,4 +1,5 @@
 ﻿using OrdersApp.Databases.OrdersDatabase;
+using RequestMaster.Patterns;
 using System.IO;
 using System.Windows;
 using System.Windows.Media;
@@ -7,7 +8,6 @@ namespace OrdersApp
 {
     public partial class App : Application
     {
-        public static OrdersContext db;
         public static readonly string pathForLogging = $"..\\..\\..\\Logs\\logs_{(DateTime.Now).ToShortDateString()}.txt";
         public static StreamWriter? logWriter;
 
@@ -18,7 +18,7 @@ namespace OrdersApp
 
         private void onStartup(object sender, StartupEventArgs e)
         {
-            db = new OrdersContext();
+            OrdersContext db = DatabaseSingleton.CreateInstance();
             db.Database.EnsureCreated();
             logWriter = Logging.createFileForLogging();
 

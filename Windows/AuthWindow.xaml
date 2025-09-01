@@ -28,10 +28,10 @@
                         <ColumnDefinition Width="0.5*"/>
                     </Grid.ColumnDefinitions>
 
-                    <TextBox     x:Name="emailBox"                   Grid.Row="0" Grid.Column="1" Margin="50" materialDesign:HintAssist.Hint="Email (optional)" Visibility="Hidden" />
-                    <TextBox     x:Name="loginBox"                   Grid.Row="1" Grid.Column="1" Margin="50" materialDesign:HintAssist.Hint="Login"/>
-                    <PasswordBox x:Name="passwordBox"                Grid.Row="2" Grid.Column="1" Margin="50" materialDesign:HintAssist.Hint="Password"/>
-                    <PasswordBox x:Name="confirmPasswordBox"         Grid.Row="3" Grid.Column="1" Margin="50" materialDesign:HintAssist.Hint="Confirm password" Visibility="Hidden"/>
+                    <TextBox     x:Name="emailBox"                   Grid.Row="0" Grid.Column="1" Margin="20" materialDesign:HintAssist.Hint="Email (optional)" Visibility="Hidden" />
+                    <TextBox     x:Name="loginBox"                   Grid.Row="1" Grid.Column="1" Margin="20" materialDesign:HintAssist.Hint="Login"/>
+                    <PasswordBox x:Name="passwordBox"                Grid.Row="2" Grid.Column="1" Margin="20" materialDesign:HintAssist.Hint="Password"/>
+                    <PasswordBox x:Name="confirmPasswordBox"         Grid.Row="3" Grid.Column="1" Margin="20" materialDesign:HintAssist.Hint="Confirm password" Visibility="Hidden"/>
 
                     <Button      x:Name="dontHaveAnAccountYetButton" Grid.Row="4" Grid.Column="1" Margin="20 0 100 50" Content="I don't have an account yet" Click="dontHaveAnAccountYetButton_Click" HorizontalAlignment="Right" VerticalAlignment="Top"/>
                     <Button      x:Name="loginButton"                Grid.Row="3" Grid.Column="1" Margin="100" Content="Log in"                              Click="loginButton_Click"/>

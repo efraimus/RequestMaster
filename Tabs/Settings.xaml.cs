@@ -1,4 +1,5 @@
 ﻿using OrdersApp.Databases.OrdersDatabase;
+using RequestMaster.Patterns;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -8,11 +9,13 @@ namespace OrdersApp.Tabs
     {
         int changingFlag;
         User user;
+        OrdersContext db;
         public Settings()
         {
+            db = DatabaseSingleton.CreateInstance();
             InitializeComponent();
             changeButton.Focus();
-            user = App.db.Users.Where(x => x.Login == AuthWindow.login).FirstOrDefault()!;
+            user = db.Users.Where(x => x.Login == AuthWindow.login).FirstOrDefault()!;
             comboBoxWhatToChange.ItemsSource = new List<string>()
             { "Login", "Password", "Email"};
         }

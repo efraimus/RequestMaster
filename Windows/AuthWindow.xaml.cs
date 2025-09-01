@@ -1,7 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using OrdersApp.Databases.OrdersDatabase;
+﻿using OrdersApp.Databases.OrdersDatabase;
 using OrdersApp.ViewModels;
-using System.IO;
+using RequestMaster.Patterns;
 using System.Windows;
 using System.Windows.Media;
 
@@ -15,9 +14,11 @@ namespace OrdersApp
         public static int balance;
         public static int userID;
         MainWindow? mainWindow;
+        OrdersContext db;
 
         public AuthWindow()
         {
+            db = DatabaseSingleton.CreateInstance();
             InitializeComponent();
             loginButton.Focus();
             confirmPasswordBox.Visibility = Visibility.Hidden;
@@ -28,7 +29,7 @@ namespace OrdersApp
         {
             login = loginBox.Text;
             password = passwordBox.Password;
-            User authUser = App.db.Users.Where(b => b.Login == login && b.Password == password).FirstOrDefault()!;
+            User authUser = db.Users.Where(b => b.Login == login && b.Password == password).FirstOrDefault()!;
             if (authUser != null)
             {
                 email = authUser.Email;
@@ -53,12 +54,10 @@ namespace OrdersApp
             AuthExceptions.checkLogin(loginBox);
             AuthExceptions.checkPassword(passwordBox);
             AuthExceptions.confirmPassword(passwordBox, confirmPasswordBox);
-
             if (emailBox.Text != null)
             {
                 AuthExceptions.checkEmail(emailBox);
             }
-
             if (loginBox.Text != "" && passwordBox.Password != "" && confirmPasswordBox.Password != "")
             {
                 loginBox.ToolTip = "";
@@ -74,11 +73,14 @@ namespace OrdersApp
                 user.Password = passwordBox.Password;
                 user.Balance = 1000;
 
-                if (email != null) user.Email = emailBox.Text;
-                else user.Email = null;
 
-                App.db.Users.Add(user);
-                App.db.SaveChanges();
+                if (emailBox.Text != null)
+                {
+                    user.Email = emailBox.Text;
+                }
+
+                db.Users.Add(user);
+                db.SaveChanges();
                 snackBar.MessageQueue?.Enqueue
                     ("You have been registered!", null, null, null, false, true, TimeSpan.FromSeconds(3));
                 App.logWriter!.WriteLine($"Auth window: New registration: ID={user.UserId}\t\t\t\t{(DateTime.Now).ToLongTimeString()}");
@@ -93,6 +95,7 @@ namespace OrdersApp
             registrationButton.Visibility = Visibility.Visible;
             returnButton.Visibility = Visibility.Visible;
             loginButton.Visibility = Visibility.Hidden;
+            loginButton.Margin = new Thickness(20);
             dontHaveAnAccountYetButton.Visibility = Visibility.Hidden;
             App.logWriter!.WriteLine($"Auth window: 'don't have an account yet' button clicked\t\t\t\t{(DateTime.Now).ToLongTimeString()}");
         }
@@ -110,8 +113,10 @@ namespace OrdersApp
             registrationButton.Visibility = Visibility.Hidden;
             returnButton.Visibility = Visibility.Hidden;
             loginButton.Visibility = Visibility.Visible;
+            loginButton.Margin = new Thickness(100);
             loginBox.Text = "";
             passwordBox.Password = "";
+            dontHaveAnAccountYetButton.Visibility = Visibility.Visible;
         }
 
         #endregion

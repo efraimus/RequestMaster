@@ -17,17 +17,16 @@
         </Grid.ColumnDefinitions>
         <Border Background="White" CornerRadius="20" Grid.Column="0" Margin="20">
             <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-                <TreeView>
-                    <TextBlock Text="Filters" Margin="20" MinWidth="200" FontSize="30" TextAlignment="Center" FontWeight="Bold"/>
-                    <TreeViewItem Header="Payment" IsExpanded="True">
+                <TreeView Margin="20">
+                    <TreeViewItem Header="Payment" IsExpanded="True" Focusable="False">
                         <Grid MinWidth="200">
                             <TextBox x:Name="textBoxPaymentMin" Width="70" Text="500"  HorizontalAlignment="Left"  Margin="20 10 10 0"/>
                             <TextBox x:Name="textBoxPaymentMax" Width="70" Text="3500" HorizontalAlignment="Right" Margin="10 10 10 0"/>
                         </Grid>
+                        <RadioButton x:Name="radioButtonPayment_4" Checked="radioButtonPayment_4_Checked" GroupName="radioButtonsPayment" Margin="20 5 10 0" Content="My range" IsChecked="True"/>
                         <RadioButton x:Name="radioButtonPayment_1" Checked="radioButtonPayment_1_Checked" GroupName="radioButtonsPayment" Margin="20 5 10 0" Content="up to 1000"/>
                         <RadioButton x:Name="radioButtonPayment_2" Checked="radioButtonPayment_2_Checked" GroupName="radioButtonsPayment" Margin="20 5 10 0" Content="1000 - 3000"/>
                         <RadioButton x:Name="radioButtonPayment_3" Checked="radioButtonPayment_3_Checked" GroupName="radioButtonsPayment" Margin="20 5 10 0" Content="3000 - 5000"/>
-                        <RadioButton x:Name="radioButtonPayment_4" Checked="radioButtonPayment_4_Checked" GroupName="radioButtonsPayment" Margin="20 5 10 0" Content="Not important" IsChecked="True"/>
                     </TreeViewItem>
 
                     <TreeViewItem Header="Count of people needed">
@@ -35,16 +34,16 @@
                             <TextBox x:Name="textBoxForCountOfPeopleNeededMin" HorizontalAlignment="Left"  Width="70" Text="1" Margin="20 0 10 0"/>
                             <TextBox x:Name="textBoxForCountOfPeopleNeededMax" HorizontalAlignment="Right" Width="70" Text="5" Margin="10 0 10 0"/>
                         </Grid>
-
+                        
+                        <RadioButton x:Name="radioButtonCountOfPeopleNeeded_4" Checked="radioButtonCountOfPeopleNeeded_4_Checked" GroupName="radioButtonsCountOfPeopleNeeded" Margin="20 5 10 0" Content="My range" IsChecked="True"/>
                         <RadioButton x:Name="radioButtonCountOfPeopleNeeded_1" Checked="radioButtonCountOfPeopleNeeded_1_Checked" GroupName="radioButtonsCountOfPeopleNeeded" Margin="20 5 10 0" Content="1"/>
                         <RadioButton x:Name="radioButtonCountOfPeopleNeeded_2" Checked="radioButtonCountOfPeopleNeeded_2_Checked" GroupName="radioButtonsCountOfPeopleNeeded" Margin="20 5 10 0" Content="2"/>
                         <RadioButton x:Name="radioButtonCountOfPeopleNeeded_3" Checked="radioButtonCountOfPeopleNeeded_3_Checked" GroupName="radioButtonsCountOfPeopleNeeded" Margin="20 5 10 0" Content="3"/>
-                        <RadioButton x:Name="radioButtonCountOfPeopleNeeded_4" Checked="radioButtonCountOfPeopleNeeded_4_Checked" GroupName="radioButtonsCountOfPeopleNeeded" Margin="20 5 10 0" Content="Not important" IsChecked="True"/>
                     </TreeViewItem>
 
                     <TreeViewItem Header="Status">
                         <RadioButton x:Name="radioButtonStatus_Active"       GroupName="radioButtonsStatus" Margin="20 5 10 0" Content="Active"          Foreground="#FF28A235" IsChecked="True"/>
-                        <RadioButton x:Name="radioButtonStatus_Processing"   GroupName="radioButtonsStatus" Margin="20 5 10 0" Content="Processing"      Foreground="#FFBEC71F"/>
+                        <RadioButton x:Name="radioButtonStatus_Processing"   GroupName="radioButtonsStatus" Margin="20 5 10 0" Content="Processing"      Foreground="#0000FF"/>
                         <RadioButton x:Name="radioButtonStatus_Closed"       GroupName="radioButtonsStatus" Margin="20 5 10 0" Content="Closed"          Foreground="#FFD41212"/>
                         <RadioButton x:Name="radioButtonStatus_NotImportant" GroupName="radioButtonsStatus" Margin="20 5 10 0" Content="Not important"   IsChecked="True"/>
                     </TreeViewItem>
