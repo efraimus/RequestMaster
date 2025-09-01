@@ -17,7 +17,7 @@ namespace OrdersApp.Tabs
             changeButton.Focus();
             user = db.Users.Where(x => x.Login == AuthWindow.login).FirstOrDefault()!;
             comboBoxWhatToChange.ItemsSource = new List<string>()
-            { "Login", "Password", "Email"};
+            { "логин", "пароль", "почта"};
         }
 
         #region ButtonClick
@@ -26,15 +26,15 @@ namespace OrdersApp.Tabs
         {
             if (comboBoxWhatToChange.Text != "") {
                 turnOffButtons();
-                if (comboBoxWhatToChange.Text == "Login") changingFlag = 1;
-                else if (comboBoxWhatToChange.Text == "Password") changingFlag = 2;
-                else if (comboBoxWhatToChange.Text == "Email") changingFlag = 3;
+                if (comboBoxWhatToChange.Text == "логин") changingFlag = 1;
+                else if (comboBoxWhatToChange.Text == "пароль") changingFlag = 2;
+                else if (comboBoxWhatToChange.Text == "почта") changingFlag = 3;
                 App.logWriter!.WriteLine($"Settings tab: change button clicked. Value to be changed = '{comboBoxWhatToChange.Text}'\t\t\t\t{(DateTime.Now).ToLongTimeString()}");
             }
             else 
             {
                 snackBar.MessageQueue?.Enqueue
-                    ("Firstly choose something in the box above", null, null, null, false, true, TimeSpan.FromSeconds(3));
+                    ("сначала выберите что поменять", null, null, null, false, true, TimeSpan.FromSeconds(3));
                 App.logWriter!.WriteLine($"Settings tab: change button clicked without choise\t\t\t\t{(DateTime.Now).ToLongTimeString()}");
             }
         }
@@ -53,11 +53,11 @@ namespace OrdersApp.Tabs
                 changer.Change(changersDict[changingFlag]);
 
                 snackBar.MessageQueue?.Enqueue
-                    ($"You have successfully changed your {comboBoxWhatToChange.Text.ToLower()}",
+                    ($"вы изменили  {(comboBoxWhatToChange.Text == "почта" ? "почту" : comboBoxWhatToChange.Text)}",
                     null, null, null, false, true, TimeSpan.FromSeconds(3));
 
                 App.logWriter!.WriteLine($"Settings tab: user with ID={user.UserId} " +
-                    $"changed his {comboBoxWhatToChange.Text.ToLower()}\t\t\t\t{(DateTime.Now).ToLongTimeString()}");
+                    $"changed his {comboBoxWhatToChange.Text}\t\t\t\t{(DateTime.Now).ToLongTimeString()}");
                 comboBoxWhatToChange.Text = "";
                 textBoxForNewValue.Text = "";
                 turnOnButtons();
@@ -65,7 +65,7 @@ namespace OrdersApp.Tabs
             else
             {
                 snackBar.MessageQueue?.Enqueue
-                    ($"Text field above must contain something",
+                    ($"поле должно содержать текст",
                     null, null, null, false, true, TimeSpan.FromSeconds(3));
             }
         }

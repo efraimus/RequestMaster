@@ -1,0 +1,27 @@
+Radio button 'payment = not important' checked				20:31:35
+Radio button 'count of people needed = not important' checked				20:31:35
+Auth window: User with ID=1 authorized				20:31:35
+Auth window closed with authorization				20:31:35
+Radio button 'payment = not important' checked				20:33:03
+Radio button 'count of people needed = not important' checked				20:33:03
+Auth window: User with ID=1 authorized				20:33:03
+Auth window closed with authorization				20:33:03
+Auth window: 'don't have an account yet' button clicked				20:46:56
+Auth window closed without authorization				20:47:20
+Auth window: 'don't have an account yet' button clicked				20:47:34
+Auth window: return button clicked				20:47:43
+Auth window closed without authorization				20:47:47
+Auth window closed without authorization				20:48:30
+Auth window closed without authorization				20:49:30
+Radio button 'payment = not important' checked				20:50:25
+Radio button 'count of people needed = not important' checked				20:50:25
+Auth window: User with ID=1 authorized				20:50:25
+Auth window closed with authorization				20:50:25
+Settings tab: change button clicked without choise				20:50:38
+Settings tab: change button clicked. Value to be changed = 'логин'				20:50:41
+Settings tab: return button clicked				20:50:43
+Settings tab: change button clicked. Value to be changed = 'пароль'				20:50:45
+Settings tab: return button clicked				20:50:46
+Settings tab: change button clicked. Value to be changed = 'почта'				20:50:48
+Settings tab: return button clicked				20:50:50
+Profile tab refreshed				20:50:53

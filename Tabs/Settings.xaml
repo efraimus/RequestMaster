@@ -26,7 +26,7 @@
                     </Grid.ColumnDefinitions>
 
 
-                    <ComboBox x:Name="comboBoxWhatToChange"    Grid.Column="1" Grid.Row="2" Margin="20" materialDesign:HintAssist.Hint="Choose what to change" Height="50" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="comboBoxWhatToChange"    Grid.Column="1" Grid.Row="2" Margin="20" materialDesign:HintAssist.Hint="выберите что поменять" Height="50" VerticalAlignment="Top"/>
                     <materialDesign:Snackbar x:Name="snackBar" Grid.Column="1" Grid.Row="5" Margin="20" IsActive="False" MessageQueue="{materialDesign:MessageQueue}" Height="70"/>
                     <TextBox x:Name="textBoxForNewValue"       Grid.Column="1" Grid.Row="2" Margin="20" materialDesign:HintAssist.Hint="New value" VerticalAlignment="Center" Visibility="Hidden"/>
                 

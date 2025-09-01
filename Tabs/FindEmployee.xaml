@@ -27,12 +27,12 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <TextBox x:Name="textBoxPayment"             Grid.Column="1" Grid.Row="1" materialDesign:HintAssist.Hint="Payment"                            Margin="20 50 20 50"/>
-                <TextBox x:Name="textBoxDescription"         Grid.Column="1" Grid.Row="2" materialDesign:HintAssist.Hint="Description"                        Margin="20 50 20 50"/>
-                <TextBox x:Name="textBoxTelephoneNumber"     Grid.Column="1" Grid.Row="3" materialDesign:HintAssist.Hint="Telephone number, e.g. 83335552222" Margin="20 50 20 50"/>
-                <TextBox x:Name="textBoxCountOfPeopleNeeded" Grid.Column="1" Grid.Row="4" materialDesign:HintAssist.Hint="Count of people needed"             Margin="20 50 20 50"/>
+                <TextBox x:Name="textBoxPayment"             Grid.Column="1" Grid.Row="1" materialDesign:HintAssist.Hint="оплата (руб)"                  Margin="20 50 20 50"/>
+                <TextBox x:Name="textBoxDescription"         Grid.Column="1" Grid.Row="2" materialDesign:HintAssist.Hint="описание"                      Margin="20 50 20 50"/>
+                <TextBox x:Name="textBoxTelephoneNumber"     Grid.Column="1" Grid.Row="3" materialDesign:HintAssist.Hint="телефон, например 83335552222" Margin="20 50 20 50"/>
+                <TextBox x:Name="textBoxCountOfPeopleNeeded" Grid.Column="1" Grid.Row="4" materialDesign:HintAssist.Hint="сколько людей требуется"        Margin="20 50 20 50"/>
 
-                <Button x:Name="addOrder"                    Grid.Column="1" Grid.Row="5" Content="Create the order" Click="addOrder_Click"  Height="50" Margin="20"/>
+                <Button x:Name="addOrder"                    Grid.Column="1" Grid.Row="5" Content="создать заказ" Click="addOrder_Click"  Height="50" Margin="20"/>
 
                 <materialDesign:Snackbar x:Name="snackBar"   Grid.Column="1" Grid.Row="7" FontFamily="{DynamicResource MaterialDesignFont}"  FontSize="25"  IsActive="False" MessageQueue="{materialDesign:MessageQueue}" Height="70" Margin="20"/>
 

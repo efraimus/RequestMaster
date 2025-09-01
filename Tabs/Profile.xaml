@@ -34,42 +34,12 @@
                 <TextBlock x:Name="textBoxPassword" Margin="20" Grid.Row="2" HorizontalAlignment="Center"/>
                 <TextBlock x:Name="textBoxEmail"    Margin="20" Grid.Row="3" HorizontalAlignment="Center"/>
 
-                <Button Grid.Row="4" Margin="50" Content="Refresh page"      Click="refreshButton_Click"/>
-                <Button Grid.Row="5" Margin="50" Content="Mark as completed" Click="markAsCompletedButton_Click"/>
+                <Button Grid.Row="4" Margin="50" Content="обновить страницу"      Click="refreshButton_Click"/>
+                <Button Grid.Row="5" Margin="50" Content="отметить выполненным" Click="markAsCompletedButton_Click"/>
             </Grid>
         </Border>
-        <Border Background="#FFE5E5E5" CornerRadius="20" Grid.Column="1" Margin="20">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Border Background="White" CornerRadius="20" Grid.Row="0" Margin="0 0 0 10">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="0.18*"/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
-                        <TextBlock Text="I am employer"             Grid.Row="0" Margin="20 10 20 10" />
-                        <DataGrid x:Name="ordersEmployerDataGrid"   Grid.Row="1" Margin="20" SelectionChanged="ordersEmployerDataGrid_SelectionChanged"/>
-                        <materialDesign:Snackbar x:Name="snackBar1" Grid.Row="1" Margin="20" FontSize="20" IsActive="False" MessageQueue="{materialDesign:MessageQueue}"/>
-                    </Grid>
-                </Border>
-
-                <Border Background="White" CornerRadius="20" Grid.Row="1" Margin="0 0 0 10">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="0.18*"/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
-                        <TextBlock Text="I am employee"            Margin="20 10 10 10" Grid.Row="0"/>
-
-                        <DataGrid x:Name="ordersEmployeeDataGrid"  Margin="20" Grid.Row="1" SelectionChanged="ordersEmployeeDataGrid_SelectionChanged"/>
-
-                        <materialDesign:Snackbar x:Name="snackBar2" FontSize="20" Margin="20" Grid.Row="1" IsActive="False" MessageQueue="{materialDesign:MessageQueue}"/>
-                    </Grid>
-                </Border>
-            </Grid>
+        <Border Background="White" CornerRadius="20" Grid.Column="1" Margin="20">
+            <materialDesign:Snackbar x:Name="snackBar1" Margin="20" FontSize="20" IsActive="False" MessageQueue="{materialDesign:MessageQueue}"/>
         </Border>
     </Grid>
 </UserControl>

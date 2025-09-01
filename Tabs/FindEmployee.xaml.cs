@@ -8,10 +8,8 @@ namespace OrdersApp.Tabs
 {
     public partial class FindEmployee : UserControl
     {
-        OrdersContext db;
         public FindEmployee()
         {
-            db = DatabaseSingleton.CreateInstance();
             InitializeComponent();
             addOrder.Focus();
         }
@@ -41,29 +39,31 @@ namespace OrdersApp.Tabs
                 OrderCreatingExceptions.checkDescription(textBoxDescription);
                 OrderCreatingExceptions.checkTelephoneNumber(textBoxTelephoneNumber);
                 OrderCreatingExceptions.checkCountOfPeopleNeeded(textBoxCountOfPeopleNeeded);
-                int id = db.Orders.Count() + 1;
-
-                if (isFieldsCorrect())
+                using (OrdersContext db = new OrdersContext())
                 {
-                    Order order = new Order();
-                    order.Payment = int.Parse(textBoxPayment.Text);
-                    order.Description = textBoxDescription.Text;
-                    order.TelephoneNumber = textBoxTelephoneNumber.Text;
-                    order.CountOfPeopleNeeded = int.Parse(textBoxCountOfPeopleNeeded.Text);
-                    order.Status = "Active";
-                    order.EmployerID = AuthWindow.userID;
-                    db.Orders.Add(order);
-                    db.SaveChanges();
-                    clearFields();
-                    snackBar.MessageQueue?.Enqueue
-                        ("Order created!", null, null, null, false, true, TimeSpan.FromSeconds(3));
-                    App.logWriter!.WriteLine($"Order number {id} created\t\t\t\t{(DateTime.Now).ToLongTimeString()}");
-                }
+                    int id = db.Orders.Count() + 1;
+                    if (isFieldsCorrect())
+                    {
+                        Order order = new Order();
+                        order.Payment = int.Parse(textBoxPayment.Text);
+                        order.Description = textBoxDescription.Text;
+                        order.TelephoneNumber = textBoxTelephoneNumber.Text;
+                        order.CountOfPeopleNeeded = int.Parse(textBoxCountOfPeopleNeeded.Text);
+                        order.Status = "Active";
+                        order.EmployerID = AuthWindow.userID;
+                        db.Orders.Add(order);
+                        db.SaveChanges();
+                        clearFields();
+                        snackBar.MessageQueue?.Enqueue
+                            ("Order created!", null, null, null, false, true, TimeSpan.FromSeconds(3));
+                        App.logWriter!.WriteLine($"Order number {id} created\t\t\t\t{(DateTime.Now).ToLongTimeString()}");
+                    }
 
-                else
-                {
-                    snackBar.MessageQueue?.Enqueue
-                        ("Check the accuracy of the entered data", null, null, null, false, true, TimeSpan.FromSeconds(3));
+                    else
+                    {
+                        snackBar.MessageQueue?.Enqueue
+                            ("Check the accuracy of the entered data", null, null, null, false, true, TimeSpan.FromSeconds(3));
+                    }
                 }
             }
             catch (Microsoft.EntityFrameworkCore.DbUpdateException)

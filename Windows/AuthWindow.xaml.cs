@@ -44,7 +44,7 @@ namespace OrdersApp
             else
             {
                 snackBar.MessageQueue?.Enqueue
-                    ("Incorrect login or password", null, null, null, false, true, TimeSpan.FromSeconds(3));
+                    ("неверный логин или пароль", null, null, null, false, true, TimeSpan.FromSeconds(3));
                 App.logWriter!.WriteLine($"Auth window: incorrect login or password\t\t\t{(DateTime.Now).ToLongTimeString()}");
             }
         }
@@ -82,7 +82,7 @@ namespace OrdersApp
                 db.Users.Add(user);
                 db.SaveChanges();
                 snackBar.MessageQueue?.Enqueue
-                    ("You have been registered!", null, null, null, false, true, TimeSpan.FromSeconds(3));
+                    ("вы зарегистрировались", null, null, null, false, true, TimeSpan.FromSeconds(3));
                 App.logWriter!.WriteLine($"Auth window: New registration: ID={user.UserId}\t\t\t\t{(DateTime.Now).ToLongTimeString()}");
                 turnOffButtons();
             }
