@@ -1,12 +1,12 @@
 ﻿using ReactiveUI;
 
-namespace OrdersApp.ViewModels
+namespace RequestMaster.ViewModels
 {
     public class MainWindowViewModel : ReactiveObject
     {
-        public FindWorkViewModel findWorkViewModel { get; set; } = new FindWorkViewModel();
+        public RequestsViewModel findWorkViewModel { get; set; } = new RequestsViewModel();
 
-        public FindEmployeeViewModel findEmployeeViewModel { get; set; } = new FindEmployeeViewModel();
+        public CreateRequestViewModel findEmployeeViewModel { get; set; } = new CreateRequestViewModel();
 
         public ProfileViewModel profileViewModel { get; set; } = new ProfileViewModel();
 

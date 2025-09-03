@@ -1,6 +1,6 @@
 ﻿using System.Windows.Media;
 
-namespace OrdersApp
+namespace RequestMaster
 {
     class Config
     {

@@ -1,6 +1,6 @@
 ﻿using ReactiveUI;
 
-namespace OrdersApp.ViewModels
+namespace RequestMaster.ViewModels
 {
     public class SettingsViewModel : ReactiveObject
     {

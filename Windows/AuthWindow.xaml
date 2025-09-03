@@ -1,18 +1,21 @@
-﻿<Window x:Class="OrdersApp.AuthWindow"
+﻿<Window x:Class="RequestMaster.AuthWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:OrdersApp"
+        xmlns:local="clr-namespace:RequestMaster"
         mc:Ignorable="d"
         WindowState="Maximized"
         Closed="onWindowClosed"
+        Icon="/Windows/icon.ico"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="Authorization" Height="1000" Width="1100" Icon="/Windows/icon.ico">
+        Title="RequestMaster" 
+        Height="1000" 
+        Width="1100">
 
     <Grid Background="#FFECECEC">
-        <Border Background="White" Margin="20 20 5 20" CornerRadius="20">
-            <ScrollViewer>
+        <Border Background="White" Margin="20" CornerRadius="20">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -28,13 +31,16 @@
                         <ColumnDefinition Width="0.7*"/>
                     </Grid.ColumnDefinitions>
 
-                    <TextBox     x:Name="emailBox"                   Grid.Row="0" Grid.Column="1" Margin="20" materialDesign:HintAssist.Hint="почта (необязательно)" VerticalAlignment="Center" Visibility="Hidden" />
-                    <TextBox     x:Name="loginBox"                   Grid.Row="1" Grid.Column="1" Margin="20" materialDesign:HintAssist.Hint="логин"                 VerticalAlignment="Center"/>
-                    <PasswordBox x:Name="passwordBox"                Grid.Row="2" Grid.Column="1" Margin="20" materialDesign:HintAssist.Hint="пароль"                VerticalAlignment="Center"/>
-                    <PasswordBox x:Name="confirmPasswordBox"         Grid.Row="3" Grid.Column="1" Margin="20" materialDesign:HintAssist.Hint="подтвердите пароль"    VerticalAlignment="Center" Visibility="Hidden" />
+                    <TextBox     x:Name="emailBox"                   Grid.Row="0" Grid.Column="1" Margin="20" materialDesign:HintAssist.Hint="почта (необязательно)"     VerticalAlignment="Center" Visibility="Hidden" />
+                    <TextBox     x:Name="loginBox"                   Grid.Row="1" Grid.Column="1" Margin="20" materialDesign:HintAssist.Hint="логин"                     VerticalAlignment="Center"/>
+                    <PasswordBox x:Name="passwordBox"                Grid.Row="2" Grid.Column="1" Margin="20" materialDesign:HintAssist.Hint="пароль"                    VerticalAlignment="Center"/>
+                    <PasswordBox x:Name="confirmPasswordBox"         Grid.Row="3" Grid.Column="1" Margin="20" materialDesign:HintAssist.Hint="подтвердите пароль"        VerticalAlignment="Center" Visibility="Hidden" />
 
-                    <Button      x:Name="dontHaveAnAccountYetButton" Grid.Row="4" Grid.Column="1" Content="у меня нет аккаунта" Click="dontHaveAnAccountYetButton_Click" HorizontalAlignment="Right" VerticalAlignment="Top"/>
+                    <Button      x:Name="dontHaveAnAccountYetButton" Grid.Row="4" Grid.Column="1" Content="у меня нет аккаунта" Click="dontHaveAnAccountYetButton_Click" HorizontalAlignment="Right"   VerticalAlignment="Top"/>
                     <Button      x:Name="loginButton"                Grid.Row="3" Grid.Column="1" Content="войти"               Click="loginButton_Click"                HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+
+                    <CheckBox    x:Name="checkBoxRememberMe"         Grid.Row="3" Grid.Column="1" Margin="20" Content="запомнить меня" FontSize="25"                     HorizontalAlignment="Left" VerticalAlignment="Bottom"/>
+
                     <Button      x:Name="registrationButton"         Grid.Row="4" Grid.Column="1" Content="зарегистрироваться"  Click="registrationButton_Click"         HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Hidden"/>
                     <Button      x:Name="returnButton"               Grid.Row="4" Grid.Column="2" Content="назад"               Click="returnButton_Click"               HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Hidden"/>
 

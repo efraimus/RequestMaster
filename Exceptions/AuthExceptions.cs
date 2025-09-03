@@ -1,53 +1,57 @@
-﻿using System.Windows;
+﻿using RequestMaster.Databases.MainDatabase;
+using RequestMaster.Patterns;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using static MaterialDesignThemes.Wpf.Theme;
 class AuthExceptions : Window
 {
+    static RequestsContext db;
     public static void checkLogin(TextBox loginBox)
     {
+        db = DatabaseSingleton.CreateInstance();
         if (loginBox.Text.Length < 3)
         {
-            loginBox.ToolTip = "Login must be longer than 3 symbols";
-            loginBox.Background = Brushes.DarkRed;
-            loginBox.Text = "";
+            markMistake(loginBox, "логин должен быть длиннее 3 символов");
+        }
+        if (db.Users.Where(x => x.Login == loginBox.Text) != null)
+        {
+            markMistake(loginBox, "такой логин уже существует");
         }
     }
-    #region makePassword
     public static void checkPassword(PasswordBox passwordBox)
     {
         if (passwordBox.Password.Length < 3)
         {
-            passwordBox.ToolTip = "Пароль должен быть длиннее 3 символов";
-            passwordBox.Background = Brushes.DarkRed;
-            passwordBox.Password = "";
+            markMistake(passwordBox, "пароль должен быть длиннее 3 символов");
         }
     }
-    public static void checkPassword(TextBox textBox)
-    {
-        if (textBox.Text.Length < 3)
-        {
-            textBox.ToolTip = "Пароль должен быть длиннее 3 символов";
-            textBox.Background = Brushes.DarkRed;
-            textBox.Text = "";
-        }
-    }
-    #endregion
     public static void confirmPassword(PasswordBox passwordBox, PasswordBox confirmPasswordBox)
     {
         if (passwordBox.Password != confirmPasswordBox.Password)
         {
-            confirmPasswordBox.ToolTip = "Passwords doesn't match";
-            confirmPasswordBox.Background = Brushes.DarkRed;
-            confirmPasswordBox.Password = "";
+            markMistake(confirmPasswordBox, "пароль должен быть длиннее 3 символов");
         }
     }
     public static void checkEmail(TextBox emailBox)
     {
         if (emailBox.Text != null && !emailBox.Text.Contains('@'))
         {
-            emailBox.ToolTip = "Email must contain @ symbol";
-            emailBox.Background = Brushes.DarkRed;
-            emailBox.Text = "";
+            markMistake(emailBox, "в почте должен быть символ @");
         }
     }
+
+    private static void markMistake(TextBox textBox, string toolTip)
+    {
+        textBox.ToolTip = toolTip;
+        textBox.Background = Brushes.DarkRed;
+        textBox.Text = "";
+    }
+    private static void markMistake(PasswordBox passwordBox, string toolTip)
+    {
+        passwordBox.ToolTip = toolTip;
+        passwordBox.Background = Brushes.DarkRed;
+        passwordBox.Text = "";
+    }
+
 }

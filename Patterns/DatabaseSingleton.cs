@@ -1,16 +1,16 @@
 ﻿
-using OrdersApp.Databases.OrdersDatabase;
+using RequestMaster.Databases.MainDatabase;
 
 namespace RequestMaster.Patterns
 {
     class DatabaseSingleton
     {
-        static OrdersContext db;
-        public static OrdersContext CreateInstance()
+        static RequestsContext db;
+        public static RequestsContext CreateInstance()
         {
             if (db == null) 
             { 
-                db = new OrdersContext();
+                db = new RequestsContext();
                 return db;
             }
             else return db;

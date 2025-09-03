@@ -3,18 +3,19 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:OrdersApp"
-        xmlns:Collections="clr-namespace:System.Collections;assembly=System.Runtime" x:Class="OrdersApp.MainWindow"
+        xmlns:local="clr-namespace:RequestMaster"
+        xmlns:Collections="clr-namespace:System.Collections;assembly=System.Runtime" x:Class="RequestMaster.MainWindow"
         mc:Ignorable="d"
-        xmlns:tabs="clr-namespace:OrdersApp.Tabs"
-        xmlns:vm="clr-namespace:OrdersApp.ViewModels"
+        xmlns:tabs="clr-namespace:RequestMaster.Tabs"
+        xmlns:vm="clr-namespace:RequestMaster.ViewModels"
         WindowState="Maximized"
-        Height="800"
-        Width="1200"
+        Height="1080"
+        Width="1920"
         Closed="OnWindowClosed"
         d:DataContext="{d:DesignInstance vm:MainWindowViewModel}"
-        Title="PeopleFind"
-        Background="#FFECECEC" Icon="/Windows/icon.ico">
+        Icon="/Windows/icon.ico"
+        Title="RequestMaster"
+        Background="#FFECECEC">
 
     <Grid>
         <TabControl>
@@ -22,27 +23,17 @@
                 <TabItem.HeaderTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <TextBlock Text="Find work" FontSize="20"/>
+                            <TextBlock Text="заявки" FontSize="20"/>
                         </StackPanel>
                     </DataTemplate>
                 </TabItem.HeaderTemplate>
-                <tabs:FindWork      DataContext="{Binding findWorkViewModel}" />
+                <tabs:Requests     DataContext="{Binding RequestsViewModel}" />
             </TabItem>
             <TabItem Height="60">
                 <TabItem.HeaderTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <TextBlock Text="Find employee" FontSize="20"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </TabItem.HeaderTemplate>
-                <tabs:FindEmployee  DataContext="{Binding findEmployeeViewModel}" />
-            </TabItem>
-            <TabItem Height="60">
-                <TabItem.HeaderTemplate>
-                    <DataTemplate>
-                        <StackPanel>
-                            <TextBlock Text="Profile" FontSize="20"/>
+                            <TextBlock Text="профиль" FontSize="20"/>
                         </StackPanel>
                     </DataTemplate>
                 </TabItem.HeaderTemplate>
@@ -52,7 +43,7 @@
                 <TabItem.HeaderTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <TextBlock Text="Settings" FontSize="20"/>
+                            <TextBlock Text="настройки" FontSize="20"/>
                         </StackPanel>
                     </DataTemplate>
                 </TabItem.HeaderTemplate>

@@ -1,5 +1,5 @@
-﻿using OrdersApp;
-using OrdersApp.Databases.OrdersDatabase;
+﻿using RequestMaster;
+using RequestMaster.Databases.MainDatabase;
 using System.Windows.Controls;
 
 namespace RequestMaster.Patterns
@@ -24,7 +24,7 @@ namespace RequestMaster.Patterns
            if (textBoxForNewValue.Text != "")
            {
                user.Login = textBoxForNewValue.Text;
-               OrdersContext db = DatabaseSingleton.CreateInstance();
+               RequestsContext db = DatabaseSingleton.CreateInstance();
                db.SaveChanges();
                AuthWindow.login = user.Login;
            }
@@ -32,21 +32,21 @@ namespace RequestMaster.Patterns
     }
     class PasswordChanger : IChanger
     {
-        TextBox textBoxForNewValue;
+        PasswordBox passwordBoxForNewValue;
         User user;
-        public PasswordChanger(TextBox textBoxForNewValue, User user)
+        public PasswordChanger(PasswordBox passwordBoxForNewValue, User user)
         {
-            this.textBoxForNewValue = textBoxForNewValue;
+            this.passwordBoxForNewValue = passwordBoxForNewValue;
             this.user = user;
         }
         public void Change()
         {
-            AuthExceptions.checkPassword(textBoxForNewValue);
+            AuthExceptions.checkPassword(passwordBoxForNewValue);
 
-            if (textBoxForNewValue.Text != "")
+            if (passwordBoxForNewValue.Password != "")
             {
-                user.Password = textBoxForNewValue.Text;
-                OrdersContext db = DatabaseSingleton.CreateInstance();
+                user.Password = passwordBoxForNewValue.Password;
+                RequestsContext db = DatabaseSingleton.CreateInstance();
                 db.SaveChanges();
                 AuthWindow.password = user.Password;
             }
@@ -68,7 +68,7 @@ namespace RequestMaster.Patterns
             if (textBoxForNewValue.Text != "")
             {
                 user.Email = textBoxForNewValue.Text;
-                OrdersContext db = DatabaseSingleton.CreateInstance();
+                RequestsContext db = DatabaseSingleton.CreateInstance();
                 db.SaveChanges();
                 AuthWindow.email = user.Email;
             }

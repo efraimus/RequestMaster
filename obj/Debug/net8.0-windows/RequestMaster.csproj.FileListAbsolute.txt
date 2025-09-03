@@ -307,8 +307,6 @@ L:\1mp\PetProjects\C#\RequestMaster\bin\Debug\net8.0-windows\runtimes\win-x64\na
 L:\1mp\PetProjects\C#\RequestMaster\bin\Debug\net8.0-windows\runtimes\win-x86\native\e_sqlite3.dll
 L:\1mp\PetProjects\C#\RequestMaster\bin\Debug\net8.0-windows\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
 L:\1mp\PetProjects\C#\RequestMaster\obj\Debug\net8.0-windows\RequestMaster.csproj.AssemblyReference.cache
-L:\1mp\PetProjects\C#\RequestMaster\obj\Debug\net8.0-windows\Tabs\FindEmployee.g.cs
-L:\1mp\PetProjects\C#\RequestMaster\obj\Debug\net8.0-windows\Tabs\FindWork.g.cs
 L:\1mp\PetProjects\C#\RequestMaster\obj\Debug\net8.0-windows\Tabs\Profile.g.cs
 L:\1mp\PetProjects\C#\RequestMaster\obj\Debug\net8.0-windows\Tabs\Settings.g.cs
 L:\1mp\PetProjects\C#\RequestMaster\obj\Debug\net8.0-windows\Windows\AuthWindow.g.cs
@@ -318,8 +316,6 @@ L:\1mp\PetProjects\C#\RequestMaster\obj\Debug\net8.0-windows\GeneratedInternalTy
 L:\1mp\PetProjects\C#\RequestMaster\obj\Debug\net8.0-windows\RequestMaster_MarkupCompile.cache
 L:\1mp\PetProjects\C#\RequestMaster\obj\Debug\net8.0-windows\RequestMaster_MarkupCompile.lref
 L:\1mp\PetProjects\C#\RequestMaster\obj\Debug\net8.0-windows\App.baml
-L:\1mp\PetProjects\C#\RequestMaster\obj\Debug\net8.0-windows\Tabs\FindEmployee.baml
-L:\1mp\PetProjects\C#\RequestMaster\obj\Debug\net8.0-windows\Tabs\FindWork.baml
 L:\1mp\PetProjects\C#\RequestMaster\obj\Debug\net8.0-windows\Tabs\Profile.baml
 L:\1mp\PetProjects\C#\RequestMaster\obj\Debug\net8.0-windows\Tabs\Settings.baml
 L:\1mp\PetProjects\C#\RequestMaster\obj\Debug\net8.0-windows\Windows\AuthWindow.baml
@@ -338,3 +334,5 @@ L:\1mp\PetProjects\C#\RequestMaster\obj\Debug\net8.0-windows\refint\RequestMaste
 L:\1mp\PetProjects\C#\RequestMaster\obj\Debug\net8.0-windows\RequestMaster.pdb
 L:\1mp\PetProjects\C#\RequestMaster\obj\Debug\net8.0-windows\RequestMaster.genruntimeconfig.cache
 L:\1mp\PetProjects\C#\RequestMaster\obj\Debug\net8.0-windows\ref\RequestMaster.dll
+L:\1mp\PetProjects\C#\RequestMaster\obj\Debug\net8.0-windows\Tabs\Requests.g.cs
+L:\1mp\PetProjects\C#\RequestMaster\obj\Debug\net8.0-windows\Tabs\Requests.baml

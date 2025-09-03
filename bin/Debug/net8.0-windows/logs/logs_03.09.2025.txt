@@ -1,0 +1,2 @@
+Auth window: User with ID=1 authorized				13:51:32
+Auth window closed with authorization				13:51:32

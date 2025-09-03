@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace OrdersApp
+namespace RequestMaster
 {
     public partial class MainWindow : Window
     {

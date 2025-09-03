@@ -1,10 +1,10 @@
-﻿using OrdersApp.Databases.OrdersDatabase;
-using OrdersApp.ViewModels;
+﻿using RequestMaster.Databases.MainDatabase;
+using RequestMaster.ViewModels;
 using RequestMaster.Patterns;
 using System.Windows;
 using System.Windows.Media;
 
-namespace OrdersApp
+namespace RequestMaster
 {
     public partial class AuthWindow : Window
     {
@@ -14,7 +14,7 @@ namespace OrdersApp
         public static int balance;
         public static int userID;
         MainWindow? mainWindow;
-        OrdersContext db;
+        RequestsContext db;
 
         public AuthWindow()
         {
@@ -33,11 +33,10 @@ namespace OrdersApp
             if (authUser != null)
             {
                 email = authUser.Email;
-                balance = authUser.Balance;
-                userID = authUser.UserId;
+                userID = authUser.UserID;
                 mainWindow = new MainWindow();
                 mainWindow.DataContext = new MainWindowViewModel();
-                App.logWriter!.WriteLine($"Auth window: User with ID={authUser.UserId} authorized\t\t\t\t{(DateTime.Now).ToLongTimeString()}");
+                App.logWriter!.WriteLine($"авторизация: зашел пользователь с ID={authUser.UserID} \t\t\t\t{(DateTime.Now).ToLongTimeString()}");
                 Close();
                 mainWindow.Show();
             }
@@ -45,7 +44,7 @@ namespace OrdersApp
             {
                 snackBar.MessageQueue?.Enqueue
                     ("неверный логин или пароль", null, null, null, false, true, TimeSpan.FromSeconds(3));
-                App.logWriter!.WriteLine($"Auth window: incorrect login or password\t\t\t{(DateTime.Now).ToLongTimeString()}");
+                App.logWriter!.WriteLine($"авторизация: неверный логин или пароль\t\t\t{(DateTime.Now).ToLongTimeString()}");
             }
         }
         
@@ -71,7 +70,6 @@ namespace OrdersApp
                 User user = new User();
                 user.Login = loginBox.Text;
                 user.Password = passwordBox.Password;
-                user.Balance = 1000;
 
 
                 if (emailBox.Text != null)
@@ -83,7 +81,7 @@ namespace OrdersApp
                 db.SaveChanges();
                 snackBar.MessageQueue?.Enqueue
                     ("вы зарегистрировались", null, null, null, false, true, TimeSpan.FromSeconds(3));
-                App.logWriter!.WriteLine($"Auth window: New registration: ID={user.UserId}\t\t\t\t{(DateTime.Now).ToLongTimeString()}");
+                App.logWriter!.WriteLine($"авторизация: новый пользователь с ID={user.UserID}\t\t\t\t{(DateTime.Now).ToLongTimeString()}");
                 turnOffButtons();
             }
         }
@@ -97,13 +95,13 @@ namespace OrdersApp
             loginButton.Visibility = Visibility.Hidden;
             loginButton.Margin = new Thickness(20);
             dontHaveAnAccountYetButton.Visibility = Visibility.Hidden;
-            App.logWriter!.WriteLine($"Auth window: 'don't have an account yet' button clicked\t\t\t\t{(DateTime.Now).ToLongTimeString()}");
+            App.logWriter!.WriteLine($"авторизация: нажата кнопка у меня нет аккаунта\t\t\t\t{(DateTime.Now).ToLongTimeString()}");
         }
 
         private void returnButton_Click(object sender, RoutedEventArgs e)
         {
             turnOffButtons();
-            App.logWriter!.WriteLine($"Auth window: return button clicked\t\t\t\t{(DateTime.Now).ToLongTimeString()}");
+            App.logWriter!.WriteLine($"авторизация: нажата кнопка назад\t\t\t\t{(DateTime.Now).ToLongTimeString()}");
         }
 
         private void turnOffButtons()
@@ -125,9 +123,9 @@ namespace OrdersApp
             if (mainWindow == null)
             {
                 Application.Current.Shutdown();
-                App.logWriter!.WriteLine($"Auth window closed without authorization\t\t\t\t{(DateTime.Now).ToLongTimeString()}");
+                App.logWriter!.WriteLine($"авторизация: окно закрыто без авторизации\t\t\t\t{(DateTime.Now).ToLongTimeString()}");
             }
-            else App.logWriter!.WriteLine($"Auth window closed with authorization\t\t\t\t{(DateTime.Now).ToLongTimeString()}");
+            else App.logWriter!.WriteLine($"авторизация: окно закрыто после авторизации\t\t\t\t{(DateTime.Now).ToLongTimeString()}");
         }
     }
 }

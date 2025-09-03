@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 L:\1mp\PetProjects\C#\RequestMaster\App.xaml
-6-1775228272
+5-1750094123
 
-26-223960816
+24-1647631033
 225-1899893217
-Tabs\FindEmployee.xaml;Tabs\FindWork.xaml;Tabs\Profile.xaml;Tabs\Settings.xaml;Windows\AuthWindow.xaml;Windows\MainWindow.xaml;
+Tabs\Profile.xaml;Tabs\Requests.xaml;Tabs\Settings.xaml;Windows\AuthWindow.xaml;Windows\MainWindow.xaml;
 
 False
 
