@@ -18,9 +18,9 @@ public partial class RequestsContext : DbContext
     {
         modelBuilder.Entity<Request>(entity =>
         {
-            entity.HasIndex(e => e.ID, "IX_Requests_RequestID").IsUnique();
+            entity.HasIndex(e => e.RequestID, "IX_Requests_RequestID").IsUnique();
 
-            entity.Property(e => e.ID).HasColumnName("RequestID");
+            entity.Property(e => e.RequestID).HasColumnName("RequestID");
             entity.Property(e => e.Description).HasColumnName("Description");
             entity.Property(e => e.TelephoneNumber).HasColumnName("TelephoneNumber");
             entity.Property(e => e.Status).HasColumnName("Status");

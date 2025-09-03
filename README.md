@@ -1,8 +1,8 @@
-# Find people
+# Request master
 
 ## Description
 
-This app provides you an opportunity to create or take orders
+This app provides you an opportunity to create and comment requests
 
 ## Screenshots
 
@@ -27,4 +27,4 @@ This app provides you an opportunity to create or take orders
 
 ## Updates
 
-25.08.2025 - published version 1.0
+

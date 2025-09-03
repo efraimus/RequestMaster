@@ -34,10 +34,15 @@ namespace RequestMaster.Tabs
 
         private void refreshTab()
         {
-            textBoxLogin.Text = $"логин: {AuthWindow.login}";
-            textBoxPassword.Text = $"пароль: {AuthWindow.password}";
-            textBoxEmail.Text = $"почта: {AuthWindow.email}";
+            textBlockLogin.Text = $"{AuthWindow.login}";
+            textBlockPassword.Text = $"{AuthWindow.password}";
+            textBlockEmail.Text = $"{AuthWindow.email}";
             createdRequestsDataGrid.ItemsSource = db.Requests.Where(x => x.whoCreatedID == 1).ToList();
+        }
+
+        private void createdRequestsDataGrid_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+
         }
     }
 }

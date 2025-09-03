@@ -11,31 +11,31 @@
 
     <Grid>
 
-        <Grid x:Name="requestsGrid">
+        <Grid x:Name="requestsGrid" Visibility="Visible" Margin="20">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="0.25*"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
 
-            <Border Background="White" CornerRadius="20" Margin="10">
+            <Border Background="White" CornerRadius="20" Margin="0 0 10 0">
                 <Grid>
-                        <TreeView Margin="20">
-                            <TreeView.Template>
-                                <ControlTemplate>
-                                    <ScrollViewer>
-                                        <ItemsPresenter></ItemsPresenter>
-                                    </ScrollViewer>
-                                </ControlTemplate>
-                            </TreeView.Template>
+                    <TreeView x:Name="treeView1" Margin="20">
+                        <TreeView.Template>
+                            <ControlTemplate>
+                                <ScrollViewer>
+                                    <ItemsPresenter></ItemsPresenter>
+                                </ScrollViewer>
+                            </ControlTemplate>
+                        </TreeView.Template>
 
-                            <TreeViewItem Header="статус" >
-                                <RadioButton x:Name="radioButtonStatus_Active"       GroupName="radioButtonsStatus" Margin="20 5 10 0" Content="активный"    Foreground="#FF28A235" VerticalContentAlignment="Center"/>
-                                <RadioButton x:Name="radioButtonStatus_Processing"   GroupName="radioButtonsStatus" Margin="20 5 10 0" Content="в обработке" Foreground="#0000FF"   />
-                                <RadioButton x:Name="radioButtonStatus_Closed"       GroupName="radioButtonsStatus" Margin="20 5 10 0" Content="закрыт"      Foreground="#FFD41212" />
-                                <RadioButton x:Name="radioButtonStatus_NotImportant" GroupName="radioButtonsStatus" Margin="20 5 10 0" Content="неважно"     IsChecked="True"         />
-                            </TreeViewItem>
-                        </TreeView>
+                        <TreeViewItem    x:Name="treeView1_Item1" Header="статус" Width="{Binding ActualWidth, ElementName=treeView1}" IsExpanded="True">
+                            <RadioButton x:Name="radioButtonStatus_Active"       Content="активный"    Foreground="#FF28A235" />
+                            <RadioButton x:Name="radioButtonStatus_Processing"   Content="в обработке" Foreground="#0000FF"   />
+                            <RadioButton x:Name="radioButtonStatus_Closed"       Content="закрыта"     Foreground="#FFD41212" />
+                            <RadioButton x:Name="radioButtonStatus_NotImportant" Content="неважно"     IsChecked="True"         />
+                        </TreeViewItem>
+                    </TreeView>
                     <Grid Margin="20" VerticalAlignment="Bottom">
                         <Grid.RowDefinitions>
                             <RowDefinition/>
@@ -46,7 +46,7 @@
                     </Grid>
                 </Grid>
             </Border>
-                <Border Background="White" Grid.Column="1" Margin="10" CornerRadius="20">
+                <Border Background="White" Grid.Column="1" Margin="10 0 0 0"  CornerRadius="20">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -62,7 +62,7 @@
                         <Button x:Name="helpButton"           Margin="10" Grid.Column="1" Content="помощь" Click="helpButton_Click"          HorizontalAlignment="Right"/>
                     </Grid>
 
-                    <DataGrid x:Name="requestsDataGrid" Grid.Row="0"  Margin="20"/>
+                    <DataGrid x:Name="requestsDataGrid" Grid.Row="0" Margin="20" MouseDoubleClick="requestsDataGrid_MouseDoubleClick"/>
 
                     <materialDesign:Snackbar x:Name="snackBar" FontSize="25" IsActive="False" MessageQueue="{materialDesign:MessageQueue}" Grid.Column="1" Grid.Row="0" FontFamily="{DynamicResource MaterialDesignFont}" Height="70" Margin="20"/>
                 </Grid>
@@ -88,11 +88,74 @@
                     <TextBox x:Name="textBoxDescription"         Grid.Column="1" Grid.Row="1" materialDesign:HintAssist.Hint="описание"                      Margin="20 50 20 50" VerticalAlignment="Center"/>
                     <TextBox x:Name="textBoxTelephoneNumber"     Grid.Column="1" Grid.Row="2" materialDesign:HintAssist.Hint="телефон, например 83335552222" Margin="20 50 20 50" VerticalAlignment="Center"/>
 
-                    <Button x:Name="createRequestButton2"         Grid.Column="1" Grid.Row="3" Content="создать заявку" Click="createRequestButton2_Click" Margin="20" VerticalAlignment="Center"/>
-                    <Button x:Name="returnButton"                 Grid.Column="1" Grid.Row="4" Content="назад" Click="returnButton_Click"                 Margin="20" VerticalAlignment="Center"/>
+                    <Button x:Name="createRequestButton2"         Grid.Column="1" Grid.Row="3" Content="создать заявку" Click="createRequestButton2_Click"   Margin="20" VerticalAlignment="Center"/>
+                    <Button x:Name="returnButton"                 Grid.Column="1" Grid.Row="4" Content="назад" Click="returnButton_Click"                    Margin="20" VerticalAlignment="Center"/>
 
                     <materialDesign:Snackbar x:Name="snackBar2"   Grid.Column="1" Grid.Row="7" FontFamily="{DynamicResource MaterialDesignFont}"  FontSize="25"  IsActive="False" MessageQueue="{materialDesign:MessageQueue}" Height="70" Margin="20"/>
 
+                </Grid>
+            </ScrollViewer>
+        </Border>
+
+        <Border x:Name="requestDetails" Background="White" CornerRadius="20" Margin="20" Visibility="Hidden">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    
+                    <Button    x:Name="returnButton2" Grid.Column="0" Grid.Row="0" Margin="20"       HorizontalAlignment="Left"  Content="назад" Click="returnButton2_Click"/>
+                    <Button    x:Name="сloseRequestButton"  Grid.Column="0" Grid.Row="0" Margin="20" HorizontalAlignment="Right" Content="закрыть заявку" Click="сloseRequestButton_Click"/>
+
+                    <Grid Grid.Row="1">
+                            
+                            <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                            
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="0" Grid.Row="1" Margin="5" CornerRadius="20">
+                            <TextBlock Text="номер заявки" FontWeight="Bold" Margin="20 0 20 0"/>
+                        </Border>
+                        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="0" Grid.Row="2" Margin="5" CornerRadius="20">
+                            <TextBlock x:Name="requestIdTextBlock" VerticalAlignment="Center" Margin="20 0 20 0"/>
+                        </Border>
+                        
+                        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="1" Grid.Row="1" Margin="5" CornerRadius="20">
+                            <TextBlock Text="описание" FontWeight="Bold" Margin="20 0 20 0"/>
+                        </Border>
+                        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="1" Grid.Row="2" Margin="5" CornerRadius="20">
+                            <TextBlock x:Name="requestDescriptionTextBlock" VerticalAlignment="Center" Margin="20 0 20 0"/>
+                        </Border>
+
+                        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="2" Grid.Row="1" Margin="5" CornerRadius="20">
+                            <TextBlock Text="номер телефона" FontWeight="Bold" Margin="20 0 20 0"/>
+                        </Border>
+                        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="2" Grid.Row="2" Margin="5" CornerRadius="20">
+                            <TextBlock x:Name="requestTelephoneNumberTextBlock" VerticalAlignment="Center" Margin="20 0 20 0"/>
+                        </Border>
+
+                        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="3" Grid.Row="1" Margin="5" CornerRadius="20">
+                            <TextBlock Text="статус" FontWeight="Bold" Margin="20 0 20 0"/>
+                        </Border>
+                        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="3" Grid.Row="2" Margin="5" CornerRadius="20">
+                            <TextBlock x:Name="requestStatusTextBlock" VerticalAlignment="Center" Margin="20 0 20 0"/>
+                        </Border>
+
+                    </Grid>
+                    <TextBlock Text="комментарии" Grid.Row="2" FontWeight="Bold" Margin="20"/>
+                    <DataGrid x:Name="commentsDataGrid" Grid.Row="3" Margin="20"/>
                 </Grid>
             </ScrollViewer>
         </Border>

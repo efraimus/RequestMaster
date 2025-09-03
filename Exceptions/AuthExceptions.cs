@@ -3,7 +3,6 @@ using RequestMaster.Patterns;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
-using static MaterialDesignThemes.Wpf.Theme;
 class AuthExceptions : Window
 {
     static RequestsContext db;
@@ -14,7 +13,7 @@ class AuthExceptions : Window
         {
             markMistake(loginBox, "логин должен быть длиннее 3 символов");
         }
-        if (db.Users.Where(x => x.Login == loginBox.Text) != null)
+        else if (db.Users.Where(x => x.Login == loginBox.Text).FirstOrDefault() != null)
         {
             markMistake(loginBox, "такой логин уже существует");
         }
@@ -51,7 +50,7 @@ class AuthExceptions : Window
     {
         passwordBox.ToolTip = toolTip;
         passwordBox.Background = Brushes.DarkRed;
-        passwordBox.Text = "";
+        passwordBox.Password = "";
     }
 
 }

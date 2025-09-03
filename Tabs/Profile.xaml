@@ -9,17 +9,13 @@
              mc:Ignorable="d" 
              d:DesignHeight="1080" d:DesignWidth="1920">
 
-    <UserControl.DataContext>
-        <OrdersApp:Config/>
-    </UserControl.DataContext>
-    
     <Grid Background="#FFE5E5E5">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.3*"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
         <Border Background="White" CornerRadius="20" Grid.Column="0" Margin="20">
-            <Grid>
+            <Grid Margin="20">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
@@ -27,24 +23,107 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-
-                <TextBlock x:Name="textBoxLogin"    Margin="20" Grid.Row="0" HorizontalAlignment="Center"/>
-                <TextBlock x:Name="textBoxPassword" Margin="20" Grid.Row="1" HorizontalAlignment="Center"/>
-                <TextBlock x:Name="textBoxEmail"    Margin="20" Grid.Row="2" HorizontalAlignment="Center"/>
+                <Border Grid.Row="0" Margin="20" BorderBrush="Black" BorderThickness="2" CornerRadius="20">
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock Text="логин" HorizontalAlignment="Center" FontWeight="Bold"/>
+                        <TextBlock x:Name="textBlockLogin"    Margin="20" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Border>
+                <Border Grid.Row="1" Margin="20" BorderBrush="Black" BorderThickness="2" CornerRadius="20">
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock Text="пароль" HorizontalAlignment="Center" FontWeight="Bold"/>
+                        <TextBlock x:Name="textBlockPassword" Margin="20" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Border>
+                <Border Grid.Row="2" Margin="20" BorderBrush="Black" BorderThickness="2" CornerRadius="20">
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock Text="почта" HorizontalAlignment="Center" FontWeight="Bold"/>
+                        <TextBlock x:Name="textBlockEmail"    Margin="20" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Border>
                 <Grid Grid.Row="4" Margin="20">
                     <Grid.RowDefinitions>
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Button Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="10" Content="обновить страницу"    Click="refreshButton_Click"/>
+                    <Button Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Stretch" Content="обновить страницу"    Click="refreshButton_Click"/>
                 </Grid>
             </Grid>
         </Border>
         <Border Background="White" CornerRadius="20" Grid.Column="1" Margin="20">
             <Grid>
-                <DataGrid x:Name="createdRequestsDataGrid" Margin="20"/>
-                <materialDesign:Snackbar x:Name="snackBar1" Margin="20" FontSize="20" IsActive="False" MessageQueue="{materialDesign:MessageQueue}"/>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="заявки, созданные вами"    Margin="20 60 20 20" Grid.Row="0" FontWeight="Bold"/>
+                <DataGrid x:Name="createdRequestsDataGrid"  Margin="20"          Grid.Row="1" MouseDoubleClick="createdRequestsDataGrid_MouseDoubleClick"/>
+                <materialDesign:Snackbar x:Name="snackBar1" Margin="20"          Grid.Row="1" FontSize="20" IsActive="False" MessageQueue="{materialDesign:MessageQueue}"/>
             </Grid>
         </Border>
+
+        <Border x:Name="requestDetailsInProfile" Background="White" CornerRadius="20" Margin="20" Visibility="Hidden">
+            <ScrollViewer VerticalScrollBarVisibility="Auto">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Button    x:Name="returnButton2" Grid.Column="0" Grid.Row="0" Margin="20"       HorizontalAlignment="Left"  Content="назад" Click="returnButton2_Click"/>
+                    <Button    x:Name="сloseRequestButton"  Grid.Column="0" Grid.Row="0" Margin="20" HorizontalAlignment="Right" Content="закрыть заявку" Click="сloseRequestButton_Click"/>
+
+                    <Grid Grid.Row="1">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="0" Grid.Row="1" Margin="5" CornerRadius="20">
+                            <TextBlock Text="номер заявки" FontWeight="Bold" Margin="20 0 20 0"/>
+                        </Border>
+                        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="0" Grid.Row="2" Margin="5" CornerRadius="20">
+                            <TextBlock x:Name="requestIdTextBlock" VerticalAlignment="Center" Margin="20 0 20 0"/>
+                        </Border>
+
+                        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="1" Grid.Row="1" Margin="5" CornerRadius="20">
+                            <TextBlock Text="описание" FontWeight="Bold" Margin="20 0 20 0"/>
+                        </Border>
+                        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="1" Grid.Row="2" Margin="5" CornerRadius="20">
+                            <TextBlock x:Name="requestDescriptionTextBlock" VerticalAlignment="Center" Margin="20 0 20 0"/>
+                        </Border>
+
+                        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="2" Grid.Row="1" Margin="5" CornerRadius="20">
+                            <TextBlock Text="номер телефона" FontWeight="Bold" Margin="20 0 20 0"/>
+                        </Border>
+                        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="2" Grid.Row="2" Margin="5" CornerRadius="20">
+                            <TextBlock x:Name="requestTelephoneNumberTextBlock" VerticalAlignment="Center" Margin="20 0 20 0"/>
+                        </Border>
+
+                        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="3" Grid.Row="1" Margin="5" CornerRadius="20">
+                            <TextBlock Text="статус" FontWeight="Bold" Margin="20 0 20 0"/>
+                        </Border>
+                        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="3" Grid.Row="2" Margin="5" CornerRadius="20">
+                            <TextBlock x:Name="requestStatusTextBlock" VerticalAlignment="Center" Margin="20 0 20 0"/>
+                        </Border>
+
+                    </Grid>
+                    <TextBlock Text="комментарии" Grid.Row="2" FontWeight="Bold" Margin="20"/>
+                    <DataGrid x:Name="commentsDataGrid" Grid.Row="3" Margin="20"/>
+                </Grid>
+            </ScrollViewer>
+        </Border>
+
     </Grid>
 </UserControl>

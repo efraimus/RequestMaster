@@ -29,7 +29,7 @@ namespace RequestMaster
         {
             login = loginBox.Text;
             password = passwordBox.Password;
-            User authUser = db.Users.Where(b => b.Login == login && b.Password == password).FirstOrDefault()!;
+            User authUser = db.Users.Where(x => x.Login == login && x.Password == password).FirstOrDefault()!;
             if (authUser != null)
             {
                 email = authUser.Email;
@@ -47,17 +47,29 @@ namespace RequestMaster
                 App.logWriter!.WriteLine($"авторизация: неверный логин или пароль\t\t\t{(DateTime.Now).ToLongTimeString()}");
             }
         }
-        
+
+        private void dontHaveAnAccountYetButton_Click(object sender, RoutedEventArgs e)
+        {
+            turnOnRegistrationButtons();
+            App.logWriter!.WriteLine($"авторизация: нажата кнопка у меня нет аккаунта\t\t\t\t{(DateTime.Now).ToLongTimeString()}");
+        }
+
+        private void returnButton_Click(object sender, RoutedEventArgs e)
+        {
+            turnOffRegistrationButtons();
+            App.logWriter!.WriteLine($"авторизация: нажата кнопка назад\t\t\t\t{(DateTime.Now).ToLongTimeString()}");
+        }
+
         private void registrationButton_Click(object sender, RoutedEventArgs e)
         {
             AuthExceptions.checkLogin(loginBox);
             AuthExceptions.checkPassword(passwordBox);
             AuthExceptions.confirmPassword(passwordBox, confirmPasswordBox);
-            if (emailBox.Text != null)
+            if (emailBox.Text != "")
             {
                 AuthExceptions.checkEmail(emailBox);
             }
-            if (loginBox.Text != "" && passwordBox.Password != "" && confirmPasswordBox.Password != "")
+            else if (loginBox.Text != "" && passwordBox.Password != "" && confirmPasswordBox.Password != "")
             {
                 loginBox.ToolTip = "";
                 loginBox.Background = Brushes.Transparent;
@@ -72,7 +84,7 @@ namespace RequestMaster
                 user.Password = passwordBox.Password;
 
 
-                if (emailBox.Text != null)
+                if (emailBox.Text != "")
                 {
                     user.Email = emailBox.Text;
                 }
@@ -82,37 +94,35 @@ namespace RequestMaster
                 snackBar.MessageQueue?.Enqueue
                     ("вы зарегистрировались", null, null, null, false, true, TimeSpan.FromSeconds(3));
                 App.logWriter!.WriteLine($"авторизация: новый пользователь с ID={user.UserID}\t\t\t\t{(DateTime.Now).ToLongTimeString()}");
-                turnOffButtons();
+                turnOffRegistrationButtons();
             }
         }
 
-        private void dontHaveAnAccountYetButton_Click(object sender, RoutedEventArgs e)
+        private void turnOnRegistrationButtons()
         {
             confirmPasswordBox.Visibility = Visibility.Visible;
+            checkBoxRememberMe.Visibility = Visibility.Hidden;
             emailBox.Visibility = Visibility.Visible;
             registrationButton.Visibility = Visibility.Visible;
             returnButton.Visibility = Visibility.Visible;
             loginButton.Visibility = Visibility.Hidden;
             loginButton.Margin = new Thickness(20);
             dontHaveAnAccountYetButton.Visibility = Visibility.Hidden;
-            App.logWriter!.WriteLine($"авторизация: нажата кнопка у меня нет аккаунта\t\t\t\t{(DateTime.Now).ToLongTimeString()}");
         }
 
-        private void returnButton_Click(object sender, RoutedEventArgs e)
-        {
-            turnOffButtons();
-            App.logWriter!.WriteLine($"авторизация: нажата кнопка назад\t\t\t\t{(DateTime.Now).ToLongTimeString()}");
-        }
 
-        private void turnOffButtons()
+        private void turnOffRegistrationButtons()
         {
             confirmPasswordBox.Visibility = Visibility.Hidden;
             emailBox.Visibility = Visibility.Hidden;
             registrationButton.Visibility = Visibility.Hidden;
             returnButton.Visibility = Visibility.Hidden;
             loginButton.Visibility = Visibility.Visible;
+            checkBoxRememberMe.Visibility = Visibility.Visible;
             loginButton.Margin = new Thickness(100);
             loginBox.Text = "";
+            loginBox.Background = Brushes.White;
+            passwordBox.Background = Brushes.White;
             passwordBox.Password = "";
             dontHaveAnAccountYetButton.Visibility = Visibility.Visible;
         }

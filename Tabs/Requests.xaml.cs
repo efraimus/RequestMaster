@@ -10,6 +10,7 @@ namespace RequestMaster.Tabs
     public partial class Requests : UserControl
     {
         RequestsContext db;
+        Request? requestCard;
 
         #region requestsDataGrid
 
@@ -40,7 +41,7 @@ namespace RequestMaster.Tabs
                 string status = "";
                 if (radioButtonStatus_Active.IsChecked == true) status = "активный";
                 else if (radioButtonStatus_Processing.IsChecked == true) status = "в обработке";
-                else if (radioButtonStatus_Closed.IsChecked == true) status = "закрыт";
+                else if (radioButtonStatus_Closed.IsChecked == true) status = "закрыта";
 
                 requestsDataGrid.ItemsSource = db.Requests.Where(x => x.Status == status.ToString()).ToList();
             }
@@ -111,12 +112,12 @@ namespace RequestMaster.Tabs
                     int id = db.Requests.Count() + 1;
                     if (isFieldsCorrect())
                     {
-                        Request order = new Request();
-                        order.Description = textBoxDescription.Text;
-                        order.TelephoneNumber = textBoxTelephoneNumber.Text;
-                        order.Status = "Active";
-                        order.whoCreatedID = AuthWindow.userID;
-                        db.Requests.Add(order);
+                        Request request = new Request();
+                        request.Description = textBoxDescription.Text;
+                        request.TelephoneNumber = textBoxTelephoneNumber.Text;
+                        request.Status = "активный";
+                        request.whoCreatedID = AuthWindow.userID;
+                        db.Requests.Add(request);
                         db.SaveChanges();
                         clearFields();
                         refreshDataGridWithoutFilters();
@@ -146,5 +147,44 @@ namespace RequestMaster.Tabs
         }
 
         #endregion
+
+
+        #region requestDetails
+
+        private void requestsDataGrid_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            requestsDataGrid.Visibility = Visibility.Hidden;
+            requestDetails.Visibility = Visibility.Visible;
+            requestCard = db.Requests.Where(x => x.RequestID == requestsDataGrid.SelectedIndex + 1).FirstOrDefault()!;
+            requestIdTextBlock.Text = $"{requestCard.RequestID}";
+            requestTelephoneNumberTextBlock.Text = $"{requestCard.TelephoneNumber}";
+            requestDescriptionTextBlock.Text = $"{requestCard.Description}";
+            requestStatusTextBlock.Text = $"{requestCard.Status}";
+        }
+
+        private void returnButton2_Click(object sender, RoutedEventArgs e)
+        {
+            requestsDataGrid.Visibility = Visibility.Visible;
+            requestDetails.Visibility = Visibility.Hidden;
+            refreshDataGridWithoutFilters();
+        }
+        private void сloseRequestButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (requestCard != null)
+            {
+                requestCard.Status = "закрыта";
+                requestStatusTextBlock.Text = "закрыта";
+                db.SaveChanges();
+            }
+            else
+            {
+                //snackBar3.MessageQueue?.Enqueue
+                    //("проверьте правильность ввода данных", null, null, null, false, true, TimeSpan.FromSeconds(3));
+            }
+        }
+
+        #endregion
+
+
     }
 }
