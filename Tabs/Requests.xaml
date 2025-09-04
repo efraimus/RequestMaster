@@ -5,22 +5,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:vm="clr-namespace:RequestMaster.ViewModels"
+             xmlns:local2="clr-namespace:RequestMaster"
              mc:Ignorable="d"
              d:DataContext="{d:DesignInstance vm:RequestsViewModel}"
              d:DesignHeight="1080" d:DesignWidth="1920">
 
     <Grid>
-
-        <Grid x:Name="requestsGrid" Visibility="Visible" Margin="20">
+        <Grid x:Name="requestsGrid" Margin="20">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="0.25*"/>
+                <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
 
-            <Border Background="White" CornerRadius="20" Margin="0 0 10 0">
+            <Border Background="{x:Static local2:App.foregroundColor}" CornerRadius="20" Margin="0 0 10 0" >
                 <Grid>
-                    <TreeView x:Name="treeView1" Margin="20">
+                    <TreeView Margin="20" Foreground="{x:Static local2:App.textColor}">
                         <TreeView.Template>
                             <ControlTemplate>
                                 <ScrollViewer>
@@ -29,12 +29,21 @@
                             </ControlTemplate>
                         </TreeView.Template>
 
-                        <TreeViewItem    x:Name="treeView1_Item1" Header="статус" Width="{Binding ActualWidth, ElementName=treeView1}" IsExpanded="True">
-                            <RadioButton x:Name="radioButtonStatus_Active"       Content="активный"    Foreground="#FF28A235" />
+                        <TreeViewItem    Header="статус" IsExpanded="True">
+                            <RadioButton x:Name="radioButtonStatus_Active"       Content="активна"    Foreground="#FF28A235" >
+
+                            </RadioButton>
                             <RadioButton x:Name="radioButtonStatus_Processing"   Content="в обработке" Foreground="#0000FF"   />
                             <RadioButton x:Name="radioButtonStatus_Closed"       Content="закрыта"     Foreground="#FFD41212" />
                             <RadioButton x:Name="radioButtonStatus_NotImportant" Content="неважно"     IsChecked="True"         />
                         </TreeViewItem>
+
+                        <TreeViewItem Header="автор" IsExpanded="False">
+                            <RadioButton x:Name="radioButtonAuthor_Me"    Content="я" />
+                            <RadioButton x:Name="radioButtonAuthor_NotMe" Content="не я" />
+                            <RadioButton x:Name="radioButtonAuthor_NotImportant" Content="неважно" IsChecked="True"/>
+                        </TreeViewItem>
+
                     </TreeView>
                     <Grid Margin="20" VerticalAlignment="Bottom">
                         <Grid.RowDefinitions>
@@ -46,7 +55,7 @@
                     </Grid>
                 </Grid>
             </Border>
-                <Border Background="White" Grid.Column="1" Margin="10 0 0 0"  CornerRadius="20">
+            <Border Background="{x:Static local2:App.foregroundColor}" Grid.Column="1" Margin="10 0 0 0"  CornerRadius="20">
                 <Grid>
                     <Grid.RowDefinitions>
                         <RowDefinition/>
@@ -62,14 +71,18 @@
                         <Button x:Name="helpButton"           Margin="10" Grid.Column="1" Content="помощь" Click="helpButton_Click"          HorizontalAlignment="Right"/>
                     </Grid>
 
-                    <DataGrid x:Name="requestsDataGrid" Grid.Row="0" Margin="20" MouseDoubleClick="requestsDataGrid_MouseDoubleClick"/>
+                    <DataGrid x:Name="requestsDataGrid" 
+                              Grid.Row="0" 
+                              Margin="20"
+                              MouseDoubleClick="requestsDataGrid_MouseDoubleClick"/>
 
-                    <materialDesign:Snackbar x:Name="snackBar" FontSize="25" IsActive="False" MessageQueue="{materialDesign:MessageQueue}" Grid.Column="1" Grid.Row="0" FontFamily="{DynamicResource MaterialDesignFont}" Height="70" Margin="20"/>
+
+                    <materialDesign:Snackbar x:Name="snackBar" FontSize="25" IsActive="False" MessageQueue="{materialDesign:MessageQueue}" Grid.Column="1" Grid.Row="0" FontFamily="{DynamicResource MaterialDesignFont}" Margin="20"/>
                 </Grid>
             </Border>
         </Grid>
 
-        <Border x:Name="createRequestBorder" Background="White" CornerRadius="20" Margin="20" Visibility="Hidden">
+        <Border x:Name="createRequestBorder" Background="{x:Static local2:App.foregroundColor}" CornerRadius="20" Margin="20" Visibility="Hidden">
             <ScrollViewer>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -97,7 +110,7 @@
             </ScrollViewer>
         </Border>
 
-        <Border x:Name="requestDetails" Background="White" CornerRadius="20" Margin="20" Visibility="Hidden">
+        <Border x:Name="requestDetails" Background="{x:Static local2:App.foregroundColor}" CornerRadius="20" Margin="20" Visibility="Hidden">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
                 <Grid>
                     <Grid.RowDefinitions>
@@ -107,12 +120,14 @@
                         <RowDefinition/>
                     </Grid.RowDefinitions>
                     
-                    <Button    x:Name="returnButton2" Grid.Column="0" Grid.Row="0" Margin="20"       HorizontalAlignment="Left"  Content="назад" Click="returnButton2_Click"/>
-                    <Button    x:Name="сloseRequestButton"  Grid.Column="0" Grid.Row="0" Margin="20" HorizontalAlignment="Right" Content="закрыть заявку" Click="сloseRequestButton_Click"/>
+                    <Button    x:Name="returnButton2"      Grid.Column="0" Grid.Row="0" Margin="20" HorizontalAlignment="Left"  Content="назад"                Click="returnButton2_Click"/>
+                    <Button    x:Name="сloseRequestButton" Grid.Column="0" Grid.Row="0" Margin="20" HorizontalAlignment="Right" Content="закрыть заявку"       Click="сloseRequestButton_Click"/>
+                    <Button    x:Name="addCommentButton"   Grid.Column="0" Grid.Row="2" Margin="20" HorizontalAlignment="Right" Content="добавить комментарий" Click="addCommentButton_Click"/>
+                    <Button    x:Name="returnButton3"      Grid.Column="0" Grid.Row="2" Margin="20" HorizontalAlignment="Right"      Content="назад"                Click="returnButton3_Click"  Visibility="Hidden"/>
 
                     <Grid Grid.Row="1">
                             
-                            <Grid.RowDefinitions>
+                        <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition/>
                             <RowDefinition/>
@@ -122,40 +137,88 @@
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                             <ColumnDefinition/>
-                        <ColumnDefinition/>
+                            <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        
-                        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="0" Grid.Row="1" Margin="5" CornerRadius="20">
-                            <TextBlock Text="номер заявки" FontWeight="Bold" Margin="20 0 20 0"/>
-                        </Border>
-                        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="0" Grid.Row="2" Margin="5" CornerRadius="20">
-                            <TextBlock x:Name="requestIdTextBlock" VerticalAlignment="Center" Margin="20 0 20 0"/>
-                        </Border>
-                        
-                        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="1" Grid.Row="1" Margin="5" CornerRadius="20">
-                            <TextBlock Text="описание" FontWeight="Bold" Margin="20 0 20 0"/>
-                        </Border>
-                        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="1" Grid.Row="2" Margin="5" CornerRadius="20">
-                            <TextBlock x:Name="requestDescriptionTextBlock" VerticalAlignment="Center" Margin="20 0 20 0"/>
+
+                        <Border BorderBrush="{x:Static local2:App.textColor}" BorderThickness="2" Grid.Column="0" Grid.Row="1" Margin="20 5 20 5" CornerRadius="20">
+                            <StackPanel Margin="20">
+                                <TextBlock Text="номер заявки" FontWeight="Bold"                               Foreground="{x:Static local2:App.textColor}"/>
+                                <TextBlock x:Name="requestIdTextBlock" VerticalAlignment="Center"              Foreground="{x:Static local2:App.textColor}"/>
+                            </StackPanel>
+
                         </Border>
 
-                        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="2" Grid.Row="1" Margin="5" CornerRadius="20">
-                            <TextBlock Text="номер телефона" FontWeight="Bold" Margin="20 0 20 0"/>
-                        </Border>
-                        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="2" Grid.Row="2" Margin="5" CornerRadius="20">
-                            <TextBlock x:Name="requestTelephoneNumberTextBlock" VerticalAlignment="Center" Margin="20 0 20 0"/>
+                        <Border BorderBrush="{x:Static local2:App.textColor}" BorderThickness="2" Grid.Column="1" Grid.Row="1" Margin="20 5 20 5" CornerRadius="20">
+                            <StackPanel Margin="20">
+                                <TextBlock Text="описание" FontWeight="Bold"                                   Foreground="{x:Static local2:App.textColor}"/>
+                                <TextBlock x:Name="requestDescriptionTextBlock" VerticalAlignment="Center"     Foreground="{x:Static local2:App.textColor}"/>
+                            </StackPanel>
                         </Border>
 
-                        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="3" Grid.Row="1" Margin="5" CornerRadius="20">
-                            <TextBlock Text="статус" FontWeight="Bold" Margin="20 0 20 0"/>
+                        <Border BorderBrush="{x:Static local2:App.textColor}" BorderThickness="2" Grid.Column="2" Grid.Row="1" Margin="20 5 20 5" CornerRadius="20">
+                            <StackPanel Margin="20">
+                                <TextBlock Text="номер телефона" FontWeight="Bold"                             Foreground="{x:Static local2:App.textColor}"/>
+                                <TextBlock x:Name="requestTelephoneNumberTextBlock" VerticalAlignment="Center" Foreground="{x:Static local2:App.textColor}"/>
+                            </StackPanel>
                         </Border>
-                        <Border BorderBrush="Black" BorderThickness="2" Grid.Column="3" Grid.Row="2" Margin="5" CornerRadius="20">
-                            <TextBlock x:Name="requestStatusTextBlock" VerticalAlignment="Center" Margin="20 0 20 0"/>
+
+                        <Border BorderBrush="{x:Static local2:App.textColor}" BorderThickness="2" Grid.Column="3" Grid.Row="1" Margin="20 5 20 5" CornerRadius="20">
+                            <StackPanel Margin="20">
+                                <TextBlock Text="статус" FontWeight="Bold"                                     Foreground="{x:Static local2:App.textColor}"/>
+                                <TextBlock x:Name="requestStatusTextBlock" VerticalAlignment="Center"          Foreground="{x:Static local2:App.textColor}"/>
+                            </StackPanel>
+
                         </Border>
 
                     </Grid>
-                    <TextBlock Text="комментарии" Grid.Row="2" FontWeight="Bold" Margin="20"/>
-                    <DataGrid x:Name="commentsDataGrid" Grid.Row="3" Margin="20"/>
+
+                    <TextBlock Text="комментарии" Grid.Row="2" FontWeight="Bold" Margin="40 20 20 20" HorizontalAlignment="Left" Foreground="{x:Static local2:App.textColor}"/>
+                    <materialDesign:Snackbar x:Name="snackBar3" Grid.Row="2" FontSize="25" IsActive="False" MessageQueue="{materialDesign:MessageQueue}" FontFamily="{DynamicResource MaterialDesignFont}" />
+                    <DataGrid x:Name="commentsDataGrid" 
+                              Grid.Row="3" 
+                              Margin="20"/>
+
+                    <Grid x:Name="newCommentGrid" Grid.Row="3" Visibility="Hidden">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBox x:Name="commentTextBox" 
+                                 Grid.Column="1" 
+                                 Grid.Row="0"
+                                 HorizontalAlignment="Stretch"
+                                 materialDesign:HintAssist.Hint="новый комментарий"
+                                 Margin="20"
+                                 AcceptsReturn="True" 
+                                 VerticalScrollBarVisibility="Auto"
+                                 VerticalAlignment="Center"
+                                 VerticalContentAlignment="Bottom"
+                                 />
+                        
+                        <Button  x:Name="confirmAddingCommentButton"    
+                                 Grid.Column="1" 
+                                 Grid.Row="1" 
+                                 Margin="100 20 100 20" 
+                                 HorizontalAlignment="Stretch" 
+                                 VerticalAlignment="Center" 
+                                 Content="добавить" 
+                                 Click="confirmAddingCommentButton_Click"/>
+                        
+                        <materialDesign:Snackbar x:Name="snackBar4" 
+                                                 Grid.Row="2" 
+                                                 Grid.Column="1" 
+                                                 FontSize="25" 
+                                                 IsActive="False" 
+                                                 MessageQueue="{materialDesign:MessageQueue}" 
+                                                 FontFamily="{DynamicResource MaterialDesignFont}" 
+                                                 Margin="20"/>
+                    </Grid>
                 </Grid>
             </ScrollViewer>
         </Border>

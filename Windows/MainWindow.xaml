@@ -15,7 +15,7 @@
         d:DataContext="{d:DesignInstance vm:MainWindowViewModel}"
         Icon="/Windows/icon.ico"
         Title="RequestMaster"
-        Background="#FFECECEC">
+        Background="{x:Static local:App.backgroundColor}">
 
     <Grid>
         <TabControl>
@@ -23,7 +23,7 @@
                 <TabItem.HeaderTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <TextBlock Text="заявки" FontSize="20"/>
+                            <TextBlock Text="заявки" FontSize="20" Foreground="{x:Static local:App.textColor}"/>
                         </StackPanel>
                     </DataTemplate>
                 </TabItem.HeaderTemplate>
@@ -33,7 +33,7 @@
                 <TabItem.HeaderTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <TextBlock Text="профиль" FontSize="20"/>
+                            <TextBlock Text="профиль" FontSize="20" Foreground="{x:Static local:App.textColor}"/>
                         </StackPanel>
                     </DataTemplate>
                 </TabItem.HeaderTemplate>
@@ -43,7 +43,7 @@
                 <TabItem.HeaderTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <TextBlock Text="настройки" FontSize="20"/>
+                            <TextBlock Text="настройки" FontSize="20" Foreground="{x:Static local:App.textColor}"/>
                         </StackPanel>
                     </DataTemplate>
                 </TabItem.HeaderTemplate>

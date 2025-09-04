@@ -14,22 +14,23 @@
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesign3.Defaults.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
             </ResourceDictionary.MergedDictionaries>
-            
+
             <Style TargetType="{x:Type Button}" BasedOn="{StaticResource MaterialDesignRaisedButton}">
                 <Setter Property="FontSize"      Value="{x:Static local:App.fontSize}"/>
                 <Setter Property="Height"        Value="NaN"/>
-                <Setter Property="Background"    Value="{x:Static local:App.colorOfButtons}"/>
-                <Setter Property="BorderBrush"   Value="{x:Static local:App.colorOfButtons}"/>
+                <Setter Property="Background"    Value="{x:Static local:App.buttonsColor}"/>
+                <Setter Property="BorderBrush"   Value="{x:Static local:App.buttonsColor}"/>
                 <Setter Property="Foreground"    Value="White"/>
                 <Setter Property="VerticalContentAlignment" Value="Center"/>
             </Style>
-
+            
             <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource MaterialDesignTextBox}">
                 <Setter Property="FontSize"      Value="{x:Static local:App.fontSize}"/>
                 <Setter Property="FontFamily"    Value="{x:Static local:App.fontFamily}"/>
                 <Setter Property="Height"        Value="NaN"/>
-                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="Foreground"    Value="{x:Static local:App.textColor}"/>
             </Style>
+
 
             <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource MaterialDesignTextBlock}">
                 <Setter Property="FontFamily"    Value="{x:Static local:App.fontFamily}"/>
@@ -40,15 +41,65 @@
                 <Setter Property="FontSize"      Value="{x:Static local:App.fontSize}"/>
                 <Setter Property="FontFamily"    Value="{x:Static local:App.fontFamily}"/>
                 <Setter Property="VerticalContentAlignment" Value="Bottom"/>
+                <Setter Property="Foreground"    Value="{x:Static local:App.textColor}"/>
+            </Style>
+            
+            <Style TargetType="{x:Type DataGrid}" BasedOn="{StaticResource MaterialDesignDataGrid}">
+                <Setter Property="FontSize"                 Value="{x:Static local:App.fontSize}"/>
+                <Setter Property="FontFamily"               Value="{x:Static local:App.fontFamily}"/>
+                <Setter Property="GridLinesVisibility"      Value="All"/>
+                <Setter Property="Background"               Value="{x:Static local:App.foregroundColor}"/>
+                <Setter Property="Foreground"               Value="{x:Static local:App.textColor}"/>
+
+                <Setter Property="BorderBrush"              Value="{x:Static local:App.textColor}"/>
+                <Setter Property="BorderThickness"          Value="1"/>
+                <Setter Property="IsReadOnly"               Value="True"/>
             </Style>
 
-            <Style TargetType="{x:Type DataGrid}" BasedOn="{StaticResource MaterialDesignDataGrid}">
-                <Setter Property="FontSize"      Value="{x:Static local:App.fontSize}"/>
-                <Setter Property="FontFamily"    Value="{x:Static local:App.fontFamily}"/>
-                <Setter Property="GridLinesVisibility"    Value="All"/>
-                <Setter Property="Background"    Value="White"/>
-                <Setter Property="Foreground"    Value="Black"/>
-                <Setter Property="IsReadOnly"    Value="True"/>
+            <Style TargetType="{x:Type DataGridCell}">
+                <Setter Property="Background" Value="{x:Static local:App.foregroundColor}"/>
+                <Setter Property="Padding" Value="10"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="BorderBrush"     Value="{x:Static local:App.textColor}"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type DataGridCell}">
+                            <Border Padding="{TemplateBinding Padding}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            
+            <Style TargetType="{x:Type DataGridRow}">
+                <Setter Property="Background"         Value="{x:Static local:App.foregroundColor}"/>
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver"   Value="True">
+                        <Setter Property="Background" Value="{x:Static local:App.backgroundColor}"/>
+                    </Trigger>
+                    <Trigger Property="IsSelected"    Value="True">
+                        <Setter Property="Background" Value="{x:Static local:App.backgroundColor}"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style TargetType="{x:Type DataGridColumnHeader}">
+                <Setter Property="Foreground"                 Value="{x:Static local:App.textColor}"/>
+                <Setter Property="Background"                 Value="{x:Static local:App.foregroundColor}"/>
+                <Setter Property="BorderThickness"            Value="1"/>
+                <Setter Property="BorderBrush"                Value="{x:Static local:App.textColor}"/>
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                <Setter Property="Padding"                    Value="10"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type DataGridColumnHeader}">
+                            <Border Padding="{TemplateBinding Padding}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
             </Style>
 
         </ResourceDictionary>

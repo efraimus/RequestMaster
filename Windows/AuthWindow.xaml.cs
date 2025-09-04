@@ -11,7 +11,7 @@ namespace RequestMaster
         public static string? login;
         public static string? password;
         public static string? email;
-        public static int balance;
+        public static string? theme;
         public static int userID;
         MainWindow? mainWindow;
         RequestsContext db;
@@ -34,6 +34,7 @@ namespace RequestMaster
             {
                 email = authUser.Email;
                 userID = authUser.UserID;
+                theme = authUser.Theme;
                 mainWindow = new MainWindow();
                 mainWindow.DataContext = new MainWindowViewModel();
                 App.logWriter!.WriteLine($"авторизация: зашел пользователь с ID={authUser.UserID} \t\t\t\t{(DateTime.Now).ToLongTimeString()}");
@@ -82,6 +83,7 @@ namespace RequestMaster
                 User user = new User();
                 user.Login = loginBox.Text;
                 user.Password = passwordBox.Password;
+                user.Theme = "Light";
 
 
                 if (emailBox.Text != "")
@@ -121,8 +123,8 @@ namespace RequestMaster
             checkBoxRememberMe.Visibility = Visibility.Visible;
             loginButton.Margin = new Thickness(100);
             loginBox.Text = "";
-            loginBox.Background = Brushes.White;
-            passwordBox.Background = Brushes.White;
+            loginBox.Background = Brushes.Transparent;
+            passwordBox.Background = Brushes.Transparent;
             passwordBox.Password = "";
             dontHaveAnAccountYetButton.Visibility = Visibility.Visible;
         }

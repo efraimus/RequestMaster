@@ -37,12 +37,7 @@ namespace RequestMaster.Tabs
             textBlockLogin.Text = $"{AuthWindow.login}";
             textBlockPassword.Text = $"{AuthWindow.password}";
             textBlockEmail.Text = $"{AuthWindow.email}";
-            createdRequestsDataGrid.ItemsSource = db.Requests.Where(x => x.whoCreatedID == 1).ToList();
-        }
-
-        private void createdRequestsDataGrid_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-
+            createdRequestsDataGrid.ItemsSource = db.Requests.Where(x => x.WhoCreatedID == 1).ToList();
         }
     }
 }

@@ -10,7 +10,9 @@ public class User
 
     public string? Email { get; set; }
 
-    public int howManyRequestsCreated { get; set; }
+    public string Theme { get; set; } = null!;
 
-    public int howManyRequestsClosed { get; set; }
+    public int HowManyRequestsCreated { get; set; }
+
+    public int HowManyRequestsClosed { get; set; }
 }

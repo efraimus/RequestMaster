@@ -10,8 +10,10 @@
 
         public string Status { get; set; } = null!;
         
-        public int whoCreatedID { get; set; }
+        public int WhoCreatedID { get; set; }
 
-        public int whoClosedID { get; set; }
+        public int WhoClosedID { get; set; }
+
+        public List<Comment> Comments { get; set; } = new();
     }
 }
