@@ -57,7 +57,6 @@
             </Style>
 
             <Style TargetType="{x:Type DataGridCell}">
-                <Setter Property="Background" Value="{x:Static local:App.foregroundColor}"/>
                 <Setter Property="Padding" Value="10"/>
                 <Setter Property="BorderThickness" Value="1"/>
                 <Setter Property="BorderBrush"     Value="{x:Static local:App.textColor}"/>

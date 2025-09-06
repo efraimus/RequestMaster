@@ -39,7 +39,7 @@
                     <Border Grid.Row="2" Margin="20" BorderBrush="{x:Static local2:App.textColor}" BorderThickness="2" CornerRadius="20">
                         <StackPanel VerticalAlignment="Center">
                             <TextBlock Text="почта" HorizontalAlignment="Center" FontWeight="Bold"         Foreground="{x:Static local2:App.textColor}"/>
-                            <TextBlock x:Name="textBlockEmail"    Margin="20" HorizontalAlignment="Center" Foreground="{x:Static local2:App.textColor}" />
+                            <TextBlock x:Name="textBlockEmail"    Margin="20" HorizontalAlignment="Center" Foreground="{x:Static local2:App.textColor}"/>
                         </StackPanel>
                     </Border>
                     <Grid Grid.Row="4" Margin="20">

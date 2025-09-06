@@ -37,7 +37,7 @@ namespace RequestMaster
                 theme = authUser.Theme;
                 mainWindow = new MainWindow();
                 mainWindow.DataContext = new MainWindowViewModel();
-                App.logWriter!.WriteLine($"авторизация: зашел пользователь с ID={authUser.UserID} \t\t\t\t{(DateTime.Now).ToLongTimeString()}");
+                App.log($"авторизация: зашел пользователь с ID={authUser.UserID}");
                 Close();
                 mainWindow.Show();
             }
@@ -45,20 +45,20 @@ namespace RequestMaster
             {
                 snackBar.MessageQueue?.Enqueue
                     ("неверный логин или пароль", null, null, null, false, true, TimeSpan.FromSeconds(3));
-                App.logWriter!.WriteLine($"авторизация: неверный логин или пароль\t\t\t{(DateTime.Now).ToLongTimeString()}");
+                App.log($"авторизация: неверный логин или пароль");
             }
         }
 
         private void dontHaveAnAccountYetButton_Click(object sender, RoutedEventArgs e)
         {
             turnOnRegistrationButtons();
-            App.logWriter!.WriteLine($"авторизация: нажата кнопка у меня нет аккаунта\t\t\t\t{(DateTime.Now).ToLongTimeString()}");
+            App.log($"авторизация: нажата кнопка у меня нет аккаунта");
         }
 
         private void returnButton_Click(object sender, RoutedEventArgs e)
         {
             turnOffRegistrationButtons();
-            App.logWriter!.WriteLine($"авторизация: нажата кнопка назад\t\t\t\t{(DateTime.Now).ToLongTimeString()}");
+            App.log($"авторизация: нажата кнопка назад");
         }
 
         private void registrationButton_Click(object sender, RoutedEventArgs e)
@@ -95,7 +95,7 @@ namespace RequestMaster
                 db.SaveChanges();
                 snackBar.MessageQueue?.Enqueue
                     ("вы зарегистрировались", null, null, null, false, true, TimeSpan.FromSeconds(3));
-                App.logWriter!.WriteLine($"авторизация: новый пользователь с ID={user.UserID}\t\t\t\t{(DateTime.Now).ToLongTimeString()}");
+                App.log($"авторизация: новый пользователь с ID={user.UserID}");
                 turnOffRegistrationButtons();
             }
         }
@@ -135,9 +135,9 @@ namespace RequestMaster
             if (mainWindow == null)
             {
                 Application.Current.Shutdown();
-                App.logWriter!.WriteLine($"авторизация: окно закрыто без авторизации\t\t\t\t{(DateTime.Now).ToLongTimeString()}");
+                App.log($"авторизация: окно закрыто без авторизации");
             }
-            else App.logWriter!.WriteLine($"авторизация: окно закрыто после авторизации\t\t\t\t{(DateTime.Now).ToLongTimeString()}");
+            else App.log($"авторизация: окно закрыто после авторизации");
         }
     }
 }

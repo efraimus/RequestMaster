@@ -2,6 +2,9 @@
 FL:\1mp\PetProjects\C#\RequestMaster\App.xaml;;
 FL:\1mp\PetProjects\C#\RequestMaster\Tabs\Profile.xaml;;
 FL:\1mp\PetProjects\C#\RequestMaster\Tabs\Requests.xaml;;
+FL:\1mp\PetProjects\C#\RequestMaster\Tabs\RequestsTabMVVM\Models\CreateRequest.xaml;;
+FL:\1mp\PetProjects\C#\RequestMaster\Tabs\RequestsTabMVVM\Models\RequestDetails.xaml;;
+FL:\1mp\PetProjects\C#\RequestMaster\Tabs\RequestsTabMVVM\Models\RequestsMenu.xaml;;
 FL:\1mp\PetProjects\C#\RequestMaster\Tabs\Settings.xaml;;
 FL:\1mp\PetProjects\C#\RequestMaster\Windows\AuthWindow.xaml;;
 FL:\1mp\PetProjects\C#\RequestMaster\Windows\MainWindow.xaml;;

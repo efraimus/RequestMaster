@@ -4,9 +4,7 @@ namespace RequestMaster.ViewModels
 {
     public class MainWindowViewModel : ReactiveObject
     {
-        public RequestsViewModel findWorkViewModel { get; set; } = new RequestsViewModel();
-
-        public CreateRequestViewModel findEmployeeViewModel { get; set; } = new CreateRequestViewModel();
+        public RequestsViewModel requestsViewModel { get; set; } = new RequestsViewModel();
 
         public ProfileViewModel profileViewModel { get; set; } = new ProfileViewModel();
 

@@ -2,10 +2,19 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
+    <Compile Update="Tabs\RequestsTabMVVM\Models\CreateRequest.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Tabs\Requests.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Tabs\Profile.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Tabs\RequestsTabMVVM\Models\RequestDetails.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Tabs\RequestsTabMVVM\Models\RequestsMenu.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Tabs\Settings.xaml.cs">

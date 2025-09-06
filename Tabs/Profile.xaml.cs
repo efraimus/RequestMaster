@@ -24,12 +24,12 @@ namespace RequestMaster.Tabs
             createdRequestsDataGrid.Columns[3].Header = "статус";
             createdRequestsDataGrid.Columns[4].Visibility = Visibility.Hidden;
             createdRequestsDataGrid.Columns[5].Visibility = Visibility.Hidden;
+            createdRequestsDataGrid.Columns[6].Visibility = Visibility.Hidden;
         }
 
         private void refreshButton_Click(object sender, RoutedEventArgs e)
         {
             refreshTab();
-            App.logWriter!.WriteLine($"профиль: вкладка обновлена\t\t\t\t{(DateTime.Now).ToLongTimeString()}");
         }
 
         private void refreshTab()
@@ -38,6 +38,7 @@ namespace RequestMaster.Tabs
             textBlockPassword.Text = $"{AuthWindow.password}";
             textBlockEmail.Text = $"{AuthWindow.email}";
             createdRequestsDataGrid.ItemsSource = db.Requests.Where(x => x.WhoCreatedID == 1).ToList();
+            App.log($"профиль: вкладка обновлена");
         }
     }
 }

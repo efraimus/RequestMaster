@@ -29,13 +29,14 @@ namespace RequestMaster.Tabs
                 if (comboBoxWhatToChange.Text == "логин") changerStrategy = new LoginChanger(textBoxForNewValue, user);
                 else if (comboBoxWhatToChange.Text == "пароль") changerStrategy = new PasswordChanger(passwordBoxForNewValue, user);
                 else if (comboBoxWhatToChange.Text == "почта") changerStrategy = new EmailChanger(textBoxForNewValue, user);
-                App.logWriter!.WriteLine($"настройки: нажата кнопка изменить, значение='{comboBoxWhatToChange.Text}'\t\t\t\t{(DateTime.Now).ToLongTimeString()}");
+                App.log($"настройки: нажата кнопка изменить, значение='{comboBoxWhatToChange.Text}'");
             }
             else 
             {
                 snackBar.MessageQueue?.Enqueue
                     ("сначала выберите что поменять", null, null, null, false, true, TimeSpan.FromSeconds(3));
-                App.logWriter!.WriteLine($"настройки: нажата кнопка изменить без значения\t\t\t\t{(DateTime.Now).ToLongTimeString()}");
+                App.log($"настройки: нажата кнопка изменить без значения'");
+
             }
         }
 
@@ -51,9 +52,7 @@ namespace RequestMaster.Tabs
                 snackBar.MessageQueue?.Enqueue
                     ($"вы изменили {whatChanged}",
                     null, null, null, false, true, TimeSpan.FromSeconds(3));
-
-                App.logWriter!.WriteLine($"настройки: пользователь с ID={user.UserID} " +
-                    $"поменял {whatChanged}\t\t\t\t{(DateTime.Now).ToLongTimeString()}");
+                App.log($"настройки: пользователь с ID={user.UserID} поменял {whatChanged}");
                 comboBoxWhatToChange.Text = "";
                 textBoxForNewValue.Text = "";
                 turnOnButtons();
@@ -63,14 +62,13 @@ namespace RequestMaster.Tabs
                 snackBar.MessageQueue?.Enqueue
                     ($"поле должно содержать текст",
                     null, null, null, false, true, TimeSpan.FromSeconds(3));
-                App.logWriter!.WriteLine($"настройки: нажата кнопка подтвердить с пустым полем\t\t\t\t{(DateTime.Now).ToLongTimeString()}");
-
+                App.log($"настройки: нажата кнопка подтвердить с пустым полем");
             }
         }
         private void returnButton_Click(object sender, RoutedEventArgs e)
         {
             turnOnButtons();
-            App.logWriter!.WriteLine($"настройки: нажата кнопка назад\t\t\t\t{(DateTime.Now).ToLongTimeString()}");
+            App.log($"настройки: нажата кнопка назад");
         }
         #endregion
 
