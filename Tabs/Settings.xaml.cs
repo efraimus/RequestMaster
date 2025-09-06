@@ -10,17 +10,17 @@ namespace RequestMaster.Tabs
         IChanger? changerStrategy;
         User user;
         RequestsContext db;
+        SettingsMenuLogger logger;
         public Settings()
         {
-            db = DatabaseSingleton.CreateInstance();
             InitializeComponent();
+            db = DatabaseSingleton.CreateInstance();
+            logger = new SettingsMenuLogger();
             changeButton.Focus();
             user = db.Users.Where(x => x.Login == AuthWindow.login).FirstOrDefault()!;
             comboBoxWhatToChange.ItemsSource = new List<string>()
             { "логин", "пароль", "почта"};
         }
-
-        #region ButtonClick
 
         private void changeButton_Click(object sender, RoutedEventArgs e)
         {
@@ -29,14 +29,13 @@ namespace RequestMaster.Tabs
                 if (comboBoxWhatToChange.Text == "логин") changerStrategy = new LoginChanger(textBoxForNewValue, user);
                 else if (comboBoxWhatToChange.Text == "пароль") changerStrategy = new PasswordChanger(passwordBoxForNewValue, user);
                 else if (comboBoxWhatToChange.Text == "почта") changerStrategy = new EmailChanger(textBoxForNewValue, user);
-                App.log($"настройки: нажата кнопка изменить, значение='{comboBoxWhatToChange.Text}'");
+                logger.log($"нажата кнопка изменить, значение='{comboBoxWhatToChange.Text}'");
             }
             else 
             {
                 snackBar.MessageQueue?.Enqueue
                     ("сначала выберите что поменять", null, null, null, false, true, TimeSpan.FromSeconds(3));
-                App.log($"настройки: нажата кнопка изменить без значения'");
-
+                logger.log($"нажата кнопка изменить без значения'");
             }
         }
 
@@ -52,7 +51,7 @@ namespace RequestMaster.Tabs
                 snackBar.MessageQueue?.Enqueue
                     ($"вы изменили {whatChanged}",
                     null, null, null, false, true, TimeSpan.FromSeconds(3));
-                App.log($"настройки: пользователь с ID={user.UserID} поменял {whatChanged}");
+                logger.log($"пользователь с ID={user.UserID} поменял {whatChanged}");
                 comboBoxWhatToChange.Text = "";
                 textBoxForNewValue.Text = "";
                 turnOnButtons();
@@ -62,17 +61,14 @@ namespace RequestMaster.Tabs
                 snackBar.MessageQueue?.Enqueue
                     ($"поле должно содержать текст",
                     null, null, null, false, true, TimeSpan.FromSeconds(3));
-                App.log($"настройки: нажата кнопка подтвердить с пустым полем");
+                logger.log($"нажата кнопка подтвердить с пустым полем");
             }
         }
         private void returnButton_Click(object sender, RoutedEventArgs e)
         {
             turnOnButtons();
-            App.log($"настройки: нажата кнопка назад");
+            logger.log($"нажата кнопка назад");
         }
-        #endregion
-
-        #region TurnOnOffButtons
         private void turnOffButtons()
         {
             if (comboBoxWhatToChange.Text == "пароль")
@@ -100,6 +96,5 @@ namespace RequestMaster.Tabs
             confirmButton.Visibility = Visibility.Hidden;
             returnButton.Visibility = Visibility.Hidden;
         }
-        #endregion
     }
 }

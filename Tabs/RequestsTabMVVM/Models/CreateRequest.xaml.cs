@@ -1,5 +1,6 @@
 ﻿using RequestMaster.Databases.MainDatabase;
 using RequestMaster.Exceptions;
+using RequestMaster.Patterns;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -7,8 +8,10 @@ namespace RequestMaster.Tabs.RequestsTabMVVM.Models
 {
     public partial class CreateRequest : UserControl
     {
+        CreateRequestMenuLogger logger;
         public CreateRequest()
         {
+            logger = new CreateRequestMenuLogger();
             InitializeComponent();
         }
 
@@ -24,7 +27,7 @@ namespace RequestMaster.Tabs.RequestsTabMVVM.Models
         {
             textBoxDescription.Clear();
             textBoxTelephoneNumber.Clear();
-            App.log($"меню создания заявки: поля очищены");
+            logger.log($"поля очищены");
         }
 
         public void createRequestButton2_Click(object sender, RoutedEventArgs e)
@@ -43,20 +46,20 @@ namespace RequestMaster.Tabs.RequestsTabMVVM.Models
                         request.Description = textBoxDescription.Text;
                         request.TelephoneNumber = textBoxTelephoneNumber.Text;
                         request.Status = "активна";
-                        request.WhoCreatedID = AuthWindow.userID;
+                        request.WhoCreatedID = AuthWindow.user!.UserID;
                         db.Requests.Add(request);
                         db.SaveChanges();
                         clearFields();
                         snackBar.MessageQueue?.Enqueue
                             ("заявка создана", null, null, null, false, true, TimeSpan.FromSeconds(3));
-                        App.log($"меню создания заявки: заявка №{id} создана");
+                        logger.log($"заявка №{id} создана");
                     }
 
                     else
                     {
                         snackBar.MessageQueue?.Enqueue
                             ("проверьте правильность ввода данных", null, null, null, false, true, TimeSpan.FromSeconds(3));
-                        App.log($"меню создания заявки: некорректно введены данные");
+                        logger.log($"некорректно введены данные");
                     }
                 }
             }
@@ -64,13 +67,13 @@ namespace RequestMaster.Tabs.RequestsTabMVVM.Models
             {
                 snackBar.MessageQueue?.Enqueue
                         ("ошибка при добавлении данных", null, null, null, false, true, TimeSpan.FromSeconds(3));
-                App.log($"меню создания заявки: ошибка при добавлении данных");
+                logger.log($"ошибка при добавлении данных");
             }
         }
         private void returnButton_Click(object sender, RoutedEventArgs e)
         {
             Requests.requestsMenu.Visibility = Visibility.Visible;
-            App.log($"меню создания заявки: нажата кнопка назад");
+            logger.log($"нажата кнопка назад");
         }
     }
 }

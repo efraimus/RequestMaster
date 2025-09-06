@@ -39,8 +39,6 @@ public partial class RequestsContext : DbContext
             entity.Property(e => e.Login).HasColumnName("Login");
             entity.Property(e => e.Password).HasColumnName("Password");
             entity.Property(e => e.Theme).HasColumnName("Theme");
-            entity.Property(e => e.HowManyRequestsCreated).HasColumnName("HowManyRequestsCreated");
-            entity.Property(e => e.HowManyRequestsClosed).HasColumnName("HowManyRequestsClosed");
         });
 
         modelBuilder.Entity<Comment>(entity =>

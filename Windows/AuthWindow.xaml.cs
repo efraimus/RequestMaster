@@ -11,33 +11,30 @@ namespace RequestMaster
         public static string? login;
         public static string? password;
         public static string? email;
-        public static string? theme;
-        public static int userID;
+        public static User? user;
+        AuthorizationLogger logger;
         MainWindow? mainWindow;
         RequestsContext db;
 
         public AuthWindow()
         {
             db = DatabaseSingleton.CreateInstance();
+            logger = new AuthorizationLogger();
             InitializeComponent();
             loginButton.Focus();
             confirmPasswordBox.Visibility = Visibility.Hidden;
         }
-        #region ButtonClick
 
         private void loginButton_Click(object sender, RoutedEventArgs e)
         {
             login = loginBox.Text;
             password = passwordBox.Password;
-            User authUser = db.Users.Where(x => x.Login == login && x.Password == password).FirstOrDefault()!;
-            if (authUser != null)
+            user = db.Users.Where(x => x.Login == login && x.Password == password).FirstOrDefault()!;
+            if (user != null)
             {
-                email = authUser.Email;
-                userID = authUser.UserID;
-                theme = authUser.Theme;
                 mainWindow = new MainWindow();
                 mainWindow.DataContext = new MainWindowViewModel();
-                App.log($"авторизация: зашел пользователь с ID={authUser.UserID}");
+                logger.log($"вход ID={user.UserID}");
                 Close();
                 mainWindow.Show();
             }
@@ -45,20 +42,20 @@ namespace RequestMaster
             {
                 snackBar.MessageQueue?.Enqueue
                     ("неверный логин или пароль", null, null, null, false, true, TimeSpan.FromSeconds(3));
-                App.log($"авторизация: неверный логин или пароль");
+                logger.log($"неверный логин или пароль");
             }
         }
 
         private void dontHaveAnAccountYetButton_Click(object sender, RoutedEventArgs e)
         {
             turnOnRegistrationButtons();
-            App.log($"авторизация: нажата кнопка у меня нет аккаунта");
+            logger.log($"нажата кнопка у меня нет аккаунта");
         }
 
         private void returnButton_Click(object sender, RoutedEventArgs e)
         {
             turnOffRegistrationButtons();
-            App.log($"авторизация: нажата кнопка назад");
+            logger.log($"нажата кнопка назад");
         }
 
         private void registrationButton_Click(object sender, RoutedEventArgs e)
@@ -95,7 +92,7 @@ namespace RequestMaster
                 db.SaveChanges();
                 snackBar.MessageQueue?.Enqueue
                     ("вы зарегистрировались", null, null, null, false, true, TimeSpan.FromSeconds(3));
-                App.log($"авторизация: новый пользователь с ID={user.UserID}");
+                logger.log($"новый пользователь с ID={user.UserID}");
                 turnOffRegistrationButtons();
             }
         }
@@ -111,7 +108,6 @@ namespace RequestMaster
             loginButton.Margin = new Thickness(20);
             dontHaveAnAccountYetButton.Visibility = Visibility.Hidden;
         }
-
 
         private void turnOffRegistrationButtons()
         {
@@ -129,15 +125,14 @@ namespace RequestMaster
             dontHaveAnAccountYetButton.Visibility = Visibility.Visible;
         }
 
-        #endregion
         private void onWindowClosed(object sender, EventArgs e)
         {
             if (mainWindow == null)
             {
                 Application.Current.Shutdown();
-                App.log($"авторизация: окно закрыто без авторизации");
+                logger.log($"окно закрыто без авторизации");
             }
-            else App.log($"авторизация: окно закрыто после авторизации");
+            else logger.log($"окно закрыто после авторизации");
         }
     }
 }

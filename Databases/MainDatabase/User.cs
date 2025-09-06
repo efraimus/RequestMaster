@@ -12,7 +12,4 @@ public class User
 
     public string Theme { get; set; } = null!;
 
-    public int HowManyRequestsCreated { get; set; }
-
-    public int HowManyRequestsClosed { get; set; }
 }
