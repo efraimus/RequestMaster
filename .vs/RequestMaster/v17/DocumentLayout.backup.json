@@ -1,12 +1,53 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "L:\\1mp\\PetProjects\\C#\\RequestMaster\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{65D7F326-7E2F-4B12-B217-4FF22E1BD540}|RequestMaster.csproj|l:\\1mp\\petprojects\\c#\\requestmaster\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{65D7F326-7E2F-4B12-B217-4FF22E1BD540}|RequestMaster.csproj|solutionrelative:app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65D7F326-7E2F-4B12-B217-4FF22E1BD540}|RequestMaster.csproj|l:\\1mp\\petprojects\\c#\\requestmaster\\windows\\authwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65D7F326-7E2F-4B12-B217-4FF22E1BD540}|RequestMaster.csproj|solutionrelative:windows\\authwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "AuthWindow.xaml.cs",
+              "DocumentMoniker": "L:\\1mp\\PetProjects\\C#\\RequestMaster\\Windows\\AuthWindow.xaml.cs",
+              "RelativeDocumentMoniker": "Windows\\AuthWindow.xaml.cs",
+              "ToolTip": "L:\\1mp\\PetProjects\\C#\\RequestMaster\\Windows\\AuthWindow.xaml.cs",
+              "RelativeToolTip": "Windows\\AuthWindow.xaml.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAgwCsAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-08T18:31:43.697Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "App.xaml",
+              "DocumentMoniker": "L:\\1mp\\PetProjects\\C#\\RequestMaster\\App.xaml",
+              "RelativeDocumentMoniker": "App.xaml",
+              "ToolTip": "L:\\1mp\\PetProjects\\C#\\RequestMaster\\App.xaml",
+              "RelativeToolTip": "App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-09-08T18:23:13.828Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
