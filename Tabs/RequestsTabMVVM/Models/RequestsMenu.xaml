@@ -69,11 +69,11 @@
 
                 <DataGrid x:Name="requestsDataGrid" 
                       Grid.Row="0" 
-                      Margin="20"
+                      Margin="20 20 20 40"
                       MouseDoubleClick="requestsDataGrid_MouseDoubleClick"/>
 
 
-                <materialDesign:Snackbar x:Name="snackBar" FontSize="25" IsActive="False" MessageQueue="{materialDesign:MessageQueue}" Grid.Column="1" Grid.Row="0" FontFamily="{DynamicResource MaterialDesignFont}" Margin="20"/>
+                <materialDesign:Snackbar x:Name="snackBarXAML" FontSize="25" IsActive="False" MessageQueue="{materialDesign:MessageQueue}" Grid.Column="1" Grid.Row="0" FontFamily="{DynamicResource MaterialDesignFont}" Margin="60"/>
             </Grid>
         </Border>
     </Grid>

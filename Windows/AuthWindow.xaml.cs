@@ -1,6 +1,7 @@
 ﻿using RequestMaster.Databases.MainDatabase;
-using RequestMaster.ViewModels;
 using RequestMaster.Patterns;
+using RequestMaster.ViewModels;
+using System.IO;
 using System.Windows;
 using System.Windows.Media;
 
@@ -15,33 +16,80 @@ namespace RequestMaster
         AuthorizationLogger logger;
         MainWindow? mainWindow;
         RequestsContext db;
+        Snackbar snackBar;
 
         public AuthWindow()
         {
+            InitializeComponent();
+            snackBar = new Snackbar(snackBarXAML);
             db = DatabaseSingleton.CreateInstance();
             logger = new AuthorizationLogger();
-            InitializeComponent();
             loginButton.Focus();
             confirmPasswordBox.Visibility = Visibility.Hidden;
+
+            if (!new FileInfo("requests.db").Exists)
+            {
+                Properties.Settings.Default.login = string.Empty;
+                Properties.Settings.Default.password = string.Empty;
+            }
+
+            if (Properties.Settings.Default.login != string.Empty)
+            {
+                try
+                {
+                    login = Properties.Settings.Default.login;
+                    password = Properties.Settings.Default.password;
+                    loginMethod();
+                    Close();
+                    mainWindow!.Show();
+                }
+                catch (InvalidOperationException)
+                {
+
+                }
+            }
+        }
+
+        private void loginMethod()
+        {
+            user = db.Users.Where(x => x.Login == login && x.Password == password).First();
+            email = user.Email;
+
+            if (user.Theme == "светлая")
+            {
+                App.setLightTheme();
+            }
+            else
+            {
+                App.setDarkTheme();
+            }
+
+            mainWindow = new MainWindow();
+            mainWindow.DataContext = new MainWindowViewModel();
+            logger.log($"вход ID={user.UserID}");
         }
 
         private void loginButton_Click(object sender, RoutedEventArgs e)
         {
-            login = loginBox.Text;
-            password = passwordBox.Password;
-            user = db.Users.Where(x => x.Login == login && x.Password == password).FirstOrDefault()!;
-            if (user != null)
+            try
             {
-                mainWindow = new MainWindow();
-                mainWindow.DataContext = new MainWindowViewModel();
-                logger.log($"вход ID={user.UserID}");
+                login = loginBox.Text;
+                password = passwordBox.Password;
+                loginMethod();
+
+                if (checkBoxRememberMe.IsChecked == true)
+                {
+                    Properties.Settings.Default.login = login;
+                    Properties.Settings.Default.password = password;
+                    Properties.Settings.Default.Save();
+                }
+
                 Close();
-                mainWindow.Show();
+                mainWindow!.Show();
             }
-            else
+            catch (InvalidOperationException)
             {
-                snackBar.MessageQueue?.Enqueue
-                    ("неверный логин или пароль", null, null, null, false, true, TimeSpan.FromSeconds(3));
+                snackBar.show("неверный логин или пароль");
                 logger.log($"неверный логин или пароль");
             }
         }
@@ -80,7 +128,7 @@ namespace RequestMaster
                 User user = new User();
                 user.Login = loginBox.Text;
                 user.Password = passwordBox.Password;
-                user.Theme = "Light";
+                user.Theme = "светлая";
 
 
                 if (emailBox.Text != "")
@@ -90,8 +138,7 @@ namespace RequestMaster
 
                 db.Users.Add(user);
                 db.SaveChanges();
-                snackBar.MessageQueue?.Enqueue
-                    ("вы зарегистрировались", null, null, null, false, true, TimeSpan.FromSeconds(3));
+                snackBar.show("вы зарегистрировались");
                 logger.log($"новый пользователь с ID={user.UserID}");
                 turnOffRegistrationButtons();
             }

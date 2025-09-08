@@ -55,7 +55,7 @@
                             </Style>
                         </ComboBox.ItemContainerStyle>
                     </ComboBox>
-                    <materialDesign:Snackbar x:Name="snackBar"               Grid.Column="1" Grid.Row="5" Margin="20" IsActive="False" MessageQueue="{materialDesign:MessageQueue}" Height="70"/>
+                    <materialDesign:Snackbar x:Name="snackBarXAML"               Grid.Column="1" Grid.Row="5" Margin="20" IsActive="False" MessageQueue="{materialDesign:MessageQueue}" Height="70"/>
                     <TextBox                 x:Name="textBoxForNewValue"     Grid.Column="1" Grid.Row="2" Margin="20" materialDesign:HintAssist.Hint="новое значение" VerticalAlignment="Center" Visibility="Hidden"/>
                     <PasswordBox             x:Name="passwordBoxForNewValue" Grid.Column="1" Grid.Row="2" Margin="20" materialDesign:HintAssist.Hint="новый пароль"   VerticalAlignment="Center" Visibility="Hidden"/>
 

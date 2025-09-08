@@ -27,21 +27,27 @@ namespace RequestMaster.Tabs
             createdRequestsDataGrid.Columns[4].Visibility = Visibility.Hidden;
             createdRequestsDataGrid.Columns[5].Visibility = Visibility.Hidden;
             createdRequestsDataGrid.Columns[6].Visibility = Visibility.Hidden;
+            createdRequestsDataGrid.Columns[7].Visibility = Visibility.Hidden;
         }
 
-        private void refreshButton_Click(object sender, RoutedEventArgs e)
+        private void logOutButton_Click(object sender, RoutedEventArgs e)
         {
-            refreshTab();
+            Properties.Settings.Default.login = string.Empty;
+            Properties.Settings.Default.password = string.Empty;
+            Properties.Settings.Default.Save();
+            AuthWindow authWindow = new AuthWindow();
+            authWindow.Show();
+            MainWindow.authWindowOpened = true;
+            Window.GetWindow(this).Close();
         }
 
         private void refreshTab()
         {
-            User user = db.Users.Where(x => x.Login == AuthWindow.login).First();
-            textBlockLogin.Text = $"{user.Login}";
-            textBlockPassword.Text = $"{user.Password}";
-            textBlockEmail.Text = $"{user.Email}";
-            textBlockHowManyRequestsCreated.Text = $"{db.Requests.Where(x => x.WhoCreatedID == user.UserID).Count()}";
-            textBlockHowManyRequestsClosed.Text = $"{db.Requests.Where(x => x.WhoClosedID == user.UserID).Count()}";
+            textBlockLogin.Text = $"{AuthWindow.user!.Login}";
+            textBlockPassword.Text = $"{AuthWindow.user.Password}";
+            textBlockEmail.Text = $"{AuthWindow.user.Email}";
+            textBlockHowManyRequestsCreated.Text = $"{db.Requests.Where(x => x.WhoCreatedID == AuthWindow.user.UserID).Count()}";
+            textBlockHowManyRequestsClosed.Text = $"{db.Requests.Where(x => x.WhoClosedID == AuthWindow.user.UserID).Count()}";
             createdRequestsDataGrid.ItemsSource = db.Requests.Where(x => x.WhoCreatedID == AuthWindow.user!.UserID).ToList();
             logger.log($"вкладка обновлена");
         }

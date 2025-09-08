@@ -27,7 +27,7 @@ public partial class RequestsContext : DbContext
             entity.Property(e => e.Status).HasColumnName("Status");
             entity.Property(e => e.WhoCreatedID).HasColumnName("WhoCreatedID");
             entity.Property(e => e.WhoClosedID).HasColumnName("WhoClosedID");
-
+            entity.Property(e => e.WhoOpenedID).HasColumnName("WhoOpenedID");
         });
 
         modelBuilder.Entity<User>(entity =>

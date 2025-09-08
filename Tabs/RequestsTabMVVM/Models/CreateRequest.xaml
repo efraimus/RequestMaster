@@ -29,7 +29,7 @@
                 <Button x:Name="createRequestButton2"        Grid.Column="1" Grid.Row="3" Content="создать заявку" Click="createRequestButton2_Click"   Margin="20" VerticalAlignment="Center"/>
                 <Button x:Name="returnButton"                Grid.Column="1" Grid.Row="4" Content="назад" Click="returnButton_Click"                    Margin="20" VerticalAlignment="Center"/>
 
-                <materialDesign:Snackbar x:Name="snackBar"   Grid.Column="1" Grid.Row="7" FontFamily="{DynamicResource MaterialDesignFont}"  FontSize="25"  IsActive="False" MessageQueue="{materialDesign:MessageQueue}" Height="70" Margin="20"/>
+                <materialDesign:Snackbar x:Name="snackBarXAML"   Grid.Column="1" Grid.Row="7" FontFamily="{DynamicResource MaterialDesignFont}"  FontSize="25"  IsActive="False" MessageQueue="{materialDesign:MessageQueue}" Height="70" Margin="20"/>
 
             </Grid>
         </ScrollViewer>

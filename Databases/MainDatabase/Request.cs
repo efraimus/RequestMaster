@@ -13,6 +13,8 @@
         public int WhoCreatedID { get; set; }
 
         public int WhoClosedID { get; set; }
+        
+        public int WhoOpenedID { get; set; }
 
         public List<Comment> Comments { get; set; } = new();
     }

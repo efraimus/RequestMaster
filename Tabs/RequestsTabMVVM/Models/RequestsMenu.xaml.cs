@@ -10,10 +10,12 @@ namespace RequestMaster.Tabs.RequestsTabMVVM.Models
     {
         RequestsContext db;
         RequestsMenuLogger logger;
+        Snackbar snackBar;
         public RequestsGrid()
         {
             InitializeComponent();
             logger = new RequestsMenuLogger();
+            snackBar = new Snackbar(snackBarXAML);
             db = DatabaseSingleton.CreateInstance();
             helpButton.Focus();
             refreshTables();
@@ -34,6 +36,7 @@ namespace RequestMaster.Tabs.RequestsTabMVVM.Models
             requestsDataGrid.Columns[4].Visibility = Visibility.Hidden;
             requestsDataGrid.Columns[5].Visibility = Visibility.Hidden;
             requestsDataGrid.Columns[6].Visibility = Visibility.Hidden;
+            requestsDataGrid.Columns[7].Visibility = Visibility.Hidden;
         }
 
         private void SortButton_Click(object sender, RoutedEventArgs e)
@@ -57,30 +60,33 @@ namespace RequestMaster.Tabs.RequestsTabMVVM.Models
 
         private void helpButton_Click(object sender, RoutedEventArgs e)
         {
-            snackBar.MessageQueue?.Enqueue
-                    ("нажмите на любую заявку дважды", null, null, null, false, true, TimeSpan.FromSeconds(3));
+            snackBar.show("нажмите на любую заявку дважды");
             logger.log($"нажата кнопка помощь");
         }
         private void ClearFiltersButton_Click(object sender, RoutedEventArgs e)
         {
             refreshRequestsDataGridWithoutFilters();
+
             logger.log($"фильтры очищены");
         }
         private void createRequestButton_Click(object sender, RoutedEventArgs e)
         {
             Requests.createRequestMenu.Visibility = Visibility.Visible;
+
             logger.log($"нажата кнопка создать заявку");
         }
 
         private void refreshRequestsDataGridWithoutFilters()
         {
             requestsDataGrid.ItemsSource = db.Requests.ToList();
+
             logger.log($"таблица обновлена без фильтров");
         }
         private void requestsDataGrid_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
             Requests.requestCard = db.Requests.Where(x => x.RequestID == requestsDataGrid.SelectedIndex + 1).First();
             Requests.requestDetailsMenu.Visibility = Visibility.Visible;
+
             logger.log($"открыто меню детали заявки №{requestsDataGrid.SelectedIndex + 1}");
         }
     }

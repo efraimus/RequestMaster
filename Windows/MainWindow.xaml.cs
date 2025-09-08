@@ -4,7 +4,7 @@ namespace RequestMaster
 {
     public partial class MainWindow : Window
     {
-
+        public static bool authWindowOpened = false;
         public MainWindow()
         {
             InitializeComponent();
@@ -12,7 +12,10 @@ namespace RequestMaster
 
         private void OnWindowClosed(object sender, EventArgs e)
         {
-            Application.Current.Shutdown();
+            if (!authWindowOpened)
+            {
+                Application.Current.Shutdown();
+            }
         }
     }
 }

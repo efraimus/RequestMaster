@@ -10,7 +10,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="1080" d:DesignWidth="1920">
 
-    <Grid x:Name="profileGrid" Visibility="Visible">
+    <Grid x:Name="profileGrid">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
                 <ColumnDefinition/>
@@ -55,7 +55,7 @@
                         <TextBlock x:Name="textBlockHowManyRequestsClosed"    Margin="20" HorizontalAlignment="Center" Foreground="{x:Static local2:App.textColor}"/>
                     </StackPanel>
                 </Border>
-                <Button Grid.Row="5" Margin="20" VerticalAlignment="Center" HorizontalAlignment="Stretch" Content="обновить страницу"    Click="refreshButton_Click"/>
+                <Button Grid.Row="5" Margin="20" VerticalAlignment="Center" HorizontalAlignment="Stretch" Content="выйти из аккаунта" Click="logOutButton_Click"/>
 
                 </Grid>
             </Border>
@@ -72,7 +72,6 @@
                 <DataGrid x:Name="createdRequestsDataGrid"  
                           Margin="20"      
                           Grid.Row="1"/>
-                    <materialDesign:Snackbar x:Name="snackBar1" Margin="20"      Grid.Row="1" FontSize="20" IsActive="False" MessageQueue="{materialDesign:MessageQueue}"/>
                 </Grid>
             </Border>
 

@@ -39,12 +39,12 @@
                     <Button      x:Name="dontHaveAnAccountYetButton" Grid.Row="4" Grid.Column="1" Content="у меня нет аккаунта" Click="dontHaveAnAccountYetButton_Click" HorizontalAlignment="Right"   VerticalAlignment="Top"/>
                     <Button      x:Name="loginButton"                Grid.Row="3" Grid.Column="1" Content="войти"               Click="loginButton_Click"                HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
 
-                    <CheckBox    x:Name="checkBoxRememberMe"         Grid.Row="3" Grid.Column="1" Margin="20" Content="запомнить меня" FontSize="25"                     HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="{x:Static local:App.textColor}" BorderBrush="#FF673AB7"/>
+                    <CheckBox    x:Name="checkBoxRememberMe"         Grid.Row="3" Grid.Column="1" Margin="20" Content="запомнить меня" FontSize="25"                     HorizontalAlignment="Left" VerticalAlignment="Bottom" Foreground="{x:Static local:App.textColor}"/>
 
                     <Button      x:Name="registrationButton"         Grid.Row="4" Grid.Column="1" Content="зарегистрироваться"  Click="registrationButton_Click"         HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Hidden"/>
                     <Button      x:Name="returnButton"               Grid.Row="4" Grid.Column="2" Content="назад"               Click="returnButton_Click"               HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Hidden"/>
 
-                    <materialDesign:Snackbar x:Name="snackBar" FontSize="20" FontFamily="{DynamicResource MaterialDesignFont}" IsActive="False" MessageQueue="{materialDesign:MessageQueue}" Grid.Column="1" Grid.Row="4" Height="70" Margin="20"/>
+                    <materialDesign:Snackbar x:Name="snackBarXAML" FontSize="20" FontFamily="{DynamicResource MaterialDesignFont}" IsActive="False" MessageQueue="{materialDesign:MessageQueue}" Grid.Column="1" Grid.Row="4" Height="70" Margin="20"/>
                 </Grid>
             </ScrollViewer>
         </Border>

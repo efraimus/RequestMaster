@@ -3,30 +3,36 @@ using RequestMaster.Exceptions;
 using RequestMaster.Patterns;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace RequestMaster.Tabs.RequestsTabMVVM.Models
 {
     public partial class CreateRequest : UserControl
     {
         CreateRequestMenuLogger logger;
+        Snackbar snackBar;
         public CreateRequest()
         {
-            logger = new CreateRequestMenuLogger();
             InitializeComponent();
+            snackBar = new Snackbar(snackBarXAML);
+            logger = new CreateRequestMenuLogger();
         }
 
         private bool isFieldsCorrect()
         {
+            logger.log($"проверка полей на правильность ввода");
+
             if (textBoxDescription.Text != "" &&
            textBoxTelephoneNumber.Text != "") return true;
-
             else return false;
         }
 
         private void clearFields()
         {
             textBoxDescription.Clear();
+            textBoxDescription.Background = Brushes.Transparent;
             textBoxTelephoneNumber.Clear();
+            textBoxTelephoneNumber.Background = Brushes.Transparent;
             logger.log($"поля очищены");
         }
 
@@ -50,23 +56,20 @@ namespace RequestMaster.Tabs.RequestsTabMVVM.Models
                         db.Requests.Add(request);
                         db.SaveChanges();
                         clearFields();
-                        snackBar.MessageQueue?.Enqueue
-                            ("заявка создана", null, null, null, false, true, TimeSpan.FromSeconds(3));
+                        snackBar.show("заявка создана");
                         logger.log($"заявка №{id} создана");
                     }
 
                     else
                     {
-                        snackBar.MessageQueue?.Enqueue
-                            ("проверьте правильность ввода данных", null, null, null, false, true, TimeSpan.FromSeconds(3));
+                        snackBar.show("проверьте правильность ввода данных");
                         logger.log($"некорректно введены данные");
                     }
                 }
             }
             catch (Microsoft.EntityFrameworkCore.DbUpdateException)
             {
-                snackBar.MessageQueue?.Enqueue
-                        ("ошибка при добавлении данных", null, null, null, false, true, TimeSpan.FromSeconds(3));
+                snackBar.show("ошибка при добавлении данных");
                 logger.log($"ошибка при добавлении данных");
             }
         }

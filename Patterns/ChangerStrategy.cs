@@ -1,5 +1,6 @@
 ﻿using RequestMaster;
 using RequestMaster.Databases.MainDatabase;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace RequestMaster.Patterns
@@ -72,6 +73,26 @@ namespace RequestMaster.Patterns
                 db.SaveChanges();
                 AuthWindow.email = user.Email;
             }
+        }
+    }
+
+    class ThemeChanger : IChanger
+    {
+        User user;
+        public ThemeChanger(User user)
+        {
+            this.user = user;
+        }
+        public void Change()
+        {
+            RequestsContext db = DatabaseSingleton.CreateInstance();
+            if (user.Theme == "светлая") 
+            {
+                user.Theme = "темная";
+            } 
+            else user.Theme = "светлая";
+
+            db.SaveChanges();
         }
     }
 

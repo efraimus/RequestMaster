@@ -11,34 +11,53 @@ namespace RequestMaster.Tabs
         User user;
         RequestsContext db;
         SettingsMenuLogger logger;
+        Snackbar snackBar;
         public Settings()
         {
             InitializeComponent();
+            snackBar = new Snackbar(snackBarXAML);
             db = DatabaseSingleton.CreateInstance();
             logger = new SettingsMenuLogger();
             changeButton.Focus();
             user = db.Users.Where(x => x.Login == AuthWindow.login).FirstOrDefault()!;
             comboBoxWhatToChange.ItemsSource = new List<string>()
-            { "логин", "пароль", "почта"};
+            { "логин", "пароль", "почта", "тема"};
         }
 
         private void changeButton_Click(object sender, RoutedEventArgs e)
         {
             if (comboBoxWhatToChange.Text != "") {
-                turnOffButtons();
-                if (comboBoxWhatToChange.Text == "логин") changerStrategy = new LoginChanger(textBoxForNewValue, user);
-                else if (comboBoxWhatToChange.Text == "пароль") changerStrategy = new PasswordChanger(passwordBoxForNewValue, user);
-                else if (comboBoxWhatToChange.Text == "почта") changerStrategy = new EmailChanger(textBoxForNewValue, user);
+
+                if (comboBoxWhatToChange.Text == "логин")
+                {
+                    changerStrategy = new LoginChanger(textBoxForNewValue, user);
+                    turnOffButtons();
+                }
+                else if (comboBoxWhatToChange.Text == "пароль")
+                {
+                    changerStrategy = new PasswordChanger(passwordBoxForNewValue, user);
+                    turnOffButtons();
+                }
+                else if (comboBoxWhatToChange.Text == "почта")
+                {
+                    changerStrategy = new EmailChanger(textBoxForNewValue, user);
+                    turnOffButtons();
+                }
+                else if (comboBoxWhatToChange.Text == "тема") 
+                {
+                    changerStrategy = new ThemeChanger(user);
+                    Changing changing = new Changing();
+                    changing.Change(changerStrategy!);
+                    snackBar.show("изменения вступят в силу после перезагрузки");
+                } 
                 logger.log($"нажата кнопка изменить, значение='{comboBoxWhatToChange.Text}'");
             }
             else 
             {
-                snackBar.MessageQueue?.Enqueue
-                    ("сначала выберите что поменять", null, null, null, false, true, TimeSpan.FromSeconds(3));
+                snackBar.show("сначала выберите что поменять");
                 logger.log($"нажата кнопка изменить без значения'");
             }
         }
-
         private void confirmButton_Click(object sender, RoutedEventArgs e)
         {
             if (textBoxForNewValue.Text != "" || passwordBoxForNewValue.Password != "")
@@ -47,10 +66,7 @@ namespace RequestMaster.Tabs
                 changing.Change(changerStrategy!);
 
                 string whatChanged = comboBoxWhatToChange.Text == "почта" ? "почту" : comboBoxWhatToChange.Text;
-
-                snackBar.MessageQueue?.Enqueue
-                    ($"вы изменили {whatChanged}",
-                    null, null, null, false, true, TimeSpan.FromSeconds(3));
+                snackBar.show($"вы изменили {whatChanged}");
                 logger.log($"пользователь с ID={user.UserID} поменял {whatChanged}");
                 comboBoxWhatToChange.Text = "";
                 textBoxForNewValue.Text = "";
@@ -58,9 +74,7 @@ namespace RequestMaster.Tabs
             }
             else
             {
-                snackBar.MessageQueue?.Enqueue
-                    ($"поле должно содержать текст",
-                    null, null, null, false, true, TimeSpan.FromSeconds(3));
+                snackBar.show($"поле должно содержать текст");
                 logger.log($"нажата кнопка подтвердить с пустым полем");
             }
         }

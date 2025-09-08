@@ -342,3 +342,4 @@ L:\1mp\PetProjects\C#\RequestMaster\obj\Debug\net8.0-windows\Tabs\RequestsTabMVV
 L:\1mp\PetProjects\C#\RequestMaster\obj\Debug\net8.0-windows\Tabs\RequestsTabMVVM\Models\RequestDetails.baml
 L:\1mp\PetProjects\C#\RequestMaster\obj\Debug\net8.0-windows\Tabs\RequestsTabMVVM\Models\RequestsMenu.g.cs
 L:\1mp\PetProjects\C#\RequestMaster\obj\Debug\net8.0-windows\Tabs\RequestsTabMVVM\Models\RequestsMenu.baml
+L:\1mp\PetProjects\C#\RequestMaster\bin\Debug\net8.0-windows\RequestMaster.dll.config
