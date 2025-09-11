@@ -1,6 +1,6 @@
 ﻿namespace RequestMaster.Patterns
 {
-    class Logger
+    public class Logger
     {
         public void createLog(string str, string menuName)
         {
@@ -8,7 +8,7 @@
         }
     }
     
-    class AuthorizationLogger : Logger
+    public class AuthorizationLogger : Logger
     {
         public void log(string str)
         {

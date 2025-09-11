@@ -50,7 +50,7 @@ namespace RequestMaster
             }
         }
 
-        private void loginMethod()
+        public void loginMethod()
         {
             user = db.Users.Where(x => x.Login == login && x.Password == password).First();
             email = user.Email;

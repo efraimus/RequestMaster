@@ -343,3 +343,8 @@ L:\1mp\PetProjects\C#\RequestMaster\obj\Debug\net8.0-windows\Tabs\RequestsTabMVV
 L:\1mp\PetProjects\C#\RequestMaster\obj\Debug\net8.0-windows\Tabs\RequestsTabMVVM\Models\RequestsMenu.g.cs
 L:\1mp\PetProjects\C#\RequestMaster\obj\Debug\net8.0-windows\Tabs\RequestsTabMVVM\Models\RequestsMenu.baml
 L:\1mp\PetProjects\C#\RequestMaster\bin\Debug\net8.0-windows\RequestMaster.dll.config
+L:\1mp\PetProjects\C#\RequestMaster\bin\Debug\net8.0-windows\Castle.Core.dll
+L:\1mp\PetProjects\C#\RequestMaster\bin\Debug\net8.0-windows\Splat.Builder.dll
+L:\1mp\PetProjects\C#\RequestMaster\bin\Debug\net8.0-windows\Splat.Core.dll
+L:\1mp\PetProjects\C#\RequestMaster\bin\Debug\net8.0-windows\Splat.Logging.dll
+L:\1mp\PetProjects\C#\RequestMaster\bin\Debug\net8.0-windows\TestStack.White.dll

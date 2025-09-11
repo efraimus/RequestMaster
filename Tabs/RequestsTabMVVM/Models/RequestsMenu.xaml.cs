@@ -1,5 +1,6 @@
 ﻿using RequestMaster.Databases.MainDatabase;
 using RequestMaster.Patterns;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -11,6 +12,8 @@ namespace RequestMaster.Tabs.RequestsTabMVVM.Models
         RequestsContext db;
         RequestsMenuLogger logger;
         Snackbar snackBar;
+        string statusFilter;
+        int? authorFilter;
         public RequestsGrid()
         {
             InitializeComponent();
@@ -39,24 +42,7 @@ namespace RequestMaster.Tabs.RequestsTabMVVM.Models
             requestsDataGrid.Columns[7].Visibility = Visibility.Hidden;
         }
 
-        private void SortButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (radioButtonStatus_NotImportant.IsChecked == false)
-            {
-                string status = "";
-                if (radioButtonStatus_Active.IsChecked == true) status = "активна";
-                else if (radioButtonStatus_Processing.IsChecked == true) status = "в обработке";
-                else if (radioButtonStatus_Closed.IsChecked == true) status = "закрыта";
 
-                requestsDataGrid.ItemsSource = db.Requests.Where(x => x.Status == status.ToString()).ToList();
-            }
-            else
-            {
-                requestsDataGrid.ItemsSource = db.Requests.ToList();
-            }
-            CollectionViewSource.GetDefaultView(requestsDataGrid.ItemsSource).Refresh();
-            logger.log($"заявки отсортированы");
-        }
 
         private void helpButton_Click(object sender, RoutedEventArgs e)
         {
@@ -65,6 +51,8 @@ namespace RequestMaster.Tabs.RequestsTabMVVM.Models
         }
         private void ClearFiltersButton_Click(object sender, RoutedEventArgs e)
         {
+            statusFilter = string.Empty;
+            authorFilter = null;
             refreshRequestsDataGridWithoutFilters();
 
             logger.log($"фильтры очищены");
@@ -79,6 +67,8 @@ namespace RequestMaster.Tabs.RequestsTabMVVM.Models
         private void refreshRequestsDataGridWithoutFilters()
         {
             requestsDataGrid.ItemsSource = db.Requests.ToList();
+            radioButtonStatus_NotImportant.IsChecked = true;
+            radioButtonAuthor_NotImportant.IsChecked = true;
 
             logger.log($"таблица обновлена без фильтров");
         }
@@ -88,6 +78,73 @@ namespace RequestMaster.Tabs.RequestsTabMVVM.Models
             Requests.requestDetailsMenu.Visibility = Visibility.Visible;
 
             logger.log($"открыто меню детали заявки №{requestsDataGrid.SelectedIndex + 1}");
+        }
+        private void SortButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (statusFilter == string.Empty && authorFilter == null)
+            {
+                requestsDataGrid.ItemsSource = db.Requests.ToList();
+            }
+            else if (statusFilter != string.Empty && authorFilter != null)
+            {
+                requestsDataGrid.ItemsSource = db.Requests.Where(x =>
+                x.Status == statusFilter.ToString() && x.WhoCreatedID == authorFilter).ToList();
+            }
+            else if (statusFilter != string.Empty && authorFilter == 0)
+            {
+                requestsDataGrid.ItemsSource = db.Requests.Where(x =>
+                x.Status == statusFilter.ToString() && x.WhoCreatedID != authorFilter).ToList();
+            }
+            else if (statusFilter == string.Empty && authorFilter != null)
+            {
+                requestsDataGrid.ItemsSource = db.Requests.Where(x =>
+                x.WhoCreatedID == authorFilter).ToList();
+            }
+            else if (statusFilter == string.Empty && authorFilter == 0)
+            {
+                requestsDataGrid.ItemsSource = db.Requests.Where(x =>
+                x.WhoCreatedID != AuthWindow.user!.UserID).ToList();
+            }
+            else if (statusFilter != string.Empty && authorFilter == null)
+            {
+                requestsDataGrid.ItemsSource = db.Requests.Where(x =>
+                x.Status == statusFilter).ToList();
+            }
+            MessageBox.Show($"{statusFilter}, {authorFilter}");
+            CollectionViewSource.GetDefaultView(requestsDataGrid.ItemsSource).Refresh();
+            logger.log($"заявки отсортированы");
+        }
+        private void radioButtonStatus_Active_Checked(object sender, RoutedEventArgs e)
+        {
+            statusFilter = "активна";
+        }
+
+        private void radioButtonStatus_Processing_Checked(object sender, RoutedEventArgs e)
+        {
+            statusFilter = "в обработке";
+        }
+
+        private void radioButtonStatus_Closed_Checked(object sender, RoutedEventArgs e)
+        {
+            statusFilter = "закрыта";
+        }
+        private void radioButtonStatus_NotImportant_Checked(object sender, RoutedEventArgs e)
+        {
+            statusFilter = string.Empty;
+        }
+
+        private void radioButtonAuthor_Me_Checked(object sender, RoutedEventArgs e)
+        {
+            authorFilter = AuthWindow.user!.UserID;
+        }
+        private void radioButtonAuthor_NotMe_Checked(object sender, RoutedEventArgs e)
+        {
+            authorFilter = 0;
+        }
+
+        private void radioButtonAuthor_NotImportant_Checked(object sender, RoutedEventArgs e)
+        {
+            authorFilter = null;
         }
     }
 }

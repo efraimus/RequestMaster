@@ -57,7 +57,11 @@ namespace RequestMaster.Tabs.RequestsTabMVVM.Models
                 comment.DateTimeOfCreating = $"{DateTime.Now:G}";
                 comment.RequestID = Requests.requestCard.RequestID;
 
-                if (Requests.requestCard.Status == "активна") Requests.requestCard.Status = "в обработке";
+                if (Requests.requestCard.Status == "активна") 
+                {
+                    Requests.requestCard.Status = "в обработке";
+                    requestStatusTextBlock.Text = Requests.requestCard.Status;
+                }
 
                 commentTextBox.Clear();
                 db.Comments.Add(comment);

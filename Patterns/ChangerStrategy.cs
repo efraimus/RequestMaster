@@ -1,6 +1,4 @@
-﻿using RequestMaster;
-using RequestMaster.Databases.MainDatabase;
-using System.Windows;
+﻿using RequestMaster.Databases.MainDatabase;
 using System.Windows.Controls;
 
 namespace RequestMaster.Patterns

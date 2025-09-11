@@ -26,18 +26,16 @@
                     </TreeView.Template>
 
                     <TreeViewItem    Header="статус" IsExpanded="True">
-                        <RadioButton x:Name="radioButtonStatus_Active"       Content="активна"    Foreground="#FF28A235" >
-
-                        </RadioButton>
-                        <RadioButton x:Name="radioButtonStatus_Processing"   Content="в обработке" Foreground="#0000FF"   />
-                        <RadioButton x:Name="radioButtonStatus_Closed"       Content="закрыта"     Foreground="#FFD41212" />
-                        <RadioButton x:Name="radioButtonStatus_NotImportant" Content="неважно"     IsChecked="True"         />
+                        <RadioButton x:Name="radioButtonStatus_Active"       Content="активна"     Foreground="#FF28A235" Checked="radioButtonStatus_Active_Checked"/>
+                        <RadioButton x:Name="radioButtonStatus_Processing"   Content="в обработке" Foreground="#0000FF"   Checked="radioButtonStatus_Processing_Checked"/>
+                        <RadioButton x:Name="radioButtonStatus_Closed"       Content="закрыта"     Foreground="#FFD41212" Checked="radioButtonStatus_Closed_Checked"/>
+                        <RadioButton x:Name="radioButtonStatus_NotImportant" Content="неважно"     IsChecked="True"         Checked="radioButtonStatus_NotImportant_Checked"/>
                     </TreeViewItem>
 
                     <TreeViewItem Header="автор" IsExpanded="False">
-                        <RadioButton x:Name="radioButtonAuthor_Me"    Content="я" />
-                        <RadioButton x:Name="radioButtonAuthor_NotMe" Content="не я" />
-                        <RadioButton x:Name="radioButtonAuthor_NotImportant" Content="неважно" IsChecked="True"/>
+                        <RadioButton x:Name="radioButtonAuthor_Me"    Content="я"              Checked="radioButtonAuthor_Me_Checked"/>
+                        <RadioButton x:Name="radioButtonAuthor_NotMe" Content="не я"           Checked="radioButtonAuthor_NotMe_Checked"/>
+                        <RadioButton x:Name="radioButtonAuthor_NotImportant" Content="неважно" Checked="radioButtonAuthor_NotImportant_Checked" IsChecked="True" />
                     </TreeViewItem>
 
                 </TreeView>

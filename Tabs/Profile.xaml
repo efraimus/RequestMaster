@@ -11,45 +11,47 @@
              d:DesignHeight="1080" d:DesignWidth="1920">
 
     <Grid x:Name="profileGrid">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
         <Border Background="{x:Static local2:App.foregroundColor}" CornerRadius="20" Grid.Column="0" Margin="20">
-                <Grid Margin="20">
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
+            <Grid Margin="20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <Border Grid.Row="0" Margin="20" BorderBrush="{x:Static local2:App.textColor}" BorderThickness="2" CornerRadius="20">
-                            <StackPanel VerticalAlignment="Center">
-                            <TextBlock Text="логин" HorizontalAlignment="Center" FontWeight="Bold"         Foreground="{x:Static local2:App.textColor}"/>
-                            <TextBlock x:Name="textBlockLogin"    Margin="20" HorizontalAlignment="Center" Foreground="{x:Static local2:App.textColor}"/>
-                            </StackPanel>
-                        </Border>
-                    <Border Grid.Row="1" Margin="20" BorderBrush="{x:Static local2:App.textColor}" BorderThickness="2" CornerRadius="20">
-                            <StackPanel VerticalAlignment="Center">
-                            <TextBlock Text="пароль" HorizontalAlignment="Center" FontWeight="Bold"        Foreground="{x:Static local2:App.textColor}"/>
-                            <TextBlock x:Name="textBlockPassword" Margin="20" HorizontalAlignment="Center" Foreground="{x:Static local2:App.textColor}"/>
-                            </StackPanel>
-                        </Border>
-                    <Border Grid.Row="2" Margin="20" BorderBrush="{x:Static local2:App.textColor}" BorderThickness="2" CornerRadius="20">
-                        <StackPanel VerticalAlignment="Center">
-                            <TextBlock Text="почта" HorizontalAlignment="Center" FontWeight="Bold"         Foreground="{x:Static local2:App.textColor}"/>
-                            <TextBlock x:Name="textBlockEmail"    Margin="20" HorizontalAlignment="Center" Foreground="{x:Static local2:App.textColor}"/>
-                        </StackPanel>
-                    </Border>
-                <Border Grid.Row="3" Margin="20" BorderBrush="{x:Static local2:App.textColor}" BorderThickness="2" CornerRadius="20">
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Border Grid.Column="0" Grid.Row="0" Margin="20" BorderBrush="{x:Static local2:App.textColor}" BorderThickness="2" CornerRadius="20">
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock Text="логин" HorizontalAlignment="Center" FontWeight="Bold"         Foreground="{x:Static local2:App.textColor}"/>
+                        <TextBlock x:Name="textBlockLogin"    Margin="20" HorizontalAlignment="Center" Foreground="{x:Static local2:App.textColor}"/>
+                    </StackPanel>
+                </Border>
+                <Border Grid.Column="1" Grid.Row="0" Margin="20" BorderBrush="{x:Static local2:App.textColor}" BorderThickness="2" CornerRadius="20">
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock Text="пароль" HorizontalAlignment="Center" FontWeight="Bold"        Foreground="{x:Static local2:App.textColor}"/>
+                        <TextBlock x:Name="textBlockPassword" Margin="20" HorizontalAlignment="Center" Foreground="{x:Static local2:App.textColor}"/>
+                    </StackPanel>
+                </Border>
+                <Border Grid.Column="2" Grid.Row="0" Margin="20" BorderBrush="{x:Static local2:App.textColor}" BorderThickness="2" CornerRadius="20">
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock Text="почта" HorizontalAlignment="Center" FontWeight="Bold"         Foreground="{x:Static local2:App.textColor}"/>
+                        <TextBlock x:Name="textBlockEmail"    Margin="20" HorizontalAlignment="Center" Foreground="{x:Static local2:App.textColor}"/>
+                    </StackPanel>
+                </Border>
+                <Border Grid.Column="0" Grid.Row="1" Margin="20" BorderBrush="{x:Static local2:App.textColor}" BorderThickness="2" CornerRadius="20">
                     <StackPanel VerticalAlignment="Center">
                         <TextBlock Text="заявок создано" HorizontalAlignment="Center" FontWeight="Bold"         Foreground="{x:Static local2:App.textColor}"/>
                         <TextBlock x:Name="textBlockHowManyRequestsCreated"    Margin="20" HorizontalAlignment="Center" Foreground="{x:Static local2:App.textColor}"/>
                     </StackPanel>
                 </Border>
-                <Border Grid.Row="4" Margin="20" BorderBrush="{x:Static local2:App.textColor}" BorderThickness="2" CornerRadius="20">
+                <Border Grid.Column="0" Grid.Row="2" Margin="20" BorderBrush="{x:Static local2:App.textColor}" BorderThickness="2" CornerRadius="20">
                     <StackPanel VerticalAlignment="Center">
                         <TextBlock Text="заявок закрыто" HorizontalAlignment="Center" FontWeight="Bold"         Foreground="{x:Static local2:App.textColor}"/>
                         <TextBlock x:Name="textBlockHowManyRequestsClosed"    Margin="20" HorizontalAlignment="Center" Foreground="{x:Static local2:App.textColor}"/>
@@ -57,24 +59,8 @@
                 </Border>
                 <Button Grid.Row="5" Margin="20" VerticalAlignment="Center" HorizontalAlignment="Stretch" Content="выйти из аккаунта" Click="logOutButton_Click"/>
 
-                </Grid>
-            </Border>
-        <Border Background="{x:Static local2:App.foregroundColor}" CornerRadius="20" Grid.Column="1" Margin="20">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="Auto"/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                <Border Grid.Row="0" Margin="40" BorderBrush="{x:Static local2:App.textColor}" BorderThickness="2" CornerRadius="20">
-                    <TextBlock Text="заявки, созданные вами" Margin="20" Grid.Row="0" FontWeight="Bold" HorizontalAlignment="Center" Foreground="{x:Static local2:App.textColor}"/>
-                    </Border>
-
-                <DataGrid x:Name="createdRequestsDataGrid"  
-                          Margin="20"      
-                          Grid.Row="1"/>
-                </Grid>
-            </Border>
-
-        </Grid>
+            </Grid>
+        </Border>
+    </Grid>
 
 </UserControl>

@@ -1,6 +1,6 @@
 ﻿namespace RequestMaster.Patterns
 {
-    class Snackbar
+    public class Snackbar
     {
         MaterialDesignThemes.Wpf.Snackbar snackBar;
         public Snackbar(MaterialDesignThemes.Wpf.Snackbar snackBar)
