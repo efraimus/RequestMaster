@@ -17,5 +17,7 @@
         public int WhoOpenedID { get; set; }
 
         public List<Comment> Comments { get; set; } = new();
+
+        public DateTime CreationDate { get; set; }
     }
 }

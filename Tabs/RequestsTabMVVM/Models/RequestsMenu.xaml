@@ -38,6 +38,18 @@
                         <RadioButton x:Name="radioButtonAuthor_NotImportant" Content="неважно" Checked="radioButtonAuthor_NotImportant_Checked" IsChecked="True" />
                     </TreeViewItem>
 
+                    <TreeViewItem Header="дата создания" IsExpanded="False">
+                        <DockPanel>
+                            <TextBlock Text="от" Margin="0 0 30 0" DockPanel.Dock="Left"/>
+                            <TextBox x:Name="startDateBox"  Text="01.01.1970" DockPanel.Dock="Right"/>
+                        </DockPanel>
+                        <DockPanel>
+                            <TextBlock Text="до" Margin="0 0 30 0" DockPanel.Dock="Left"/>
+                            <TextBox x:Name="endDateBox" DockPanel.Dock="Right"/>
+                        </DockPanel>
+
+                    </TreeViewItem>
+
                 </TreeView>
                 <Grid Margin="20" VerticalAlignment="Bottom">
                     <Grid.RowDefinitions>
@@ -52,26 +64,28 @@
         <Border Background="{x:Static local:App.foregroundColor}" Grid.Column="1" Margin="10 0 0 0"  CornerRadius="20">
             <Grid>
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
                     <RowDefinition/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
-                <Grid Grid.Row="1" Margin="20" VerticalAlignment="Bottom">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="2*"/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <Button x:Name="createRequestButton"  Margin="10" Content="создать заявку"         Click="createRequestButton_Click" HorizontalAlignment="Stretch"/>
-                    <Button x:Name="helpButton"           Margin="10" Grid.Column="1" Content="помощь" Click="helpButton_Click"          HorizontalAlignment="Right"/>
+                <DataGrid x:Name="requestsDataGrid" Grid.Row="1" Margin="20 20 20 40" MouseDoubleClick="requestsDataGrid_MouseDoubleClick"/>
+
+                <Grid Grid.Row="2" Margin="20" VerticalAlignment="Bottom">
+                    <Button x:Name="createRequestButton"  Width="300" Margin="10" Content="создать заявку"         Click="createRequestButton_Click" HorizontalAlignment="Left"/>
+                    <Button x:Name="helpButton"           Width="300" Margin="10" Content="помощь" Click="helpButton_Click"          HorizontalAlignment="Right"/>
                 </Grid>
 
-                <DataGrid x:Name="requestsDataGrid" 
-                      Grid.Row="0" 
-                      Margin="20 20 20 40"
-                      MouseDoubleClick="requestsDataGrid_MouseDoubleClick"/>
-
-
-                <materialDesign:Snackbar x:Name="snackBarXAML" FontSize="25" IsActive="False" MessageQueue="{materialDesign:MessageQueue}" Grid.Column="1" Grid.Row="0" FontFamily="{DynamicResource MaterialDesignFont}" Margin="60"/>
+                <Grid Grid.Row="0" Margin="20">
+                    <TextBox x:Name="searchBox" Foreground="{x:Static local:App.textColor}" Margin="10 10 200 10" Width="1100" HorizontalAlignment="Left">
+                        <materialDesign:HintAssist.Hint>
+                            <TextBlock Foreground="{x:Static local:App.textColor}" Text="поиск по описанию"/>
+                        </materialDesign:HintAssist.Hint>
+                    </TextBox>
+                    <Button x:Name="search" Click="search_Click"  Width="300"  Margin="10" Content="поиск"  HorizontalAlignment="Right"/>
+                </Grid>
+                
+                <materialDesign:Snackbar x:Name="snackBarXAML" FontSize="25" IsActive="False" MessageQueue="{materialDesign:MessageQueue}" Grid.Column="1" Grid.Row="2" FontFamily="{DynamicResource MaterialDesignFont}" Margin="60"/>
             </Grid>
         </Border>
     </Grid>

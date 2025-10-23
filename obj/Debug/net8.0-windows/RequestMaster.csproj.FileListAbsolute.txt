@@ -348,3 +348,4 @@ L:\1mp\PetProjects\C#\RequestMaster\bin\Debug\net8.0-windows\Splat.Builder.dll
 L:\1mp\PetProjects\C#\RequestMaster\bin\Debug\net8.0-windows\Splat.Core.dll
 L:\1mp\PetProjects\C#\RequestMaster\bin\Debug\net8.0-windows\Splat.Logging.dll
 L:\1mp\PetProjects\C#\RequestMaster\bin\Debug\net8.0-windows\TestStack.White.dll
+L:\1mp\PetProjects\C#\RequestMaster\obj\Debug\net8.0-windows\RequestMaster_Content.g.cs

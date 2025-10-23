@@ -3,16 +3,12 @@
   "WorkspaceRootPath": "L:\\1mp\\PetProjects\\C#\\RequestMaster\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{65D7F326-7E2F-4B12-B217-4FF22E1BD540}|RequestMaster.csproj|l:\\1mp\\petprojects\\c#\\requestmaster\\windows\\authwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{65D7F326-7E2F-4B12-B217-4FF22E1BD540}|RequestMaster.csproj|solutionrelative:windows\\authwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+      "AbsoluteMoniker": "D:0:0:{65D7F326-7E2F-4B12-B217-4FF22E1BD540}|RequestMaster.csproj|l:\\1mp\\petprojects\\c#\\requestmaster\\logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65D7F326-7E2F-4B12-B217-4FF22E1BD540}|RequestMaster.csproj|solutionrelative:logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{65D7F326-7E2F-4B12-B217-4FF22E1BD540}|RequestMaster.csproj|l:\\1mp\\petprojects\\c#\\requestmaster\\patterns\\changerstrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{65D7F326-7E2F-4B12-B217-4FF22E1BD540}|RequestMaster.csproj|solutionrelative:patterns\\changerstrategy.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{65D7F326-7E2F-4B12-B217-4FF22E1BD540}|RequestMaster.csproj|l:\\1mp\\petprojects\\c#\\requestmaster\\windows\\authwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{65D7F326-7E2F-4B12-B217-4FF22E1BD540}|RequestMaster.csproj|solutionrelative:windows\\authwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{65D7F326-7E2F-4B12-B217-4FF22E1BD540}|RequestMaster.csproj|l:\\1mp\\petprojects\\c#\\requestmaster\\tabs\\requeststabmvvm\\models\\requestsmenu.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{65D7F326-7E2F-4B12-B217-4FF22E1BD540}|RequestMaster.csproj|solutionrelative:tabs\\requeststabmvvm\\models\\requestsmenu.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -22,44 +18,33 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ChangerStrategy.cs",
-              "DocumentMoniker": "L:\\1mp\\PetProjects\\C#\\RequestMaster\\Patterns\\ChangerStrategy.cs",
-              "RelativeDocumentMoniker": "Patterns\\ChangerStrategy.cs",
-              "ToolTip": "L:\\1mp\\PetProjects\\C#\\RequestMaster\\Patterns\\ChangerStrategy.cs",
-              "RelativeToolTip": "Patterns\\ChangerStrategy.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T11:23:41.233Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AuthWindow.xaml",
-              "DocumentMoniker": "L:\\1mp\\PetProjects\\C#\\RequestMaster\\Windows\\AuthWindow.xaml",
-              "RelativeDocumentMoniker": "Windows\\AuthWindow.xaml",
-              "ToolTip": "L:\\1mp\\PetProjects\\C#\\RequestMaster\\Windows\\AuthWindow.xaml",
-              "RelativeToolTip": "Windows\\AuthWindow.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2025-09-10T11:16:11.017Z",
+              "Title": "Logger.cs",
+              "DocumentMoniker": "L:\\1mp\\PetProjects\\C#\\RequestMaster\\Logger.cs",
+              "RelativeDocumentMoniker": "Logger.cs",
+              "ToolTip": "L:\\1mp\\PetProjects\\C#\\RequestMaster\\Logger.cs",
+              "RelativeToolTip": "Logger.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-23T15:08:35.488Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "AuthWindow.xaml.cs",
-              "DocumentMoniker": "L:\\1mp\\PetProjects\\C#\\RequestMaster\\Windows\\AuthWindow.xaml.cs",
-              "RelativeDocumentMoniker": "Windows\\AuthWindow.xaml.cs",
-              "ToolTip": "L:\\1mp\\PetProjects\\C#\\RequestMaster\\Windows\\AuthWindow.xaml.cs",
-              "RelativeToolTip": "Windows\\AuthWindow.xaml.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADQAAAAhAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "RequestsMenu.xaml.cs",
+              "DocumentMoniker": "L:\\1mp\\PetProjects\\C#\\RequestMaster\\Tabs\\RequestsTabMVVM\\Models\\RequestsMenu.xaml.cs",
+              "RelativeDocumentMoniker": "Tabs\\RequestsTabMVVM\\Models\\RequestsMenu.xaml.cs",
+              "ToolTip": "L:\\1mp\\PetProjects\\C#\\RequestMaster\\Tabs\\RequestsTabMVVM\\Models\\RequestsMenu.xaml.cs",
+              "RelativeToolTip": "Tabs\\RequestsTabMVVM\\Models\\RequestsMenu.xaml.cs",
+              "ViewState": "AgIAAAYAAAAAAAAAAAAAAB8AAABeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-10T11:14:18.376Z"
+              "WhenOpened": "2025-10-23T15:07:28.883Z",
+              "EditorCaption": ""
             }
           ]
         }

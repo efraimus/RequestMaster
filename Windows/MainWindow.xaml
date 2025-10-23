@@ -23,7 +23,7 @@
                 <TabItem.HeaderTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <TextBlock Text="заявки" FontSize="20" Foreground="{x:Static local:App.textColor}"/>
+                            <TextBlock Text="заявки" FontSize="25" Foreground="{x:Static local:App.textColor}"/>
                         </StackPanel>
                     </DataTemplate>
                 </TabItem.HeaderTemplate>
@@ -33,7 +33,7 @@
                 <TabItem.HeaderTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <TextBlock Text="профиль" FontSize="20" Foreground="{x:Static local:App.textColor}"/>
+                            <TextBlock Text="профиль" FontSize="25" Foreground="{x:Static local:App.textColor}"/>
                         </StackPanel>
                     </DataTemplate>
                 </TabItem.HeaderTemplate>
@@ -43,7 +43,7 @@
                 <TabItem.HeaderTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <TextBlock Text="настройки" FontSize="20" Foreground="{x:Static local:App.textColor}"/>
+                            <TextBlock Text="настройки" FontSize="25" Foreground="{x:Static local:App.textColor}"/>
                         </StackPanel>
                     </DataTemplate>
                 </TabItem.HeaderTemplate>

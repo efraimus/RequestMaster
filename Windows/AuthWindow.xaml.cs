@@ -54,16 +54,6 @@ namespace RequestMaster
         {
             user = db.Users.Where(x => x.Login == login && x.Password == password).First();
             email = user.Email;
-
-            if (user.Theme == "светлая")
-            {
-                App.setLightTheme();
-            }
-            else
-            {
-                App.setDarkTheme();
-            }
-
             mainWindow = new MainWindow();
             mainWindow.DataContext = new MainWindowViewModel();
             logger.log($"вход ID={user.UserID}");

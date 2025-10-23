@@ -21,35 +21,24 @@ namespace RequestMaster.Tabs
             changeButton.Focus();
             user = db.Users.Where(x => x.Login == AuthWindow.login).FirstOrDefault()!;
             comboBoxWhatToChange.ItemsSource = new List<string>()
-            { "логин", "пароль", "почта", "тема"};
+            { "логин", "пароль", "почта"};
         }
 
         private void changeButton_Click(object sender, RoutedEventArgs e)
         {
             if (comboBoxWhatToChange.Text != "") {
+                changerStrategy = FactoryForSettings.createChanger(comboBoxWhatToChange.Text,
+                    textBoxForNewValue, passwordBoxForNewValue, user);
+                turnOffButtons();
 
-                if (comboBoxWhatToChange.Text == "логин")
+                if (comboBoxWhatToChange.Text == "тема") 
                 {
-                    changerStrategy = new LoginChanger(textBoxForNewValue, user);
-                    turnOffButtons();
-                }
-                else if (comboBoxWhatToChange.Text == "пароль")
-                {
-                    changerStrategy = new PasswordChanger(passwordBoxForNewValue, user);
-                    turnOffButtons();
-                }
-                else if (comboBoxWhatToChange.Text == "почта")
-                {
-                    changerStrategy = new EmailChanger(textBoxForNewValue, user);
-                    turnOffButtons();
-                }
-                else if (comboBoxWhatToChange.Text == "тема") 
-                {
-                    changerStrategy = new ThemeChanger(user);
+                    turnOnButtons();
+                    snackBar.show("изменения вступят в силу после перезагрузки");
                     Changing changing = new Changing();
                     changing.Change(changerStrategy!);
-                    snackBar.show("изменения вступят в силу после перезагрузки");
-                } 
+                }
+
                 logger.log($"нажата кнопка изменить, значение='{comboBoxWhatToChange.Text}'");
             }
             else 

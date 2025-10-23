@@ -5,7 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:RequestMaster.Tabs"
              xmlns:local2="clr-namespace:RequestMaster"
-             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" x:Class="RequestMaster.Tabs.Settings"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+             x:Class="RequestMaster.Tabs.Settings"
              mc:Ignorable="d" 
              d:DesignHeight="800" d:DesignWidth="1200">
     <Grid Background="{x:Static local2:App.backgroundColor}">
@@ -55,13 +56,13 @@
                             </Style>
                         </ComboBox.ItemContainerStyle>
                     </ComboBox>
-                    <materialDesign:Snackbar x:Name="snackBarXAML"               Grid.Column="1" Grid.Row="5" Margin="20" IsActive="False" MessageQueue="{materialDesign:MessageQueue}" Height="70"/>
+                    <materialDesign:Snackbar x:Name="snackBarXAML"           Grid.Column="1" Grid.Row="5" Margin="20" IsActive="False" MessageQueue="{materialDesign:MessageQueue}" Height="70"/>
                     <TextBox                 x:Name="textBoxForNewValue"     Grid.Column="1" Grid.Row="2" Margin="20" materialDesign:HintAssist.Hint="новое значение" VerticalAlignment="Center" Visibility="Hidden"/>
                     <PasswordBox             x:Name="passwordBoxForNewValue" Grid.Column="1" Grid.Row="2" Margin="20" materialDesign:HintAssist.Hint="новый пароль"   VerticalAlignment="Center" Visibility="Hidden"/>
 
-                    <Button                  x:Name="changeButton"             Grid.Column="1" Grid.Row="4" Margin="20" Height="50" Click="changeButton_Click"  Content="поменять" />
-                    <Button                  x:Name="confirmButton"            Grid.Column="1" Grid.Row="3" Margin="20" Height="50" Click="confirmButton_Click" Content="подтвердить" Visibility="Hidden"/>
-                    <Button                  x:Name="returnButton"             Grid.Column="1" Grid.Row="4" Margin="20" Height="50" Click="returnButton_Click"  Content="назад"  Visibility="Hidden"/>
+                    <Button                  x:Name="changeButton"           Grid.Column="1" Grid.Row="4" Margin="20" Height="50" Click="changeButton_Click"  Content="поменять" />
+                    <Button                  x:Name="confirmButton"          Grid.Column="1" Grid.Row="3" Margin="20" Height="50" Click="confirmButton_Click" Content="подтвердить" Visibility="Hidden"/>
+                    <Button                  x:Name="returnButton"           Grid.Column="1" Grid.Row="4" Margin="20" Height="50" Click="returnButton_Click"  Content="назад"       Visibility="Hidden"/>
                 </Grid>
             </Border>
         </ScrollViewer>

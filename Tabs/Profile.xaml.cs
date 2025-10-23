@@ -9,12 +9,22 @@ namespace RequestMaster.Tabs
     {
         RequestsContext db;
         ProfileMenuLogger logger;
+        List<Request>? requestsList;
         public Profile()
         {
             InitializeComponent();
             logger = new ProfileMenuLogger();
             db = DatabaseSingleton.CreateInstance();
-            refreshTab();
+            textBlockLogin.Text = $"{AuthWindow.user!.Login}";
+            textBlockPassword.Text = $"{AuthWindow.user.Password}";
+            textBlockEmail.Text = $"{AuthWindow.user.Email}";
+            requestsList = db.Requests.ToList();
+
+            textBlockHowManyRequestsCreated.Text = $"{requestsList.
+                Where(x => x.WhoCreatedID == AuthWindow.user.UserID).Count()}";
+
+            textBlockHowManyRequestsClosed.Text = $"{requestsList.
+                Where(x => x.WhoClosedID == AuthWindow.user.UserID).Count()}";
         }
 
         private void logOutButton_Click(object sender, RoutedEventArgs e)
@@ -26,16 +36,6 @@ namespace RequestMaster.Tabs
             authWindow.Show();
             MainWindow.authWindowOpened = true;
             Window.GetWindow(this).Close();
-        }
-
-        private void refreshTab()
-        {
-            textBlockLogin.Text = $"{AuthWindow.user!.Login}";
-            textBlockPassword.Text = $"{AuthWindow.user.Password}";
-            textBlockEmail.Text = $"{AuthWindow.user.Email}";
-            textBlockHowManyRequestsCreated.Text = $"{db.Requests.Where(x => x.WhoCreatedID == AuthWindow.user.UserID).Count()}";
-            textBlockHowManyRequestsClosed.Text = $"{db.Requests.Where(x => x.WhoClosedID == AuthWindow.user.UserID).Count()}";
-            logger.log($"вкладка обновлена");
         }
     }
 }

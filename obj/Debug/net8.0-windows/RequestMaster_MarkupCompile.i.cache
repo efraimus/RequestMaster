@@ -11,9 +11,9 @@ false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 L:\1mp\PetProjects\C#\RequestMaster\App.xaml
 81464270270
-
-311209636792
-2301452656490
+22-1389451269
+321608084754
+230-105607841
 Tabs\Profile.xaml;Tabs\Requests.xaml;Tabs\RequestsTabMVVM\Models\CreateRequest.xaml;Tabs\RequestsTabMVVM\Models\RequestDetails.xaml;Tabs\RequestsTabMVVM\Models\RequestsMenu.xaml;Tabs\Settings.xaml;Windows\AuthWindow.xaml;Windows\MainWindow.xaml;
 
 False

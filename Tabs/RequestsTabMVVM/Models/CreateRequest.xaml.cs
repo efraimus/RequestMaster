@@ -1,6 +1,7 @@
 ﻿using RequestMaster.Databases.MainDatabase;
 using RequestMaster.Exceptions;
 using RequestMaster.Patterns;
+using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -53,6 +54,7 @@ namespace RequestMaster.Tabs.RequestsTabMVVM.Models
                         request.TelephoneNumber = textBoxTelephoneNumber.Text;
                         request.Status = "активна";
                         request.WhoCreatedID = AuthWindow.user!.UserID;
+                        request.CreationDate = DateTime.Now;
                         db.Requests.Add(request);
                         db.SaveChanges();
                         clearFields();

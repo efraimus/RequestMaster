@@ -2,6 +2,7 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:RequestMaster"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              Exit="onExit"
              Startup="onStartup"
              StartupUri="Windows\AuthWindow.xaml">
@@ -17,7 +18,7 @@
 
             <Style TargetType="{x:Type Button}" BasedOn="{StaticResource MaterialDesignRaisedButton}">
                 <Setter Property="FontSize"      Value="{x:Static local:App.fontSize}"/>
-                <Setter Property="Height"        Value="NaN"/>
+                <Setter Property="Height"        Value="50"/>
                 <Setter Property="Background"    Value="{x:Static local:App.buttonsColor}"/>
                 <Setter Property="BorderBrush"   Value="{x:Static local:App.buttonsColor}"/>
                 <Setter Property="Foreground"    Value="White"/>
@@ -30,7 +31,6 @@
                 <Setter Property="Height"        Value="NaN"/>
                 <Setter Property="Foreground"    Value="{x:Static local:App.textColor}"/>
             </Style>
-
 
             <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource MaterialDesignTextBlock}">
                 <Setter Property="FontFamily"    Value="{x:Static local:App.fontFamily}"/>

@@ -43,7 +43,7 @@ namespace RequestMaster.Tabs
             {
                 createRequestMenu.Visibility = Visibility.Hidden;
                 requestDetailsMenu.Visibility = Visibility.Hidden;
-                requestsMenu.requestsDataGrid.ItemsSource = db.Requests.ToList();
+                //requestsMenu.requestsDataGrid.ItemsSource = db.Requests.ToList();
             }
         }
 
@@ -85,6 +85,7 @@ namespace RequestMaster.Tabs
                 requestsMenu.Visibility = Visibility.Hidden;
                 requestDetailsMenu.Visibility = Visibility.Hidden;
             }
+            else requestsMenu.requestsList = db.Requests.ToList();
         }
     }
 }

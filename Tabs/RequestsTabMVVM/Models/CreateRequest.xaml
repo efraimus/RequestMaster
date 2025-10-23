@@ -23,8 +23,18 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <TextBox x:Name="textBoxDescription"         Grid.Column="1" Grid.Row="1" materialDesign:HintAssist.Hint="описание"                      Margin="20 50 20 50" VerticalAlignment="Center"/>
-                <TextBox x:Name="textBoxTelephoneNumber"     Grid.Column="1" Grid.Row="2" materialDesign:HintAssist.Hint="телефон, например 83335552222" Margin="20 50 20 50" VerticalAlignment="Center"/>
+                
+                <TextBox x:Name="textBoxDescription" Grid.Column="1" Grid.Row="1" Margin="20 50 20 50" VerticalAlignment="Center">
+                <materialDesign:HintAssist.Hint>
+                    <TextBlock Foreground="{x:Static local:App.textColor}">описание</TextBlock>
+                </materialDesign:HintAssist.Hint>
+                </TextBox>
+                
+                <TextBox x:Name="textBoxTelephoneNumber"     Grid.Column="1" Grid.Row="2" Margin="20 50 20 50" VerticalAlignment="Center">
+                    <materialDesign:HintAssist.Hint>
+                        <TextBlock Foreground="{x:Static local:App.textColor}">телефон, например 83335552222</TextBlock>
+                    </materialDesign:HintAssist.Hint>
+                </TextBox>
 
                 <Button x:Name="createRequestButton2"        Grid.Column="1" Grid.Row="3" Content="создать заявку" Click="createRequestButton2_Click"   Margin="20" VerticalAlignment="Center"/>
                 <Button x:Name="returnButton"                Grid.Column="1" Grid.Row="4" Content="назад" Click="returnButton_Click"                    Margin="20" VerticalAlignment="Center"/>
