@@ -1,5 +1,9 @@
 C:\Users\user\.nuget\packages\castle.core\3.3.0\lib\net45\Castle.Core.dll
 C:\Users\user\.nuget\packages\dynamicdata\9.4.1\lib\net8.0\DynamicData.dll
+C:\Users\user\.nuget\packages\epplus\8.2.1\lib\net8.0\EPPlus.dll
+C:\Users\user\.nuget\packages\epplus.interfaces\8.1.0\lib\net8.0\EPPlus.Interfaces.dll
+C:\Users\user\.nuget\packages\freespire.doc\12.2.0\lib\net6.0\Spire.Doc.dll
+C:\Users\user\.nuget\packages\harfbuzzsharp\2.6.1.5\lib\netstandard2.0\HarfBuzzSharp.dll
 C:\Users\user\.nuget\packages\humanizer.core\2.14.1\lib\net6.0\Humanizer.dll
 C:\Users\user\.nuget\packages\materialdesigncolors\5.3.0\lib\net8.0-windows7.0\MaterialDesignColors.dll
 C:\Users\user\.nuget\packages\materialdesignthemes\5.3.0\lib\net8.0-windows7.0\MaterialDesignThemes.Wpf.dll
@@ -19,14 +23,21 @@ C:\Users\user\.nuget\packages\microsoft.entityframeworkcore.relational\9.0.10\li
 C:\Users\user\.nuget\packages\microsoft.entityframeworkcore.sqlite.core\9.0.10\lib\net8.0\Microsoft.EntityFrameworkCore.Sqlite.dll
 C:\Users\user\.nuget\packages\microsoft.extensions.caching.abstractions\9.0.10\lib\net8.0\Microsoft.Extensions.Caching.Abstractions.dll
 C:\Users\user\.nuget\packages\microsoft.extensions.caching.memory\9.0.10\lib\net8.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\user\.nuget\packages\microsoft.extensions.configuration\8.0.0\lib\net8.0\Microsoft.Extensions.Configuration.dll
 C:\Users\user\.nuget\packages\microsoft.extensions.configuration.abstractions\9.0.10\lib\net8.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\user\.nuget\packages\microsoft.extensions.configuration.fileextensions\8.0.1\lib\net8.0\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\Users\user\.nuget\packages\microsoft.extensions.configuration.json\8.0.1\lib\net8.0\Microsoft.Extensions.Configuration.Json.dll
 C:\Users\user\.nuget\packages\microsoft.extensions.dependencyinjection\9.0.10\lib\net8.0\Microsoft.Extensions.DependencyInjection.dll
 C:\Users\user\.nuget\packages\microsoft.extensions.dependencyinjection.abstractions\9.0.10\lib\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 C:\Users\user\.nuget\packages\microsoft.extensions.dependencymodel\9.0.10\lib\net8.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\user\.nuget\packages\microsoft.extensions.fileproviders.abstractions\8.0.0\lib\net8.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\user\.nuget\packages\microsoft.extensions.fileproviders.physical\8.0.0\lib\net8.0\Microsoft.Extensions.FileProviders.Physical.dll
+C:\Users\user\.nuget\packages\microsoft.extensions.filesystemglobbing\8.0.0\lib\net8.0\Microsoft.Extensions.FileSystemGlobbing.dll
 C:\Users\user\.nuget\packages\microsoft.extensions.logging\9.0.10\lib\net8.0\Microsoft.Extensions.Logging.dll
 C:\Users\user\.nuget\packages\microsoft.extensions.logging.abstractions\9.0.10\lib\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
 C:\Users\user\.nuget\packages\microsoft.extensions.options\9.0.10\lib\net8.0\Microsoft.Extensions.Options.dll
 C:\Users\user\.nuget\packages\microsoft.extensions.primitives\9.0.10\lib\net8.0\Microsoft.Extensions.Primitives.dll
+C:\Users\user\.nuget\packages\microsoft.io.recyclablememorystream\3.0.1\lib\net6.0\Microsoft.IO.RecyclableMemoryStream.dll
 C:\Users\user\.nuget\packages\microsoft.xaml.behaviors.wpf\1.1.77\lib\net6.0-windows7.0\Microsoft.Xaml.Behaviors.dll
 C:\Users\user\.nuget\packages\mono.texttemplating\3.0.0\lib\net6.0\Mono.TextTemplating.dll
 C:\Users\user\.nuget\packages\reactiveui\22.1.1\lib\net8.0\ReactiveUI.dll
@@ -46,6 +57,8 @@ C:\Users\user\.nuget\packages\system.composition.typedparts\7.0.0\lib\net7.0\Sys
 C:\Users\user\.nuget\packages\system.diagnostics.diagnosticsource\9.0.10\lib\net8.0\System.Diagnostics.DiagnosticSource.dll
 C:\Users\user\.nuget\packages\system.io.pipelines\9.0.10\lib\net8.0\System.IO.Pipelines.dll
 C:\Users\user\.nuget\packages\system.reactive\6.1.0\lib\net6.0\System.Reactive.dll
+C:\Users\user\.nuget\packages\system.security.cryptography.pkcs\8.0.1\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\user\.nuget\packages\system.security.cryptography.xml\8.0.2\lib\net8.0\System.Security.Cryptography.Xml.dll
 C:\Users\user\.nuget\packages\system.text.encodings.web\9.0.10\lib\net8.0\System.Text.Encodings.Web.dll
 C:\Users\user\.nuget\packages\system.text.json\9.0.10\lib\net8.0\System.Text.Json.dll
 C:\Users\user\.nuget\packages\teststack.white\0.13.3\lib\net40\TestStack.White.dll
@@ -114,6 +127,10 @@ C:\Users\user\.nuget\packages\microsoft.codeanalysis.workspaces.msbuild\4.8.0\li
 C:\Users\user\.nuget\packages\microsoft.codeanalysis.workspaces.msbuild\4.8.0\lib\net7.0\tr\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 C:\Users\user\.nuget\packages\microsoft.codeanalysis.workspaces.msbuild\4.8.0\lib\net7.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
 C:\Users\user\.nuget\packages\microsoft.codeanalysis.workspaces.msbuild\4.8.0\lib\net7.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+C:\Users\user\.nuget\packages\harfbuzzsharp\2.6.1.5\runtimes\osx\native\libHarfBuzzSharp.dylib
+C:\Users\user\.nuget\packages\harfbuzzsharp\2.6.1.5\runtimes\win-arm64\native\libHarfBuzzSharp.dll
+C:\Users\user\.nuget\packages\harfbuzzsharp\2.6.1.5\runtimes\win-x64\native\libHarfBuzzSharp.dll
+C:\Users\user\.nuget\packages\harfbuzzsharp\2.6.1.5\runtimes\win-x86\native\libHarfBuzzSharp.dll
 C:\Users\user\.nuget\packages\sqlitepclraw.lib.e_sqlite3\2.1.10\runtimes\browser-wasm\nativeassets\net8.0\e_sqlite3.a
 C:\Users\user\.nuget\packages\sqlitepclraw.lib.e_sqlite3\2.1.10\runtimes\linux-arm\native\libe_sqlite3.so
 C:\Users\user\.nuget\packages\sqlitepclraw.lib.e_sqlite3\2.1.10\runtimes\linux-arm64\native\libe_sqlite3.so
@@ -135,4 +152,5 @@ C:\Users\user\.nuget\packages\sqlitepclraw.lib.e_sqlite3\2.1.10\runtimes\win-arm
 C:\Users\user\.nuget\packages\sqlitepclraw.lib.e_sqlite3\2.1.10\runtimes\win-arm64\native\e_sqlite3.dll
 C:\Users\user\.nuget\packages\sqlitepclraw.lib.e_sqlite3\2.1.10\runtimes\win-x64\native\e_sqlite3.dll
 C:\Users\user\.nuget\packages\sqlitepclraw.lib.e_sqlite3\2.1.10\runtimes\win-x86\native\e_sqlite3.dll
+C:\Users\user\.nuget\packages\system.security.cryptography.pkcs\8.0.1\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
 C:\Users\user\.nuget\packages\system.text.encodings.web\9.0.10\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll

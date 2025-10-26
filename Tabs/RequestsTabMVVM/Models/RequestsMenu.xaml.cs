@@ -1,6 +1,12 @@
-﻿using RequestMaster.Databases.MainDatabase;
+﻿using Microsoft.Win32;
+using RequestMaster.Databases.MainDatabase;
+using RequestMaster.Other;
 using RequestMaster.Patterns;
+using Spire.Doc;
+using Spire.Doc.Documents;
+using Spire.Doc.Formatting;
 using System.Globalization;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -46,7 +52,32 @@ namespace RequestMaster.Tabs.RequestsTabMVVM.Models
             requestsDataGrid.Columns[7].Visibility = Visibility.Hidden;
             requestsDataGrid.Columns[8].Header = "дата создания";
         }
+        private void refreshRequestsDataGridWithoutFilters()
+        {
+            requestsDataGrid.ItemsSource = requestsList;
+            radioButtonStatus_NotImportant.IsChecked = true;
+            radioButtonAuthor_NotImportant.IsChecked = true;
 
+            logger.log($"таблица обновлена без фильтров");
+        }
+        private FileFormat GetFileFormat(string filePath)
+        {
+            string extension = Path.GetExtension(filePath).ToLower();
+
+            switch (extension)
+            {
+                case ".docx":
+                    return FileFormat.Docx;
+                case ".doc":
+                    return FileFormat.Doc;
+                case ".rtf":
+                    return FileFormat.Rtf;
+                default:
+                    throw new ArgumentException("неподдерживаемый формат файла");
+            }
+        }
+
+        #region click
         private void helpButton_Click(object sender, RoutedEventArgs e)
         {
             snackBar.show("нажмите на любую заявку дважды");
@@ -65,15 +96,6 @@ namespace RequestMaster.Tabs.RequestsTabMVVM.Models
             Requests.createRequestMenu.Visibility = Visibility.Visible;
 
             logger.log($"нажата кнопка создать заявку");
-        }
-
-        private void refreshRequestsDataGridWithoutFilters()
-        {
-            requestsDataGrid.ItemsSource = requestsList;
-            radioButtonStatus_NotImportant.IsChecked = true;
-            radioButtonAuthor_NotImportant.IsChecked = true;
-
-            logger.log($"таблица обновлена без фильтров");
         }
         private void requestsDataGrid_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
@@ -97,6 +119,7 @@ namespace RequestMaster.Tabs.RequestsTabMVVM.Models
             {
                 if (!string.IsNullOrEmpty(searchBox.Text))
                 {
+                    searchedRequests.Clear();
                     refreshRequestsDataGridWithoutFilters();
                     List<string> searchWords = (searchBox.Text.
                         Split(new[] { ' ', ',', ';' }, StringSplitOptions.RemoveEmptyEntries)
@@ -170,6 +193,94 @@ namespace RequestMaster.Tabs.RequestsTabMVVM.Models
             }
             logger.log($"заявки отсортированы");
         }
+
+        private void createReport_Click(object sender, RoutedEventArgs e)
+        {
+
+            Spire.Doc.Document doc = new();
+
+            Section section = doc.AddSection();
+            section.PageSetup.Margins.All = 60f;
+            Paragraph title = section.AddParagraph();
+            title.AppendText("Отчет");
+            title.ApplyStyle(BuiltinStyle.Title);
+            title.AppendBreak(BreakType.LineBreak);
+            section.AddParagraph();
+
+            Paragraph requestsCountTitle = section.AddParagraph();
+            requestsCountTitle.AppendText("Таблица 1. Количество заявок по статусу").CharacterFormat.Bold = true;
+            requestsCountTitle.AppendText("\n");
+
+            Table requestsCountTable = section.AddTable();
+            requestsCountTable.ResetCells(2, 3);
+            requestsCountTable[0, 0].AddParagraph().AppendText("активно");
+            requestsCountTable[0, 1].AddParagraph().AppendText("в обработке");
+            requestsCountTable[0, 2].AddParagraph().AppendText("закрыто");
+            requestsCountTable[1, 0].AddParagraph().
+                AppendText($"{requestsDataGrid.Items.OfType<Request>().Where(x => x.Status == "активна").Count()}");
+            requestsCountTable[1, 1].AddParagraph().
+                AppendText($"{requestsDataGrid.Items.OfType<Request>().Where(x => x.Status == "в обработке").Count()}");
+            requestsCountTable[1, 2].AddParagraph().
+                AppendText($"{requestsDataGrid.Items.OfType<Request>().Where(x => x.Status == "закрыта").Count()}");
+
+
+            Paragraph requestsTitle = section.AddParagraph();
+            requestsTitle.AppendText("\n");
+            requestsTitle.AppendText("Таблица 2. Заявки").CharacterFormat.Bold = true;
+            requestsTitle.AppendText("\n");
+            Table requestsTable = section.AddTable();
+            requestsTable.ResetCells(requestsDataGrid.Items.Count + 1, 5);
+
+            requestsTable[0, 0].AddParagraph().AppendText("ID");
+            requestsTable[0, 1].AddParagraph().AppendText("описание");
+            requestsTable[0, 2].AddParagraph().AppendText("номер");
+            requestsTable[0, 3].AddParagraph().AppendText("статус");
+            requestsTable[0, 4].AddParagraph().AppendText("дата создания");
+            int i = 1;
+            foreach (Request r in requestsDataGrid.Items)
+            {
+                requestsTable[i, 0].AddParagraph().AppendText($"{r.RequestID}");
+                requestsTable[i, 1].AddParagraph().AppendText(r.Description);
+                requestsTable[i, 2].AddParagraph().AppendText(r.TelephoneNumber);
+                requestsTable[i, 3].AddParagraph().AppendText(r.Status);
+                requestsTable[i, 4].AddParagraph().AppendText($"{r.CreationDate}");
+                ++i;
+            }
+
+            SaveFileDialog sd = new SaveFileDialog();
+            sd.Filter = "Word Document (*.docx)|*.docx|Word 97-2003 Document (*.doc)|*.doc|Rich Text Format (*.rtf)|*.rtf";
+            sd.FileName = $"Отчет_{DateTime.Now.ToString("dd.MM.yyyy")}.docx";
+            sd.Title = "Сохранить как";
+            try
+            {
+                if (sd.ShowDialog() == true)
+                {
+                    string filePath = sd.FileName;
+                    FileFormat fileFormat = GetFileFormat(sd.FileName);
+                    doc.SaveToFile(filePath, fileFormat);
+                }
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+
+            doc.Dispose();
+        }
+
+        private void import_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void export_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+        #endregion
+
+        #region radioButtons
         private void radioButtonStatus_Active_Checked(object sender, RoutedEventArgs e)
         {
             statusFilter = "активна";
@@ -202,5 +313,6 @@ namespace RequestMaster.Tabs.RequestsTabMVVM.Models
         {
             authorFilter = null;
         }
+        #endregion
     }
 }

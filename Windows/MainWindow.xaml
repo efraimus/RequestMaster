@@ -14,8 +14,7 @@
         Closed="OnWindowClosed"
         d:DataContext="{d:DesignInstance vm:MainWindowViewModel}"
         Icon="/Windows/icon.ico"
-        Title="RequestMaster"
-        Background="{x:Static local:App.backgroundColor}">
+        Title="RequestMaster">
 
     <Grid>
         <TabControl>

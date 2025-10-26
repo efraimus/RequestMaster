@@ -1,4 +1,5 @@
 ﻿using RequestMaster.Databases.MainDatabase;
+using RequestMaster.Other;
 using RequestMaster.Patterns;
 using System.Windows;
 using System.Windows.Controls;

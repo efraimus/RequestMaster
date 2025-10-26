@@ -11,20 +11,34 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Light.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesign3.Defaults.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/MaterialDesignThemes.Wpf;component/Themes/MaterialDesignTheme.Dark.xaml" />
                 <ResourceDictionary Source="pack://application:,,,/MaterialDesignColors;component/Themes/Recommended/Primary/MaterialDesignColor.DeepPurple.xaml" />
             </ResourceDictionary.MergedDictionaries>
 
             <Style TargetType="{x:Type Button}" BasedOn="{StaticResource MaterialDesignRaisedButton}">
-                <Setter Property="FontSize"      Value="{x:Static local:App.fontSize}"/>
-                <Setter Property="Height"        Value="50"/>
-                <Setter Property="Background"    Value="{x:Static local:App.buttonsColor}"/>
-                <Setter Property="BorderBrush"   Value="{x:Static local:App.buttonsColor}"/>
-                <Setter Property="Foreground"    Value="White"/>
+                <Setter Property="FontSize" Value="{x:Static local:App.fontSize}"/>
+                <Setter Property="Height" Value="50"/>
+                <Setter Property="Background" Value="{x:Static local:App.buttonsColor}"/>
+                <Setter Property="BorderBrush" Value="{x:Static local:App.buttonsColor}"/>
+                <Setter Property="Foreground" Value="White"/>
                 <Setter Property="VerticalContentAlignment" Value="Center"/>
+
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border x:Name="buttonBorder"
+                                CornerRadius="20"
+                                Background="{x:Static local:App.buttonsColor}"
+                                BorderThickness="1"
+                                Padding="2">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
             </Style>
-            
+
             <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource MaterialDesignTextBox}">
                 <Setter Property="FontSize"      Value="{x:Static local:App.fontSize}"/>
                 <Setter Property="FontFamily"    Value="{x:Static local:App.fontFamily}"/>
@@ -104,7 +118,6 @@
 
                 </Style.Triggers>
             </Style>
-
         </ResourceDictionary>
     </Application.Resources>
 </Application>

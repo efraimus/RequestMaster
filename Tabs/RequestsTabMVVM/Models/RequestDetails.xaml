@@ -16,6 +16,7 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition/>
+                    <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
                 <Grid Grid.Row="1">
@@ -33,11 +34,15 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
 
-                    <Button x:Name="returnButton"       Grid.Column="0" Grid.Row="0" Margin="20" HorizontalAlignment="Stretch" Content="назад"                Click="returnButton_Click"/>
-                    <Button x:Name="closeRequestButton" Grid.Column="3" Grid.Row="0" Margin="20" HorizontalAlignment="Stretch" Content="закрыть заявку"       Click="сloseRequestButton_Click"/>
-                    <Button x:Name="openRequestButton"  Grid.Column="3" Grid.Row="0" Margin="20" HorizontalAlignment="Stretch" Content="открыть заявку"       Click="openRequestButton_Click"/>
-                    <Button x:Name="addCommentButton"   Grid.Column="2" Grid.Row="0" Margin="20" HorizontalAlignment="Stretch" Content="добавить комментарий" Click="addCommentButton_Click"/>
-                    <Button x:Name="returnButton2"      Grid.Column="3" Grid.Row="2" Margin="20" HorizontalAlignment="Stretch" Content="назад"                Click="returnButton2_Click"    Visibility="Hidden"/>
+                    <Button x:Name="returnButton"       Grid.Column="0" Grid.Row="0" Margin="20" HorizontalAlignment="Left" Click="returnButton_Click" Width="100">
+                        <materialDesign:PackIcon Kind="ArrowLeftCircle" RenderTransformOrigin="0.5, 0.5">
+                            <materialDesign:PackIcon.RenderTransform>
+                                <ScaleTransform ScaleX="2.5" ScaleY="2.5" />
+                            </materialDesign:PackIcon.RenderTransform>
+                        </materialDesign:PackIcon>
+                    </Button>
+                    <Button x:Name="closeRequestButton" Grid.Column="3" Grid.Row="0" Margin="20" HorizontalAlignment="Stretch" Content="закрыть заявку" Click="сloseRequestButton_Click"/>
+                    <Button x:Name="openRequestButton"  Grid.Column="3" Grid.Row="0" Margin="20" HorizontalAlignment="Stretch" Content="открыть заявку" Click="openRequestButton_Click"/>
 
                     <TextBlock Text="комментарии"       Grid.Column="0" Grid.Row="2" FontWeight="Bold" Margin="40 20 20 20" HorizontalAlignment="Left" Foreground="{x:Static local:App.textColor}"/>
 
@@ -70,20 +75,27 @@
                         </StackPanel>
 
                     </Border>
-
-                    <materialDesign:Snackbar x:Name="snackBarXAML" 
-                                         Grid.Column="3"
-                                         Grid.Row="2" 
-                                         FontSize="25" 
-                                         IsActive="False" 
-                                         MessageQueue="{materialDesign:MessageQueue}" 
-                                         FontFamily="{DynamicResource MaterialDesignFont}" />
                 </Grid>
 
-                
-                <DataGrid x:Name="commentsDataGrid" 
-                      Grid.Row="3" 
-                      Margin="20"/>
+                <Button x:Name="returnButton2"      Grid.Column="3" Grid.Row="3" Margin="20" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100" Click="returnButton2_Click" Visibility="Hidden">
+                    <materialDesign:PackIcon Kind="ArrowLeftCircle" RenderTransformOrigin="0.5, 0.5">
+                        <materialDesign:PackIcon.RenderTransform>
+                            <ScaleTransform ScaleX="2.5" ScaleY="2.5" />
+                        </materialDesign:PackIcon.RenderTransform>
+                    </materialDesign:PackIcon>
+                </Button>
+
+                <DataGrid x:Name="commentsDataGrid" Grid.Row="3" Margin="20"/>
+
+                <Grid Grid.Row="4" Margin="20" VerticalAlignment="Bottom">
+                    <Button x:Name="addCommentButton"  Width="100" Margin="10" Click="addCommentButton_Click" HorizontalAlignment="Left">
+                        <materialDesign:PackIcon Kind="Add" RenderTransformOrigin="0.5, 0.5">
+                            <materialDesign:PackIcon.RenderTransform>
+                                <ScaleTransform ScaleX="2.5" ScaleY="2.5" />
+                            </materialDesign:PackIcon.RenderTransform>
+                        </materialDesign:PackIcon>
+                    </Button>
+                </Grid>
 
                 <Grid x:Name="newCommentGrid" Grid.Row="3" Visibility="Hidden">
                     <Grid.RowDefinitions>
@@ -113,10 +125,24 @@
                          Grid.Row="1" 
                          Margin="100 20 100 20" 
                          HorizontalAlignment="Stretch" 
-                         VerticalAlignment="Center" 
-                         Content="добавить" 
-                         Click="confirmAddingCommentButton_Click"/>
+                         VerticalAlignment="Center"  
+                         Click="confirmAddingCommentButton_Click">
+                        <materialDesign:PackIcon Kind="Check" RenderTransformOrigin="0.5, 0.5">
+                            <materialDesign:PackIcon.RenderTransform>
+                                <ScaleTransform ScaleX="2.5" ScaleY="2.5" />
+                            </materialDesign:PackIcon.RenderTransform>
+                        </materialDesign:PackIcon>
+                    </Button>
                 </Grid>
+
+                <materialDesign:Snackbar x:Name="snackBarXAML" 
+                                         Grid.Column="3"
+                                         Grid.Row="4" 
+                                         FontSize="25" 
+                                         IsActive="False" 
+                                         MessageQueue="{materialDesign:MessageQueue}" 
+                                         FontFamily="{DynamicResource MaterialDesignFont}" />
+
             </Grid>
         </ScrollViewer>
     </Border>

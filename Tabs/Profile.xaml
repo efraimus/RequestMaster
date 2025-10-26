@@ -8,10 +8,11 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:OrdersApp="clr-namespace:RequestMaster"
              mc:Ignorable="d" 
+             Background="{x:Static local2:App.backgroundColor}"
              d:DesignHeight="1080" d:DesignWidth="1920">
 
-    <Grid x:Name="profileGrid">
-        <Border Background="{x:Static local2:App.foregroundColor}" CornerRadius="20" Grid.Column="0" Margin="20">
+    <Grid x:Name="profileGrid" Margin="20">
+        <Border Background="{x:Static local2:App.foregroundColor}" CornerRadius="20" Grid.Column="0">
             <Grid Margin="20">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>

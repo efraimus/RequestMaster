@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:RequestMaster"
+             Background="{x:Static local:App.backgroundColor}"
              mc:Ignorable="d"
              d:DesignHeight="1080" d:DesignWidth="1920">
     <Grid Margin="20">
@@ -56,8 +57,20 @@
                         <RowDefinition/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    <Button Margin="10" Content="отсортировать"    Click="SortButton_Click"         HorizontalAlignment="Stretch"/>
-                    <Button Margin="10" Content="очистить фильтры" Click="ClearFiltersButton_Click" HorizontalAlignment="Stretch" Grid.Row="1"/>
+                    <Button Margin="10"    Click="SortButton_Click"         HorizontalAlignment="Stretch" Width="300">
+                        <materialDesign:PackIcon Kind="Filter" RenderTransformOrigin="0.5, 0.5">
+                            <materialDesign:PackIcon.RenderTransform>
+                                <ScaleTransform ScaleX="2.5" ScaleY="2.5" />
+                            </materialDesign:PackIcon.RenderTransform>
+                        </materialDesign:PackIcon>
+                    </Button>
+                    <Button Margin="10" Click="ClearFiltersButton_Click" HorizontalAlignment="Stretch" Grid.Row="1" Width="300">
+                        <materialDesign:PackIcon Kind="FilterRemove" RenderTransformOrigin="0.5, 0.5">
+                            <materialDesign:PackIcon.RenderTransform>
+                                <ScaleTransform ScaleX="2.5" ScaleY="2.5" />
+                            </materialDesign:PackIcon.RenderTransform>
+                        </materialDesign:PackIcon>
+                    </Button>
                 </Grid>
             </Grid>
         </Border>
@@ -72,20 +85,70 @@
                 <DataGrid x:Name="requestsDataGrid" Grid.Row="1" Margin="20 20 20 40" MouseDoubleClick="requestsDataGrid_MouseDoubleClick"/>
 
                 <Grid Grid.Row="2" Margin="20" VerticalAlignment="Bottom">
-                    <Button x:Name="createRequestButton"  Width="300" Margin="10" Content="создать заявку"         Click="createRequestButton_Click" HorizontalAlignment="Left"/>
-                    <Button x:Name="helpButton"           Width="300" Margin="10" Content="помощь" Click="helpButton_Click"          HorizontalAlignment="Right"/>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0" x:Name="createRequestButton" Width="100" Margin="10" Click="createRequestButton_Click">
+                        <materialDesign:PackIcon Kind="Add" RenderTransformOrigin="0.5, 0.5">
+                            <materialDesign:PackIcon.RenderTransform>
+                                <ScaleTransform ScaleX="2.5" ScaleY="2.5" />
+                            </materialDesign:PackIcon.RenderTransform>
+                        </materialDesign:PackIcon>
+                    </Button>
+                    <Button Grid.Column="4" x:Name="helpButton" Width="100" Margin="10" Click="helpButton_Click">
+                        <materialDesign:PackIcon Kind="Help" RenderTransformOrigin="0.5, 0.5">
+                            <materialDesign:PackIcon.RenderTransform>
+                                <ScaleTransform ScaleX="2.5" ScaleY="2.5" />
+                            </materialDesign:PackIcon.RenderTransform>
+                        </materialDesign:PackIcon>
+                    </Button>
+                    <Button Grid.Column="1" x:Name="createReportButton" Width="100" Margin="10" Click="createReport_Click">
+                        <materialDesign:PackIcon Kind="FileChart" RenderTransformOrigin="0.5, 0.5">
+                            <materialDesign:PackIcon.RenderTransform>
+                                <ScaleTransform ScaleX="2.5" ScaleY="2.5" />
+                            </materialDesign:PackIcon.RenderTransform>
+                        </materialDesign:PackIcon>
+                    </Button>
+                    <Button Grid.Column="2" x:Name="import" Width="100" Margin="10" Click="import_Click">
+                        <materialDesign:PackIcon Kind="Import" RenderTransformOrigin="0.5, 0.5">
+                            <materialDesign:PackIcon.RenderTransform>
+                                <ScaleTransform ScaleX="2.5" ScaleY="2.5" />
+                            </materialDesign:PackIcon.RenderTransform>
+                        </materialDesign:PackIcon>
+                    </Button>
+                    <Button Grid.Column="3" x:Name="export" Width="100" Margin="10" Click="export_Click">
+                        <materialDesign:PackIcon Kind="Export" RenderTransformOrigin="0.5, 0.5">
+                            <materialDesign:PackIcon.RenderTransform>
+                                <ScaleTransform ScaleX="2.5" ScaleY="2.5" />
+                            </materialDesign:PackIcon.RenderTransform>
+                        </materialDesign:PackIcon>
+                    </Button>
                 </Grid>
 
                 <Grid Grid.Row="0" Margin="20">
-                    <TextBox x:Name="searchBox" Foreground="{x:Static local:App.textColor}" Margin="10 10 200 10" Width="1100" HorizontalAlignment="Left">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBox x:Name="searchBox" Grid.Column="0" Foreground="{x:Static local:App.textColor}" Margin="10" HorizontalAlignment="Stretch">
                         <materialDesign:HintAssist.Hint>
                             <TextBlock Foreground="{x:Static local:App.textColor}" Text="поиск по описанию"/>
                         </materialDesign:HintAssist.Hint>
                     </TextBox>
-                    <Button x:Name="search" Click="search_Click"  Width="300"  Margin="10" Content="поиск"  HorizontalAlignment="Right"/>
+                    <Button x:Name="search" Grid.Column="1" Click="search_Click"  Width="100"  Margin="10"  HorizontalAlignment="Right">
+                        <materialDesign:PackIcon Kind="Search" RenderTransformOrigin="0.5, 0.5">
+                            <materialDesign:PackIcon.RenderTransform>
+                                <ScaleTransform ScaleX="2.5" ScaleY="2.5" />
+                            </materialDesign:PackIcon.RenderTransform>
+                        </materialDesign:PackIcon>
+                    </Button>
                 </Grid>
                 
-                <materialDesign:Snackbar x:Name="snackBarXAML" FontSize="25" IsActive="False" MessageQueue="{materialDesign:MessageQueue}" Grid.Column="1" Grid.Row="2" FontFamily="{DynamicResource MaterialDesignFont}" Margin="60"/>
+                <materialDesign:Snackbar x:Name="snackBarXAML" FontSize="25" IsActive="False" MessageQueue="{materialDesign:MessageQueue}" Grid.Column="1" Grid.Row="1" FontFamily="{DynamicResource MaterialDesignFont}" Margin="20"/>
             </Grid>
         </Border>
     </Grid>

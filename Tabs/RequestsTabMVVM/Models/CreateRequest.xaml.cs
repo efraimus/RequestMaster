@@ -1,5 +1,6 @@
 ﻿using RequestMaster.Databases.MainDatabase;
 using RequestMaster.Exceptions;
+using RequestMaster.Other;
 using RequestMaster.Patterns;
 using System.Globalization;
 using System.Windows;

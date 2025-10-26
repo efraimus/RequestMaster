@@ -3,12 +3,20 @@
   "WorkspaceRootPath": "L:\\1mp\\PetProjects\\C#\\RequestMaster\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{65D7F326-7E2F-4B12-B217-4FF22E1BD540}|RequestMaster.csproj|l:\\1mp\\petprojects\\c#\\requestmaster\\logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{65D7F326-7E2F-4B12-B217-4FF22E1BD540}|RequestMaster.csproj|solutionrelative:logger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{65D7F326-7E2F-4B12-B217-4FF22E1BD540}|RequestMaster.csproj|l:\\1mp\\petprojects\\c#\\requestmaster\\tabs\\profile.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{65D7F326-7E2F-4B12-B217-4FF22E1BD540}|RequestMaster.csproj|solutionrelative:tabs\\profile.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{65D7F326-7E2F-4B12-B217-4FF22E1BD540}|RequestMaster.csproj|l:\\1mp\\petprojects\\c#\\requestmaster\\tabs\\requeststabmvvm\\models\\requestsmenu.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{65D7F326-7E2F-4B12-B217-4FF22E1BD540}|RequestMaster.csproj|solutionrelative:tabs\\requeststabmvvm\\models\\requestsmenu.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{65D7F326-7E2F-4B12-B217-4FF22E1BD540}|RequestMaster.csproj|l:\\1mp\\petprojects\\c#\\requestmaster\\tabs\\requests.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{65D7F326-7E2F-4B12-B217-4FF22E1BD540}|RequestMaster.csproj|solutionrelative:tabs\\requests.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65D7F326-7E2F-4B12-B217-4FF22E1BD540}|RequestMaster.csproj|l:\\1mp\\petprojects\\c#\\requestmaster\\tabs\\settings.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{65D7F326-7E2F-4B12-B217-4FF22E1BD540}|RequestMaster.csproj|solutionrelative:tabs\\settings.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{65D7F326-7E2F-4B12-B217-4FF22E1BD540}|RequestMaster.csproj|l:\\1mp\\petprojects\\c#\\requestmaster\\tabs\\requeststabmvvm\\models\\requestsmenu.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{65D7F326-7E2F-4B12-B217-4FF22E1BD540}|RequestMaster.csproj|solutionrelative:tabs\\requeststabmvvm\\models\\requestsmenu.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,27 +31,49 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Logger.cs",
-              "DocumentMoniker": "L:\\1mp\\PetProjects\\C#\\RequestMaster\\Logger.cs",
-              "RelativeDocumentMoniker": "Logger.cs",
-              "ToolTip": "L:\\1mp\\PetProjects\\C#\\RequestMaster\\Logger.cs",
-              "RelativeToolTip": "Logger.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-23T15:08:35.488Z",
+              "Title": "Profile.xaml",
+              "DocumentMoniker": "L:\\1mp\\PetProjects\\C#\\RequestMaster\\Tabs\\Profile.xaml",
+              "RelativeDocumentMoniker": "Tabs\\Profile.xaml",
+              "ToolTip": "L:\\1mp\\PetProjects\\C#\\RequestMaster\\Tabs\\Profile.xaml",
+              "RelativeToolTip": "Tabs\\Profile.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-10-26T09:30:51.832Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "RequestsMenu.xaml.cs",
-              "DocumentMoniker": "L:\\1mp\\PetProjects\\C#\\RequestMaster\\Tabs\\RequestsTabMVVM\\Models\\RequestsMenu.xaml.cs",
-              "RelativeDocumentMoniker": "Tabs\\RequestsTabMVVM\\Models\\RequestsMenu.xaml.cs",
-              "ToolTip": "L:\\1mp\\PetProjects\\C#\\RequestMaster\\Tabs\\RequestsTabMVVM\\Models\\RequestsMenu.xaml.cs",
-              "RelativeToolTip": "Tabs\\RequestsTabMVVM\\Models\\RequestsMenu.xaml.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAB8AAABeAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-23T15:07:28.883Z",
+              "Title": "Requests.xaml",
+              "DocumentMoniker": "L:\\1mp\\PetProjects\\C#\\RequestMaster\\Tabs\\Requests.xaml",
+              "RelativeDocumentMoniker": "Tabs\\Requests.xaml",
+              "ToolTip": "L:\\1mp\\PetProjects\\C#\\RequestMaster\\Tabs\\Requests.xaml",
+              "RelativeToolTip": "Tabs\\Requests.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-10-26T09:30:17.057Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Settings.xaml",
+              "DocumentMoniker": "L:\\1mp\\PetProjects\\C#\\RequestMaster\\Tabs\\Settings.xaml",
+              "RelativeDocumentMoniker": "Tabs\\Settings.xaml",
+              "ToolTip": "L:\\1mp\\PetProjects\\C#\\RequestMaster\\Tabs\\Settings.xaml",
+              "RelativeToolTip": "Tabs\\Settings.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-10-26T09:27:38.456Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "RequestsMenu.xaml",
+              "DocumentMoniker": "L:\\1mp\\PetProjects\\C#\\RequestMaster\\Tabs\\RequestsTabMVVM\\Models\\RequestsMenu.xaml",
+              "RelativeDocumentMoniker": "Tabs\\RequestsTabMVVM\\Models\\RequestsMenu.xaml",
+              "ToolTip": "L:\\1mp\\PetProjects\\C#\\RequestMaster\\Tabs\\RequestsTabMVVM\\Models\\RequestsMenu.xaml",
+              "RelativeToolTip": "Tabs\\RequestsTabMVVM\\Models\\RequestsMenu.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-10-26T09:19:22.001Z",
               "EditorCaption": ""
             }
           ]

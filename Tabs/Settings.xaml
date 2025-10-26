@@ -8,8 +8,9 @@
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
              x:Class="RequestMaster.Tabs.Settings"
              mc:Ignorable="d" 
+             Background="{x:Static local2:App.backgroundColor}"
              d:DesignHeight="800" d:DesignWidth="1200">
-    <Grid Background="{x:Static local2:App.backgroundColor}">
+    <Grid>
         <ScrollViewer VerticalScrollBarVisibility="Auto">
             <Border Background="{x:Static local2:App.foregroundColor}" CornerRadius="20" Grid.Column="1" Margin="20">
                 <Grid>
