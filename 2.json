@@ -1,0 +1,13 @@
+
+[
+    {
+        "RequestID": 5,
+        "Description": "бла бла бла джсон",
+        "TelephoneNumber": "89991234567",
+        "Status": "активна",
+        "WhoCreatedID": 1,
+        "WhoClosedID": 0,
+        "WhoOpenedID": 0,
+        "CreationDate": "2025-10-26T14:30:00"
+    }
+]

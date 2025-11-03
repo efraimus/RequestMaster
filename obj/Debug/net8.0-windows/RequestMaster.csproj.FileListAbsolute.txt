@@ -174,7 +174,6 @@ L:\1mp\PetProjects\C#\RequestMaster\bin\Debug\net8.0-windows\RequestMaster.deps.
 L:\1mp\PetProjects\C#\RequestMaster\bin\Debug\net8.0-windows\RequestMaster.runtimeconfig.json
 L:\1mp\PetProjects\C#\RequestMaster\bin\Debug\net8.0-windows\RequestMaster.dll
 L:\1mp\PetProjects\C#\RequestMaster\bin\Debug\net8.0-windows\RequestMaster.pdb
-L:\1mp\PetProjects\C#\RequestMaster\bin\Debug\net8.0-windows\Castle.Core.dll
 L:\1mp\PetProjects\C#\RequestMaster\bin\Debug\net8.0-windows\DynamicData.dll
 L:\1mp\PetProjects\C#\RequestMaster\bin\Debug\net8.0-windows\Spire.Doc.dll
 L:\1mp\PetProjects\C#\RequestMaster\bin\Debug\net8.0-windows\HarfBuzzSharp.dll
@@ -208,7 +207,6 @@ L:\1mp\PetProjects\C#\RequestMaster\bin\Debug\net8.0-windows\Microsoft.Extension
 L:\1mp\PetProjects\C#\RequestMaster\bin\Debug\net8.0-windows\Microsoft.Xaml.Behaviors.dll
 L:\1mp\PetProjects\C#\RequestMaster\bin\Debug\net8.0-windows\Mono.TextTemplating.dll
 L:\1mp\PetProjects\C#\RequestMaster\bin\Debug\net8.0-windows\ReactiveUI.dll
-L:\1mp\PetProjects\C#\RequestMaster\bin\Debug\net8.0-windows\ReactiveUI.Fody.Helpers.dll
 L:\1mp\PetProjects\C#\RequestMaster\bin\Debug\net8.0-windows\Splat.dll
 L:\1mp\PetProjects\C#\RequestMaster\bin\Debug\net8.0-windows\Splat.Builder.dll
 L:\1mp\PetProjects\C#\RequestMaster\bin\Debug\net8.0-windows\Splat.Core.dll
@@ -226,7 +224,6 @@ L:\1mp\PetProjects\C#\RequestMaster\bin\Debug\net8.0-windows\System.IO.Pipelines
 L:\1mp\PetProjects\C#\RequestMaster\bin\Debug\net8.0-windows\System.Reactive.dll
 L:\1mp\PetProjects\C#\RequestMaster\bin\Debug\net8.0-windows\System.Text.Encodings.Web.dll
 L:\1mp\PetProjects\C#\RequestMaster\bin\Debug\net8.0-windows\System.Text.Json.dll
-L:\1mp\PetProjects\C#\RequestMaster\bin\Debug\net8.0-windows\TestStack.White.dll
 L:\1mp\PetProjects\C#\RequestMaster\bin\Debug\net8.0-windows\cs\Microsoft.CodeAnalysis.resources.dll
 L:\1mp\PetProjects\C#\RequestMaster\bin\Debug\net8.0-windows\de\Microsoft.CodeAnalysis.resources.dll
 L:\1mp\PetProjects\C#\RequestMaster\bin\Debug\net8.0-windows\es\Microsoft.CodeAnalysis.resources.dll
@@ -347,8 +344,6 @@ L:\1mp\PetProjects\C#\RequestMaster\obj\Debug\net8.0-windows\RequestMaster.Assem
 L:\1mp\PetProjects\C#\RequestMaster\obj\Debug\net8.0-windows\RequestMaster.AssemblyInfo.cs
 L:\1mp\PetProjects\C#\RequestMaster\obj\Debug\net8.0-windows\RequestMaster.csproj.CoreCompileInputs.cache
 L:\1mp\PetProjects\C#\RequestMaster\obj\Debug\net8.0-windows\RequestMaster.sourcelink.json
-L:\1mp\PetProjects\C#\RequestMaster\obj\Debug\net8.0-windows\RequestMaster.csproj.Fody.CopyLocal.cache
-L:\1mp\PetProjects\C#\RequestMaster\obj\Debug\net8.0-windows\RequestMaster.csproj.Fody.RuntimeCopyLocal.cache
 L:\1mp\PetProjects\C#\RequestMaster\obj\Debug\net8.0-windows\RequestM.58B56E15.Up2Date
 L:\1mp\PetProjects\C#\RequestMaster\obj\Debug\net8.0-windows\RequestMaster.dll
 L:\1mp\PetProjects\C#\RequestMaster\obj\Debug\net8.0-windows\refint\RequestMaster.dll
@@ -367,3 +362,6 @@ L:\1mp\PetProjects\C#\RequestMaster\bin\Debug\net8.0-windows\Microsoft.IO.Recycl
 L:\1mp\PetProjects\C#\RequestMaster\bin\Debug\net8.0-windows\System.Security.Cryptography.Pkcs.dll
 L:\1mp\PetProjects\C#\RequestMaster\bin\Debug\net8.0-windows\System.Security.Cryptography.Xml.dll
 L:\1mp\PetProjects\C#\RequestMaster\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.Security.Cryptography.Pkcs.dll
+L:\1mp\PetProjects\C#\RequestMaster\bin\Debug\net8.0-windows\DotNetProjects.DataVisualization.Toolkit.dll
+L:\1mp\PetProjects\C#\RequestMaster\obj\Debug\net8.0-windows\Windows\DiagrammeWindow.g.cs
+L:\1mp\PetProjects\C#\RequestMaster\obj\Debug\net8.0-windows\Windows\DiagrammeWindow.baml

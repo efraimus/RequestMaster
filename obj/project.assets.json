@@ -2,18 +2,17 @@
   "version": 3,
   "targets": {
     "net8.0-windows7.0": {
-      "Castle.Core/3.3.0": {
+      "DotNetProjects.WpfToolkit.DataVisualization/6.1.94": {
         "type": "package",
         "compile": {
-          "lib/net45/Castle.Core.dll": {
-            "related": ".xml"
-          }
+          "lib/net6.0-windows7.0/DotNetProjects.DataVisualization.Toolkit.dll": {}
         },
         "runtime": {
-          "lib/net45/Castle.Core.dll": {
-            "related": ".xml"
-          }
-        }
+          "lib/net6.0-windows7.0/DotNetProjects.DataVisualization.Toolkit.dll": {}
+        },
+        "frameworkReferences": [
+          "Microsoft.WindowsDesktop.App.WPF"
+        ]
       },
       "DynamicData/9.4.1": {
         "type": "package",
@@ -60,12 +59,6 @@
         },
         "runtime": {
           "lib/net8.0/EPPlus.Interfaces.dll": {}
-        }
-      },
-      "Fody/6.8.0": {
-        "type": "package",
-        "build": {
-          "build/Fody.targets": {}
         }
       },
       "FreeSpire.Doc/12.2.0": {
@@ -1162,7 +1155,7 @@
           "buildTransitive/Mono.TextTemplating.targets": {}
         }
       },
-      "ReactiveUI/22.1.1": {
+      "ReactiveUI/22.2.1": {
         "type": "package",
         "dependencies": {
           "DynamicData": "9.4.1",
@@ -1178,26 +1171,6 @@
           "lib/net8.0/ReactiveUI.dll": {
             "related": ".xml"
           }
-        }
-      },
-      "ReactiveUI.Fody/19.5.41": {
-        "type": "package",
-        "dependencies": {
-          "Fody": "6.8.0",
-          "ReactiveUI": "19.5.41"
-        },
-        "compile": {
-          "lib/net8.0/ReactiveUI.Fody.Helpers.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net8.0/ReactiveUI.Fody.Helpers.dll": {
-            "related": ".xml"
-          }
-        },
-        "build": {
-          "build/ReactiveUI.Fody.props": {}
         }
       },
       "Splat/17.1.1": {
@@ -1863,50 +1836,22 @@
             "rid": "win"
           }
         }
-      },
-      "TestStack.White/0.13.3": {
-        "type": "package",
-        "dependencies": {
-          "Castle.Core": "3.3.0"
-        },
-        "compile": {
-          "lib/net40/TestStack.White.dll": {
-            "related": ".pdb;.xml"
-          }
-        },
-        "runtime": {
-          "lib/net40/TestStack.White.dll": {
-            "related": ".pdb;.xml"
-          }
-        }
       }
     }
   },
   "libraries": {
-    "Castle.Core/3.3.0": {
-      "sha512": "wvlF47qlxKXurxSUWAnX79stVrnkuUPe5lHq26OiXUtMEngPaBcJ+5j+yVdFJ70hjUZpqg7qQK5hCZSex14ekQ==",
+    "DotNetProjects.WpfToolkit.DataVisualization/6.1.94": {
+      "sha512": "5xmRUH+/F3zRxcI8b93W9OUvOUKXpcHShj7jGJdpBAgQTNPEeMLISA/wsO5egSG74Msx+01xwaYjDFTDTUawhQ==",
       "type": "package",
-      "path": "castle.core/3.3.0",
+      "path": "dotnetprojects.wpftoolkit.datavisualization/6.1.94",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "ASL - Apache Software Foundation License.txt",
-        "BreakingChanges.txt",
-        "Changes.txt",
-        "License.txt",
-        "castle.core.3.3.0.nupkg.sha512",
-        "castle.core.nuspec",
-        "lib/net35/Castle.Core.dll",
-        "lib/net35/Castle.Core.xml",
-        "lib/net40-client/Castle.Core.dll",
-        "lib/net40-client/Castle.Core.xml",
-        "lib/net45/Castle.Core.dll",
-        "lib/net45/Castle.Core.xml",
-        "lib/sl4/Castle.Core.dll",
-        "lib/sl4/Castle.Core.xml",
-        "lib/sl5/Castle.Core.dll",
-        "lib/sl5/Castle.Core.xml",
-        "readme.txt"
+        "dotnetprojects.wpftoolkit.datavisualization.6.1.94.nupkg.sha512",
+        "dotnetprojects.wpftoolkit.datavisualization.nuspec",
+        "lib/net40/DotNetProjects.DataVisualization.Toolkit.dll",
+        "lib/net5.0-windows7.0/DotNetProjects.DataVisualization.Toolkit.dll",
+        "lib/net6.0-windows7.0/DotNetProjects.DataVisualization.Toolkit.dll"
       ]
     },
     "DynamicData/9.4.1": {
@@ -1980,39 +1925,6 @@
         "lib/netstandard2.1/EPPlus.Interfaces.dll",
         "license.md",
         "readme.md"
-      ]
-    },
-    "Fody/6.8.0": {
-      "sha512": "hfZ/f8Mezt8aTkgv9nsvFdYoQ809/AqwsJlOGOPYIfBcG2aAIG3v3ex9d8ZqQuFYyMoucjRg4eKy3VleeGodKQ==",
-      "type": "package",
-      "path": "fody/6.8.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "License.txt",
-        "build/Fody.targets",
-        "fody.6.8.0.nupkg.sha512",
-        "fody.nuspec",
-        "netclassictask/Fody.dll",
-        "netclassictask/FodyCommon.dll",
-        "netclassictask/FodyHelpers.dll",
-        "netclassictask/FodyIsolated.dll",
-        "netclassictask/Mono.Cecil.Pdb.dll",
-        "netclassictask/Mono.Cecil.Pdb.pdb",
-        "netclassictask/Mono.Cecil.Rocks.dll",
-        "netclassictask/Mono.Cecil.Rocks.pdb",
-        "netclassictask/Mono.Cecil.dll",
-        "netclassictask/Mono.Cecil.pdb",
-        "netstandardtask/Fody.dll",
-        "netstandardtask/FodyCommon.dll",
-        "netstandardtask/FodyHelpers.dll",
-        "netstandardtask/FodyIsolated.dll",
-        "netstandardtask/Mono.Cecil.Pdb.dll",
-        "netstandardtask/Mono.Cecil.Pdb.pdb",
-        "netstandardtask/Mono.Cecil.Rocks.dll",
-        "netstandardtask/Mono.Cecil.Rocks.pdb",
-        "netstandardtask/Mono.Cecil.dll",
-        "netstandardtask/Mono.Cecil.pdb"
       ]
     },
     "FreeSpire.Doc/12.2.0": {
@@ -3975,10 +3887,10 @@
         "readme.md"
       ]
     },
-    "ReactiveUI/22.1.1": {
-      "sha512": "vXivg4XKK6tEoGo3TJjhwOqNrSZoPOhcQTMDYZ064c4QgplIeyKTpRQTk453uM5zOdStjv33y8C/8vMlnInFOA==",
+    "ReactiveUI/22.2.1": {
+      "sha512": "P0ZaWZdRVoycwfcEpkC8C/b9mbEJmueTPkBA4PON9NiopGjUY2YhIP5Dm8lki/FLH9aiKt18NXsDwv/mgO/1Dw==",
       "type": "package",
-      "path": "reactiveui/22.1.1",
+      "path": "reactiveui/22.2.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
@@ -3986,14 +3898,14 @@
         "README.md",
         "lib/net10.0-android36.0/ReactiveUI.dll",
         "lib/net10.0-android36.0/ReactiveUI.xml",
-        "lib/net10.0-ios18.5/ReactiveUI.dll",
-        "lib/net10.0-ios18.5/ReactiveUI.xml",
-        "lib/net10.0-maccatalyst18.5/ReactiveUI.dll",
-        "lib/net10.0-maccatalyst18.5/ReactiveUI.xml",
-        "lib/net10.0-macos15.5/ReactiveUI.dll",
-        "lib/net10.0-macos15.5/ReactiveUI.xml",
-        "lib/net10.0-tvos18.5/ReactiveUI.dll",
-        "lib/net10.0-tvos18.5/ReactiveUI.xml",
+        "lib/net10.0-ios26.0/ReactiveUI.dll",
+        "lib/net10.0-ios26.0/ReactiveUI.xml",
+        "lib/net10.0-maccatalyst26.0/ReactiveUI.dll",
+        "lib/net10.0-maccatalyst26.0/ReactiveUI.xml",
+        "lib/net10.0-macos26.0/ReactiveUI.dll",
+        "lib/net10.0-macos26.0/ReactiveUI.xml",
+        "lib/net10.0-tvos26.0/ReactiveUI.dll",
+        "lib/net10.0-tvos26.0/ReactiveUI.xml",
         "lib/net10.0-windows10.0.19041/ReactiveUI.dll",
         "lib/net10.0-windows10.0.19041/ReactiveUI.xml",
         "lib/net10.0/ReactiveUI.dll",
@@ -4023,45 +3935,8 @@
         "lib/netstandard2.0/ReactiveUI.dll",
         "lib/netstandard2.0/ReactiveUI.xml",
         "logo.png",
-        "reactiveui.22.1.1.nupkg.sha512",
+        "reactiveui.22.2.1.nupkg.sha512",
         "reactiveui.nuspec"
-      ]
-    },
-    "ReactiveUI.Fody/19.5.41": {
-      "sha512": "bh6OH1WsSHf/ryUVaPnI6LWl1+lrCvq4L/AoHpzPXCKxtR4p0ogPVONnkq0jYgSQ55x7YNCVkthBKeb6uUSbpg==",
-      "type": "package",
-      "path": "reactiveui.fody/19.5.41",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "LICENSE/LICENSE",
-        "README.md",
-        "build/ReactiveUI.Fody.props",
-        "lib/monoandroid13.0/ReactiveUI.Fody.Helpers.dll",
-        "lib/monoandroid13.0/ReactiveUI.Fody.Helpers.pdb",
-        "lib/monoandroid13.0/ReactiveUI.Fody.Helpers.xml",
-        "lib/net462/ReactiveUI.Fody.Helpers.dll",
-        "lib/net462/ReactiveUI.Fody.Helpers.xml",
-        "lib/net472/ReactiveUI.Fody.Helpers.dll",
-        "lib/net472/ReactiveUI.Fody.Helpers.xml",
-        "lib/net6.0/ReactiveUI.Fody.Helpers.dll",
-        "lib/net6.0/ReactiveUI.Fody.Helpers.xml",
-        "lib/net7.0/ReactiveUI.Fody.Helpers.dll",
-        "lib/net7.0/ReactiveUI.Fody.Helpers.xml",
-        "lib/net8.0/ReactiveUI.Fody.Helpers.dll",
-        "lib/net8.0/ReactiveUI.Fody.Helpers.xml",
-        "lib/netstandard2.0/ReactiveUI.Fody.Helpers.dll",
-        "lib/netstandard2.0/ReactiveUI.Fody.Helpers.xml",
-        "lib/xamarinios10/ReactiveUI.Fody.Helpers.dll",
-        "lib/xamarinios10/ReactiveUI.Fody.Helpers.xml",
-        "lib/xamarinmac20/ReactiveUI.Fody.Helpers.dll",
-        "lib/xamarinmac20/ReactiveUI.Fody.Helpers.xml",
-        "lib/xamarintvos10/ReactiveUI.Fody.Helpers.dll",
-        "lib/xamarintvos10/ReactiveUI.Fody.Helpers.xml",
-        "logo.png",
-        "reactiveui.fody.19.5.41.nupkg.sha512",
-        "reactiveui.fody.nuspec",
-        "weaver/ReactiveUI.Fody.dll"
       ]
     },
     "Splat/17.1.1": {
@@ -5069,28 +4944,11 @@
         "system.windows.extensions.nuspec",
         "useSharedDesignerContext.txt"
       ]
-    },
-    "TestStack.White/0.13.3": {
-      "sha512": "AmeqJMLqc4YZE452vTUeS0HYR1KlqzWaifHXUkPlppvxEDWq559I7hmjZQ6QqV3SlA6Ej58UbXxa7X/HgqZTcg==",
-      "type": "package",
-      "path": "teststack.white/0.13.3",
-      "hasTools": true,
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net40/TestStack.White.dll",
-        "lib/net40/TestStack.White.pdb",
-        "lib/net40/TestStack.White.xml",
-        "readme.txt",
-        "teststack.white.0.13.3.nupkg.sha512",
-        "teststack.white.nuspec",
-        "tools/Init.ps1",
-        "tools/TestStack.White.psm1"
-      ]
     }
   },
   "projectFileDependencyGroups": {
     "net8.0-windows7.0": [
+      "DotNetProjects.WpfToolkit.DataVisualization >= 6.1.94",
       "EPPlus >= 8.2.1",
       "FreeSpire.Doc >= 12.2.0",
       "MaterialDesignThemes >= 5.3.0",
@@ -5098,9 +4956,7 @@
       "Microsoft.EntityFrameworkCore.Design >= 9.0.10",
       "Microsoft.EntityFrameworkCore.Sqlite >= 9.0.10",
       "Microsoft.EntityFrameworkCore.Tools >= 9.0.10",
-      "ReactiveUI >= 22.1.1",
-      "ReactiveUI.Fody >= 19.5.41",
-      "TestStack.White >= 0.13.3"
+      "ReactiveUI >= 22.2.1"
     ]
   },
   "packageFolders": {
@@ -5153,6 +5009,10 @@
       "net8.0-windows7.0": {
         "targetAlias": "net8.0-windows",
         "dependencies": {
+          "DotNetProjects.WpfToolkit.DataVisualization": {
+            "target": "Package",
+            "version": "[6.1.94, )"
+          },
           "EPPlus": {
             "target": "Package",
             "version": "[8.2.1, )"
@@ -5187,15 +5047,7 @@
           },
           "ReactiveUI": {
             "target": "Package",
-            "version": "[22.1.1, )"
-          },
-          "ReactiveUI.Fody": {
-            "target": "Package",
-            "version": "[19.5.41, )"
-          },
-          "TestStack.White": {
-            "target": "Package",
-            "version": "[0.13.3, )"
+            "version": "[22.2.1, )"
           }
         },
         "imports": [
@@ -5220,27 +5072,5 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.306/PortableRuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'Castle.Core 3.3.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0-windows7.0'. This package may not be fully compatible with your project.",
-      "libraryId": "Castle.Core",
-      "targetGraphs": [
-        "net8.0-windows7.0"
-      ]
-    },
-    {
-      "code": "NU1701",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'TestStack.White 0.13.3' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0-windows7.0'. This package may not be fully compatible with your project.",
-      "libraryId": "TestStack.White",
-      "targetGraphs": [
-        "net8.0-windows7.0"
-      ]
-    }
-  ]
+  }
 }

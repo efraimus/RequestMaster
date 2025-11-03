@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:RequestMaster"
+             xmlns:toolkit="clr-namespace:System.Windows.Controls.DataVisualization.Charting;assembly=DotNetProjects.DataVisualization.Toolkit"
              Background="{x:Static local:App.backgroundColor}"
              mc:Ignorable="d"
              d:DesignHeight="1080" d:DesignWidth="1920">
@@ -14,8 +15,7 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-
-        <Border Background="{x:Static local:App.foregroundColor}" CornerRadius="20" Margin="0 0 10 0" >
+        <Border x:Name="filtersBorder" Background="{x:Static local:App.foregroundColor}" CornerRadius="20" Margin="0 0 10 0" >
             <Grid>
                 <TreeView Margin="20" Foreground="{x:Static local:App.textColor}">
                     <TreeView.Template>
@@ -74,7 +74,7 @@
                 </Grid>
             </Grid>
         </Border>
-        <Border Background="{x:Static local:App.foregroundColor}" Grid.Column="1" Margin="10 0 0 0"  CornerRadius="20">
+        <Border x:Name="requestsBorder" Background="{x:Static local:App.foregroundColor}" Grid.Column="1" Margin="10 0 0 0"  CornerRadius="20">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
@@ -92,36 +92,36 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <Button Grid.Column="0" x:Name="createRequestButton" Width="100" Margin="10" Click="createRequestButton_Click">
+                    <Button Grid.Column="0" Width="100" Margin="10" Click="createRequestButton_Click">
                         <materialDesign:PackIcon Kind="Add" RenderTransformOrigin="0.5, 0.5">
                             <materialDesign:PackIcon.RenderTransform>
                                 <ScaleTransform ScaleX="2.5" ScaleY="2.5" />
                             </materialDesign:PackIcon.RenderTransform>
                         </materialDesign:PackIcon>
                     </Button>
-                    <Button Grid.Column="4" x:Name="helpButton" Width="100" Margin="10" Click="helpButton_Click">
+                    <Button x:Name="helpButton" Grid.Column="4" Width="100" Margin="10" Click="helpButton_Click">
                         <materialDesign:PackIcon Kind="Help" RenderTransformOrigin="0.5, 0.5">
                             <materialDesign:PackIcon.RenderTransform>
                                 <ScaleTransform ScaleX="2.5" ScaleY="2.5" />
                             </materialDesign:PackIcon.RenderTransform>
                         </materialDesign:PackIcon>
                     </Button>
-                    <Button Grid.Column="1" x:Name="createReportButton" Width="100" Margin="10" Click="createReport_Click">
+                    <Button Grid.Column="1" Width="100" Margin="10" Click="createReport_Click">
                         <materialDesign:PackIcon Kind="FileChart" RenderTransformOrigin="0.5, 0.5">
                             <materialDesign:PackIcon.RenderTransform>
                                 <ScaleTransform ScaleX="2.5" ScaleY="2.5" />
                             </materialDesign:PackIcon.RenderTransform>
                         </materialDesign:PackIcon>
                     </Button>
-                    <Button Grid.Column="2" x:Name="import" Width="100" Margin="10" Click="import_Click">
+                    <Button Grid.Column="3"  Width="100" Margin="10" Click="import_Click">
                         <materialDesign:PackIcon Kind="Import" RenderTransformOrigin="0.5, 0.5">
                             <materialDesign:PackIcon.RenderTransform>
                                 <ScaleTransform ScaleX="2.5" ScaleY="2.5" />
                             </materialDesign:PackIcon.RenderTransform>
                         </materialDesign:PackIcon>
                     </Button>
-                    <Button Grid.Column="3" x:Name="export" Width="100" Margin="10" Click="export_Click">
-                        <materialDesign:PackIcon Kind="Export" RenderTransformOrigin="0.5, 0.5">
+                    <Button Grid.Column="2" Width="100" Margin="10" Click="diagramme_Click">
+                        <materialDesign:PackIcon Kind="ChartBar" RenderTransformOrigin="0.5, 0.5">
                             <materialDesign:PackIcon.RenderTransform>
                                 <ScaleTransform ScaleX="2.5" ScaleY="2.5" />
                             </materialDesign:PackIcon.RenderTransform>
@@ -147,8 +147,8 @@
                         </materialDesign:PackIcon>
                     </Button>
                 </Grid>
-                
-                <materialDesign:Snackbar x:Name="snackBarXAML" FontSize="25" IsActive="False" MessageQueue="{materialDesign:MessageQueue}" Grid.Column="1" Grid.Row="1" FontFamily="{DynamicResource MaterialDesignFont}" Margin="20"/>
+
+                <materialDesign:Snackbar x:Name="snackBarXAML" FontSize="25" IsActive="False" MessageQueue="{materialDesign:MessageQueue}" Grid.Column="1" Grid.Row="1" FontFamily="{DynamicResource MaterialDesignFont}" Margin="40"/>
             </Grid>
         </Border>
     </Grid>

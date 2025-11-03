@@ -2,9 +2,12 @@
 using RequestMaster.Databases.MainDatabase;
 using RequestMaster.Other;
 using RequestMaster.Patterns;
+using RequestMaster.Windows;
 using Spire.Doc;
 using Spire.Doc.Documents;
+using Spire.Doc.Fields.Shapes.Charts;
 using Spire.Doc.Formatting;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Windows;
@@ -271,12 +274,28 @@ namespace RequestMaster.Tabs.RequestsTabMVVM.Models
 
         private void import_Click(object sender, RoutedEventArgs e)
         {
-
+            ImportExcel.ImportRequests();
+            requestsList = db.Requests.ToList();
+            requestsDataGrid.ItemsSource = requestsList;
         }
 
-        private void export_Click(object sender, RoutedEventArgs e)
+        private void diagramme_Click(object sender, RoutedEventArgs e)
         {
+            DiagrammeWindow diagrammeWindow = new DiagrammeWindow();
+            var requests = requestsDataGrid.ItemsSource as IEnumerable<Request>;
+            if (requests == null) return;
 
+            var groupedData = requests
+                .GroupBy(r => r.Status)
+                .Select(g => new StatusData
+                {
+                    Status = g.Key,
+                    Count = g.Count()
+                })
+                .ToList();
+
+            diagrammeWindow.chart.DataContext = groupedData;
+            diagrammeWindow.Show();
         }
         #endregion
 
@@ -315,4 +334,11 @@ namespace RequestMaster.Tabs.RequestsTabMVVM.Models
         }
         #endregion
     }
+}
+
+
+public class StatusData
+{
+    public string Status { get; set; }
+    public int Count { get; set; }
 }
